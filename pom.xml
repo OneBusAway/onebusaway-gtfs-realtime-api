@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>onebusaway</artifactId>
+    <groupId>org.onebusaway</groupId>
+    <version>1.1.2</version>
+  </parent>
+  <groupId>org.onebusaway</groupId>
+  <artifactId>onebusaway-gtfs-realtime-api</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>onebusaway-gtfs-realtime-api</name>
+  <description>Java classes generated from the GTFS-realtime protocol buffer specification</description>
+
+  <properties>
+    <protobuf_java_version>2.4.0a</protobuf_java_version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>public.onebusaway.org</id>
+      <url>http://nexus.onebusaway.org/content/groups/public/</url>
+    </repository>
+  </repositories>
+
+  <scm>
+    <connection>scm:svn:http://onebusaway.googlecode.com/svn/gtfs-realtime/onebusaway-gtfs-realtime-api/trunk</connection>
+    <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/gtfs-realtime/onebusaway-gtfs-realtime-api/trunk</developerConnection>
+    <url>http://code.google.com/p/onebusaway/source/browse/#svn/gtfs-realtime/onebusaway-gtfs-realtime-api/trunk</url>
+  </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>${protobuf_java_version}</version>
+    </dependency>
+  </dependencies>
+</project>
