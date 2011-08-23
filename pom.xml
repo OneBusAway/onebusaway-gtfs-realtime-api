@@ -29,6 +29,14 @@
     <url>http://code.google.com/p/onebusaway/source/browse/#svn/gtfs-realtime/onebusaway-gtfs-realtime-api/trunk</url>
   </scm>
 
+  <distributionManagement>
+    <!-- Even though we specify this in the parent pom, we need to specify it here to have full control over the url -->
+    <site>
+      <id>${site_id}</id>
+      <url>${site_url}</url>
+    </site>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>com.google.protobuf</groupId>
