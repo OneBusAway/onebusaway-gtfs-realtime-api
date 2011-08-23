@@ -1,8 +1,8 @@
 onebusaway-gtfs-realtime-api
 
   The {{{http://code.google.com/transit/realtime/}GTFS-realtime}} specification defines a standard for exchanging
-real-time public transit information in a machine-readable way.  The core of the specification is Protocol Buffer
-definition defining the various data types that make up a GTFS-realtime feed.
+real-time public transit information in a machine-readable way.  The core of the specification is a Protocol Buffer
+definition declaring the various data types that make up a GTFS-realtime feed.
 
   While Protocol Buffers are designed to be language agnostic, language-specific bindings are typically generated to
 read or write a buffer using a specific language.  We provide a simple Java library of the classes produced when the
@@ -22,4 +22,47 @@ read or write a buffer using a specific language.  We provide a simple Java libr
   <artifactId>onebusaway-gtfs-realtime-api</artifactId>
   <version>${currentVersion}</version>
 </dependency>
++---+
+
+* Documentation
+
+  You can access the {{{./apidocs/index.html}latest Javadoc for the library}}.  Here's a quick example of using the
+library to construct a feed message:
+
++---+
+FeedMessage.Builder feedMessageBuilder = FeedMessage.newBuilder();
+
+FeedHeader.Builder header = FeedHeader.newBuilder();
+header.setTimestamp(System.currentTimeMillis());
+header.setIncrementality(Incrementality.FULL_DATASET);
+header.setGtfsRealtimeVersion(GtfsRealtimeConstants.VERSION);
+feedMessageBuilder.setHeader(header);
+
+VehiclePosition.Builder vp = VehiclePosition.newBuilder();
+
+TripDescriptor.Builder td = TripDescriptor.newBuilder();
+td.setTripId("tripId");
+vp.setTrip(td);
+
+VehicleDescriptor.Builder vd = VehicleDescriptor.newBuilder();
+vd.setId("vehicleId");
+vp.setVehicle(vd);
+
+vp.setTimestamp(System.currentTimeMillis());
+
+Position.Builder position = Position.newBuilder();
+position.setLatitude(47.653738);
+position.setLongitude(-122.307786);
+vp.setPosition(position);
+
+FeedEntity.Builder entity = FeedEntity.newBuilder();
+entity.setId("entityId");
+entity.setVehicle(vp);
+feedMessageBuilder.addEntity(entity);
+
+FeedMessage message = feedMessageBuilder.build();
+
+BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream("path/to/output"));
+message.writeTo(out);
+out.close();
 +---+
