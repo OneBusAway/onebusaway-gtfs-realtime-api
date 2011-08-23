@@ -10,7 +10,7 @@ read or write a buffer using a specific language.  We provide a simple Java libr
 
   You can use the library in a number of ways:
 
-#set( $url = 'http://nexus.onebusaway.org/service/local/artifact/maven/content?r=public&g=org.onebusaway&a=onebusaway-king-county-metro-gtfs&v=' + ${currentVersion} )
+#set( $url = 'http://nexus.onebusaway.org/service/local/artifact/maven/content?r=public&g=org.onebusaway&a=onebusaway-gtfs-realtime-apis&v=' + ${currentVersion} )
 
   * Download the jar directly: {{{${url}}onebusaway-gtfs-realtime-api.jar}}
 
