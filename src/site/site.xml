@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="onebusaway-gtfs-modules">
+<project name="onebusaway-gtfs-realtime-api">
     <bannerLeft>
         <name>OneBusAway</name>
         <src>OneBusAway.png</src>
@@ -8,7 +8,7 @@
     <publishDate position="right"/>
     <version position="right"/>
     <body>
-        <menu name="onebusaway-gtfs-realtime-api">
+        <menu name="Introduction">
             <item name="About" href="/index.html" />
             <item name="Release Notes" href="/release-notes.html"/>
             <item name="API Javadoc" href="/apidocs/index.html"/>
