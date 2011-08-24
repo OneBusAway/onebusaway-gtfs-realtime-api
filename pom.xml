@@ -7,7 +7,7 @@
   </parent>
   <groupId>org.onebusaway</groupId>
   <artifactId>onebusaway-gtfs-realtime-api</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <name>onebusaway-gtfs-realtime-api</name>
   <description>Java classes generated from the GTFS-realtime protocol buffer specification</description>
 
@@ -23,9 +23,9 @@
   </repositories>
 
   <scm>
-    <connection>scm:svn:http://onebusaway.googlecode.com/svn/gtfs-realtime/onebusaway-gtfs-realtime-api/tags/onebusaway-gtfs-realtime-api-1.0.0</connection>
-    <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/gtfs-realtime/onebusaway-gtfs-realtime-api/tags/onebusaway-gtfs-realtime-api-1.0.0</developerConnection>
-    <url>http://code.google.com/p/onebusaway/source/browse/#svn/gtfs-realtime/onebusaway-gtfs-realtime-api/tags/onebusaway-gtfs-realtime-api-1.0.0</url>
+    <connection>scm:svn:http://onebusaway.googlecode.com/svn/gtfs-realtime/onebusaway-gtfs-realtime-api/trunk</connection>
+    <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/gtfs-realtime/onebusaway-gtfs-realtime-api/trunk</developerConnection>
+    <url>http://code.google.com/p/onebusaway/source/browse/#svn/gtfs-realtime/onebusaway-gtfs-realtime-api/trunk</url>
   </scm>
 
   <distributionManagement>
