@@ -2,10 +2,10 @@ Release Notes
 
 * ${currentVersion}
 
-  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-modules/${currentVersion}/}}
+  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/${currentVersion}/}}
   
 * 1.0.0
 
   * Initial release
 
-  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-modules/1.0.0/}}
+  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/1.0.0/}}
