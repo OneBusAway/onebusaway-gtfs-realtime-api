@@ -1,0 +1,21 @@
+// Copyright 2011 Google Inc
+//
+// The content of this file is licensed under the Creative Commons Attribution
+// 3.0 License.
+//
+// Protocol definition OneBusAway-specific extensions to GTFS-realtime.
+
+syntax = "proto2";
+
+import "com/google/transit/realtime/gtfs-realtime.proto";
+
+option java_package = "com.google.transit.realtime";
+package transit_realtime;
+
+extend TripUpdate {
+
+  // Delay (in seconds) can be positive (meaning that the vehicle is late) or
+  // negative (meaning that the vehicle is ahead of schedule). Delay of 0
+  // means that the vehicle is exactly on time.
+  optional int32 delay = 1000;
+}
