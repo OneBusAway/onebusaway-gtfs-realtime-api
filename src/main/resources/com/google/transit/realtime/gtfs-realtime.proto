@@ -45,7 +45,11 @@ message FeedHeader {
   // The current version is 1.0.
   required string gtfs_realtime_version = 1;
 
-  // Determines whether the current fetch is incremental.
+  // Determines whether the current fetch is incremental.  Currently,
+  // DIFFERENTIAL mode is unsupported and behavior is unspecified for feeds
+  // that use this mode.  There are discussions on the GTFS-realtime mailing
+  // list around fully specifying the behavior of DIFFERENTIAL mode and the
+  // documentation will be updated when those discussions are finalized.
   enum Incrementality {
     FULL_DATASET = 0;
     DIFFERENTIAL = 1;
@@ -56,6 +60,11 @@ message FeedHeader {
   // created (in server time). In POSIX time (i.e., number of seconds since
   // January 1st 1970 00:00:00 UTC).
   optional uint64 timestamp = 3;
+
+  // The extensions namespace allows 3rd-party developers to extend the
+  // GTFS-realtime specification in order to add and evaluate new features and
+  // modifications to the spec.
+  extensions 1000 to 1999;
 }
 
 // A definition (or update) of an entity in the transit feed.
@@ -152,6 +161,11 @@ message TripUpdate {
     // should be empty. In such case, the uncertainty field is ignored.
     // To specify a completely certain prediction, set its uncertainty to 0.
     optional int32 uncertainty = 3;
+
+    // The extensions namespace allows 3rd-party developers to extend the
+    // GTFS-realtime specification in order to add and evaluate new features
+    // and modifications to the spec.
+    extensions 1000 to 1999;
   }
 
   // Realtime update for arrival and/or departure events for a given stop on a
@@ -193,6 +207,11 @@ message TripUpdate {
     }
     optional ScheduleRelationship schedule_relationship = 5
         [default = SCHEDULED];
+
+    // The extensions namespace allows 3rd-party developers to extend the
+    // GTFS-realtime specification in order to add and evaluate new features
+    // and modifications to the spec.
+    extensions 1000 to 1999;
   }
 
   // Updates to StopTimes for the trip (both future, i.e., predictions, and in
@@ -272,6 +291,11 @@ message VehiclePosition {
     SEVERE_CONGESTION = 4;  // People leaving their cars.
   }
   optional CongestionLevel congestion_level = 6;
+
+  // The extensions namespace allows 3rd-party developers to extend the
+  // GTFS-realtime specification in order to add and evaluate new features
+  // and modifications to the spec.
+  extensions 1000 to 1999;
 }
 
 // An alert, indicating some sort of incident in the public transit network.
@@ -323,19 +347,25 @@ message Alert {
   // The URL which provides additional information about the alert.
   optional TranslatedString url = 8;
 
-  // Alert header. Contains a short summary of the alert text.
+  // Alert header. Contains a short summary of the alert text as plain-text.
   optional TranslatedString header_text = 10;
 
-  // Full description for the alert. The information in the description
-  // should add to the information of the header.
+  // Full description for the alert as plain-text. The information in the
+  // description should add to the information of the header.
   optional TranslatedString description_text = 11;
+
+  // The extensions namespace allows 3rd-party developers to extend the
+  // GTFS-realtime specification in order to add and evaluate new features
+  // and modifications to the spec.
+  extensions 1000 to 1999;
 }
 
 //
 // Low level data structures used above.
 //
 
-// A time interval.
+// A time interval. The interval is considered active at time 't' if 't' is
+// greater than or equal to the start time and less than the end time.
 message TimeRange {
   // Start time, in POSIX time (i.e., number of seconds since January 1st 1970
   // 00:00:00 UTC).
@@ -368,6 +398,10 @@ message Position {
   // Momentary speed measured by the vehicle, in meters per second.
   optional float speed = 5;
 
+  // The extensions namespace allows 3rd-party developers to extend the
+  // GTFS-realtime specification in order to add and evaluate new features
+  // and modifications to the spec.
+  extensions 1000 to 1999;
 }
 
 // A descriptor that identifies an instance of a GTFS trip, or all instances of
@@ -446,6 +480,11 @@ message TripDescriptor {
     REPLACEMENT = 5;
   }
   optional ScheduleRelationship schedule_relationship = 4;
+
+  // The extensions namespace allows 3rd-party developers to extend the
+  // GTFS-realtime specification in order to add and evaluate new features
+  // and modifications to the spec.
+  extensions 1000 to 1999;
 }
 
 // Identification information for the vehicle performing the trip.
@@ -461,6 +500,11 @@ message VehicleDescriptor {
 
   // The license plate of the vehicle.
   optional string license_plate = 3;
+
+  // The extensions namespace allows 3rd-party developers to extend the
+  // GTFS-realtime specification in order to add and evaluate new features
+  // and modifications to the spec.
+  extensions 1000 to 1999;
 }
 
 // A selector for an entity in a GTFS feed.
@@ -475,6 +519,11 @@ message EntitySelector {
   optional int32 route_type = 3;
   optional TripDescriptor trip = 4;
   optional string stop_id = 5;
+
+  // The extensions namespace allows 3rd-party developers to extend the
+  // GTFS-realtime specification in order to add and evaluate new features
+  // and modifications to the spec.
+  extensions 1000 to 1999;
 }
 
 // An internationalized message containing per-language versions of a snippet of
@@ -499,4 +548,3 @@ message TranslatedString {
   // At least one translation must be provided.
   repeated Translation translation = 1;
 }
-

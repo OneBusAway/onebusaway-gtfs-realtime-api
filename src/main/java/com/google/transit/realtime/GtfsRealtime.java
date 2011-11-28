@@ -759,8 +759,9 @@ public final class GtfsRealtime {
     // @@protoc_insertion_point(class_scope:transit_realtime.FeedMessage)
   }
   
-  public interface FeedHeaderOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FeedHeaderOrBuilder extends
+      com.google.protobuf.GeneratedMessage.
+          ExtendableMessageOrBuilder<FeedHeader> {
     
     // required string gtfs_realtime_version = 1;
     boolean hasGtfsRealtimeVersion();
@@ -775,8 +776,8 @@ public final class GtfsRealtime {
     long getTimestamp();
   }
   public static final class FeedHeader extends
-      com.google.protobuf.GeneratedMessage
-      implements FeedHeaderOrBuilder {
+      com.google.protobuf.GeneratedMessage.ExtendableMessage<
+        FeedHeader> implements FeedHeaderOrBuilder {
     // Use FeedHeader.newBuilder() to construct.
     private FeedHeader(Builder builder) {
       super(builder);
@@ -938,6 +939,10 @@ public final class GtfsRealtime {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!extensionsAreInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -945,6 +950,9 @@ public final class GtfsRealtime {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      com.google.protobuf.GeneratedMessage
+        .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.FeedHeader>.ExtensionWriter extensionWriter =
+          newExtensionWriter();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getGtfsRealtimeVersionBytes());
       }
@@ -954,6 +962,7 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeUInt64(3, timestamp_);
       }
+      extensionWriter.writeUntil(2000, output);
       getUnknownFields().writeTo(output);
     }
     
@@ -975,6 +984,7 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, timestamp_);
       }
+      size += extensionsSerializedSize();
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -1068,8 +1078,8 @@ public final class GtfsRealtime {
       return builder;
     }
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.transit.realtime.GtfsRealtime.FeedHeaderOrBuilder {
+        com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+          com.google.transit.realtime.GtfsRealtime.FeedHeader, Builder> implements com.google.transit.realtime.GtfsRealtime.FeedHeaderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.transit.realtime.GtfsRealtime.internal_static_transit_realtime_FeedHeader_descriptor;
@@ -1180,12 +1190,17 @@ public final class GtfsRealtime {
         if (other.hasTimestamp()) {
           setTimestamp(other.getTimestamp());
         }
+        this.mergeExtensionFields(other);
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
       public final boolean isInitialized() {
         if (!hasGtfsRealtimeVersion()) {
+          
+          return false;
+        }
+        if (!extensionsAreInitialized()) {
           
           return false;
         }
@@ -2291,8 +2306,9 @@ public final class GtfsRealtime {
       return com.google.transit.realtime.GtfsRealtime.internal_static_transit_realtime_TripUpdate_fieldAccessorTable;
     }
     
-    public interface StopTimeEventOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
+    public interface StopTimeEventOrBuilder extends
+        com.google.protobuf.GeneratedMessage.
+            ExtendableMessageOrBuilder<StopTimeEvent> {
       
       // optional int32 delay = 1;
       boolean hasDelay();
@@ -2307,8 +2323,8 @@ public final class GtfsRealtime {
       int getUncertainty();
     }
     public static final class StopTimeEvent extends
-        com.google.protobuf.GeneratedMessage
-        implements StopTimeEventOrBuilder {
+        com.google.protobuf.GeneratedMessage.ExtendableMessage<
+          StopTimeEvent> implements StopTimeEventOrBuilder {
       // Use StopTimeEvent.newBuilder() to construct.
       private StopTimeEvent(Builder builder) {
         super(builder);
@@ -2375,6 +2391,10 @@ public final class GtfsRealtime {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized != -1) return isInitialized == 1;
         
+        if (!extensionsAreInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
         memoizedIsInitialized = 1;
         return true;
       }
@@ -2382,6 +2402,9 @@ public final class GtfsRealtime {
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
         getSerializedSize();
+        com.google.protobuf.GeneratedMessage
+          .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent>.ExtensionWriter extensionWriter =
+            newExtensionWriter();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           output.writeInt32(1, delay_);
         }
@@ -2391,6 +2414,7 @@ public final class GtfsRealtime {
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
           output.writeInt32(3, uncertainty_);
         }
+        extensionWriter.writeUntil(2000, output);
         getUnknownFields().writeTo(output);
       }
       
@@ -2412,6 +2436,7 @@ public final class GtfsRealtime {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(3, uncertainty_);
         }
+        size += extensionsSerializedSize();
         size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
         return size;
@@ -2505,8 +2530,8 @@ public final class GtfsRealtime {
         return builder;
       }
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEventOrBuilder {
+          com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+            com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEvent, Builder> implements com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeEventOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.google.transit.realtime.GtfsRealtime.internal_static_transit_realtime_TripUpdate_StopTimeEvent_descriptor;
@@ -2617,11 +2642,16 @@ public final class GtfsRealtime {
           if (other.hasUncertainty()) {
             setUncertainty(other.getUncertainty());
           }
+          this.mergeExtensionFields(other);
           this.mergeUnknownFields(other.getUnknownFields());
           return this;
         }
         
         public final boolean isInitialized() {
+          if (!extensionsAreInitialized()) {
+            
+            return false;
+          }
           return true;
         }
         
@@ -2743,8 +2773,9 @@ public final class GtfsRealtime {
       // @@protoc_insertion_point(class_scope:transit_realtime.TripUpdate.StopTimeEvent)
     }
     
-    public interface StopTimeUpdateOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
+    public interface StopTimeUpdateOrBuilder extends
+        com.google.protobuf.GeneratedMessage.
+            ExtendableMessageOrBuilder<StopTimeUpdate> {
       
       // optional uint32 stop_sequence = 1;
       boolean hasStopSequence();
@@ -2769,8 +2800,8 @@ public final class GtfsRealtime {
       com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate.ScheduleRelationship getScheduleRelationship();
     }
     public static final class StopTimeUpdate extends
-        com.google.protobuf.GeneratedMessage
-        implements StopTimeUpdateOrBuilder {
+        com.google.protobuf.GeneratedMessage.ExtendableMessage<
+          StopTimeUpdate> implements StopTimeUpdateOrBuilder {
       // Use StopTimeUpdate.newBuilder() to construct.
       private StopTimeUpdate(Builder builder) {
         super(builder);
@@ -2959,6 +2990,22 @@ public final class GtfsRealtime {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized != -1) return isInitialized == 1;
         
+        if (hasArrival()) {
+          if (!getArrival().isInitialized()) {
+            memoizedIsInitialized = 0;
+            return false;
+          }
+        }
+        if (hasDeparture()) {
+          if (!getDeparture().isInitialized()) {
+            memoizedIsInitialized = 0;
+            return false;
+          }
+        }
+        if (!extensionsAreInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
         memoizedIsInitialized = 1;
         return true;
       }
@@ -2966,6 +3013,9 @@ public final class GtfsRealtime {
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
         getSerializedSize();
+        com.google.protobuf.GeneratedMessage
+          .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate>.ExtensionWriter extensionWriter =
+            newExtensionWriter();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           output.writeUInt32(1, stopSequence_);
         }
@@ -2981,6 +3031,7 @@ public final class GtfsRealtime {
         if (((bitField0_ & 0x00000010) == 0x00000010)) {
           output.writeEnum(5, scheduleRelationship_.getNumber());
         }
+        extensionWriter.writeUntil(2000, output);
         getUnknownFields().writeTo(output);
       }
       
@@ -3010,6 +3061,7 @@ public final class GtfsRealtime {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(5, scheduleRelationship_.getNumber());
         }
+        size += extensionsSerializedSize();
         size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
         return size;
@@ -3103,8 +3155,8 @@ public final class GtfsRealtime {
         return builder;
       }
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder {
+          com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+            com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdate, Builder> implements com.google.transit.realtime.GtfsRealtime.TripUpdate.StopTimeUpdateOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.google.transit.realtime.GtfsRealtime.internal_static_transit_realtime_TripUpdate_StopTimeUpdate_descriptor;
@@ -3251,11 +3303,28 @@ public final class GtfsRealtime {
           if (other.hasScheduleRelationship()) {
             setScheduleRelationship(other.getScheduleRelationship());
           }
+          this.mergeExtensionFields(other);
           this.mergeUnknownFields(other.getUnknownFields());
           return this;
         }
         
         public final boolean isInitialized() {
+          if (hasArrival()) {
+            if (!getArrival().isInitialized()) {
+              
+              return false;
+            }
+          }
+          if (hasDeparture()) {
+            if (!getDeparture().isInitialized()) {
+              
+              return false;
+            }
+          }
+          if (!extensionsAreInitialized()) {
+            
+            return false;
+          }
           return true;
         }
         
@@ -3661,6 +3730,22 @@ public final class GtfsRealtime {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!getTrip().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (hasVehicle()) {
+        if (!getVehicle().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      for (int i = 0; i < getStopTimeUpdateCount(); i++) {
+        if (!getStopTimeUpdate(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       if (!extensionsAreInitialized()) {
         memoizedIsInitialized = 0;
         return false;
@@ -3972,6 +4057,22 @@ public final class GtfsRealtime {
         if (!hasTrip()) {
           
           return false;
+        }
+        if (!getTrip().isInitialized()) {
+          
+          return false;
+        }
+        if (hasVehicle()) {
+          if (!getVehicle().isInitialized()) {
+            
+            return false;
+          }
+        }
+        for (int i = 0; i < getStopTimeUpdateCount(); i++) {
+          if (!getStopTimeUpdate(i).isInitialized()) {
+            
+            return false;
+          }
         }
         if (!extensionsAreInitialized()) {
           
@@ -4410,8 +4511,9 @@ public final class GtfsRealtime {
     // @@protoc_insertion_point(class_scope:transit_realtime.TripUpdate)
   }
   
-  public interface VehiclePositionOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface VehiclePositionOrBuilder extends
+      com.google.protobuf.GeneratedMessage.
+          ExtendableMessageOrBuilder<VehiclePosition> {
     
     // optional .transit_realtime.TripDescriptor trip = 1;
     boolean hasTrip();
@@ -4449,8 +4551,8 @@ public final class GtfsRealtime {
     com.google.transit.realtime.GtfsRealtime.VehiclePosition.CongestionLevel getCongestionLevel();
   }
   public static final class VehiclePosition extends
-      com.google.protobuf.GeneratedMessage
-      implements VehiclePositionOrBuilder {
+      com.google.protobuf.GeneratedMessage.ExtendableMessage<
+        VehiclePosition> implements VehiclePositionOrBuilder {
     // Use VehiclePosition.newBuilder() to construct.
     private VehiclePosition(Builder builder) {
       super(builder);
@@ -4753,11 +4855,27 @@ public final class GtfsRealtime {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
       
+      if (hasTrip()) {
+        if (!getTrip().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasVehicle()) {
+        if (!getVehicle().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       if (hasPosition()) {
         if (!getPosition().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
+      }
+      if (!extensionsAreInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
       }
       memoizedIsInitialized = 1;
       return true;
@@ -4766,6 +4884,9 @@ public final class GtfsRealtime {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      com.google.protobuf.GeneratedMessage
+        .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.VehiclePosition>.ExtensionWriter extensionWriter =
+          newExtensionWriter();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, trip_);
       }
@@ -4790,6 +4911,7 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(8, vehicle_);
       }
+      extensionWriter.writeUntil(2000, output);
       getUnknownFields().writeTo(output);
     }
     
@@ -4831,6 +4953,7 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, vehicle_);
       }
+      size += extensionsSerializedSize();
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -4924,8 +5047,8 @@ public final class GtfsRealtime {
       return builder;
     }
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.transit.realtime.GtfsRealtime.VehiclePositionOrBuilder {
+        com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+          com.google.transit.realtime.GtfsRealtime.VehiclePosition, Builder> implements com.google.transit.realtime.GtfsRealtime.VehiclePositionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.transit.realtime.GtfsRealtime.internal_static_transit_realtime_VehiclePosition_descriptor;
@@ -5108,16 +5231,33 @@ public final class GtfsRealtime {
         if (other.hasCongestionLevel()) {
           setCongestionLevel(other.getCongestionLevel());
         }
+        this.mergeExtensionFields(other);
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
       public final boolean isInitialized() {
+        if (hasTrip()) {
+          if (!getTrip().isInitialized()) {
+            
+            return false;
+          }
+        }
+        if (hasVehicle()) {
+          if (!getVehicle().isInitialized()) {
+            
+            return false;
+          }
+        }
         if (hasPosition()) {
           if (!getPosition().isInitialized()) {
             
             return false;
           }
+        }
+        if (!extensionsAreInitialized()) {
+          
+          return false;
         }
         return true;
       }
@@ -5622,8 +5762,9 @@ public final class GtfsRealtime {
     // @@protoc_insertion_point(class_scope:transit_realtime.VehiclePosition)
   }
   
-  public interface AlertOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface AlertOrBuilder extends
+      com.google.protobuf.GeneratedMessage.
+          ExtendableMessageOrBuilder<Alert> {
     
     // repeated .transit_realtime.TimeRange active_period = 1;
     java.util.List<com.google.transit.realtime.GtfsRealtime.TimeRange> 
@@ -5669,8 +5810,8 @@ public final class GtfsRealtime {
     com.google.transit.realtime.GtfsRealtime.TranslatedStringOrBuilder getDescriptionTextOrBuilder();
   }
   public static final class Alert extends
-      com.google.protobuf.GeneratedMessage
-      implements AlertOrBuilder {
+      com.google.protobuf.GeneratedMessage.ExtendableMessage<
+        Alert> implements AlertOrBuilder {
     // Use Alert.newBuilder() to construct.
     private Alert(Builder builder) {
       super(builder);
@@ -6001,6 +6142,12 @@ public final class GtfsRealtime {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
       
+      for (int i = 0; i < getInformedEntityCount(); i++) {
+        if (!getInformedEntity(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       if (hasUrl()) {
         if (!getUrl().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -6019,6 +6166,10 @@ public final class GtfsRealtime {
           return false;
         }
       }
+      if (!extensionsAreInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -6026,6 +6177,9 @@ public final class GtfsRealtime {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      com.google.protobuf.GeneratedMessage
+        .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.Alert>.ExtensionWriter extensionWriter =
+          newExtensionWriter();
       for (int i = 0; i < activePeriod_.size(); i++) {
         output.writeMessage(1, activePeriod_.get(i));
       }
@@ -6047,6 +6201,7 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeMessage(11, descriptionText_);
       }
+      extensionWriter.writeUntil(2000, output);
       getUnknownFields().writeTo(output);
     }
     
@@ -6084,6 +6239,7 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, descriptionText_);
       }
+      size += extensionsSerializedSize();
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -6177,8 +6333,8 @@ public final class GtfsRealtime {
       return builder;
     }
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.transit.realtime.GtfsRealtime.AlertOrBuilder {
+        com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+          com.google.transit.realtime.GtfsRealtime.Alert, Builder> implements com.google.transit.realtime.GtfsRealtime.AlertOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.transit.realtime.GtfsRealtime.internal_static_transit_realtime_Alert_descriptor;
@@ -6418,11 +6574,18 @@ public final class GtfsRealtime {
         if (other.hasDescriptionText()) {
           mergeDescriptionText(other.getDescriptionText());
         }
+        this.mergeExtensionFields(other);
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
       public final boolean isInitialized() {
+        for (int i = 0; i < getInformedEntityCount(); i++) {
+          if (!getInformedEntity(i).isInitialized()) {
+            
+            return false;
+          }
+        }
         if (hasUrl()) {
           if (!getUrl().isInitialized()) {
             
@@ -6440,6 +6603,10 @@ public final class GtfsRealtime {
             
             return false;
           }
+        }
+        if (!extensionsAreInitialized()) {
+          
+          return false;
         }
         return true;
       }
@@ -7630,8 +7797,9 @@ public final class GtfsRealtime {
     // @@protoc_insertion_point(class_scope:transit_realtime.TimeRange)
   }
   
-  public interface PositionOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface PositionOrBuilder extends
+      com.google.protobuf.GeneratedMessage.
+          ExtendableMessageOrBuilder<Position> {
     
     // required float latitude = 1;
     boolean hasLatitude();
@@ -7654,8 +7822,8 @@ public final class GtfsRealtime {
     float getSpeed();
   }
   public static final class Position extends
-      com.google.protobuf.GeneratedMessage
-      implements PositionOrBuilder {
+      com.google.protobuf.GeneratedMessage.ExtendableMessage<
+        Position> implements PositionOrBuilder {
     // Use Position.newBuilder() to construct.
     private Position(Builder builder) {
       super(builder);
@@ -7752,6 +7920,10 @@ public final class GtfsRealtime {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!extensionsAreInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -7759,6 +7931,9 @@ public final class GtfsRealtime {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      com.google.protobuf.GeneratedMessage
+        .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.Position>.ExtensionWriter extensionWriter =
+          newExtensionWriter();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeFloat(1, latitude_);
       }
@@ -7774,6 +7949,7 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeFloat(5, speed_);
       }
+      extensionWriter.writeUntil(2000, output);
       getUnknownFields().writeTo(output);
     }
     
@@ -7803,6 +7979,7 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(5, speed_);
       }
+      size += extensionsSerializedSize();
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -7896,8 +8073,8 @@ public final class GtfsRealtime {
       return builder;
     }
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.transit.realtime.GtfsRealtime.PositionOrBuilder {
+        com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+          com.google.transit.realtime.GtfsRealtime.Position, Builder> implements com.google.transit.realtime.GtfsRealtime.PositionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.transit.realtime.GtfsRealtime.internal_static_transit_realtime_Position_descriptor;
@@ -8026,6 +8203,7 @@ public final class GtfsRealtime {
         if (other.hasSpeed()) {
           setSpeed(other.getSpeed());
         }
+        this.mergeExtensionFields(other);
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -8036,6 +8214,10 @@ public final class GtfsRealtime {
           return false;
         }
         if (!hasLongitude()) {
+          
+          return false;
+        }
+        if (!extensionsAreInitialized()) {
           
           return false;
         }
@@ -8212,8 +8394,9 @@ public final class GtfsRealtime {
     // @@protoc_insertion_point(class_scope:transit_realtime.Position)
   }
   
-  public interface TripDescriptorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TripDescriptorOrBuilder extends
+      com.google.protobuf.GeneratedMessage.
+          ExtendableMessageOrBuilder<TripDescriptor> {
     
     // optional string trip_id = 1;
     boolean hasTripId();
@@ -8236,8 +8419,8 @@ public final class GtfsRealtime {
     com.google.transit.realtime.GtfsRealtime.TripDescriptor.ScheduleRelationship getScheduleRelationship();
   }
   public static final class TripDescriptor extends
-      com.google.protobuf.GeneratedMessage
-      implements TripDescriptorOrBuilder {
+      com.google.protobuf.GeneratedMessage.ExtendableMessage<
+        TripDescriptor> implements TripDescriptorOrBuilder {
     // Use TripDescriptor.newBuilder() to construct.
     private TripDescriptor(Builder builder) {
       super(builder);
@@ -8492,6 +8675,10 @@ public final class GtfsRealtime {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
       
+      if (!extensionsAreInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -8499,6 +8686,9 @@ public final class GtfsRealtime {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      com.google.protobuf.GeneratedMessage
+        .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.TripDescriptor>.ExtensionWriter extensionWriter =
+          newExtensionWriter();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getTripIdBytes());
       }
@@ -8514,6 +8704,7 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(5, getRouteIdBytes());
       }
+      extensionWriter.writeUntil(2000, output);
       getUnknownFields().writeTo(output);
     }
     
@@ -8543,6 +8734,7 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, getRouteIdBytes());
       }
+      size += extensionsSerializedSize();
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -8636,8 +8828,8 @@ public final class GtfsRealtime {
       return builder;
     }
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder {
+        com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+          com.google.transit.realtime.GtfsRealtime.TripDescriptor, Builder> implements com.google.transit.realtime.GtfsRealtime.TripDescriptorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.transit.realtime.GtfsRealtime.internal_static_transit_realtime_TripDescriptor_descriptor;
@@ -8766,11 +8958,16 @@ public final class GtfsRealtime {
         if (other.hasScheduleRelationship()) {
           setScheduleRelationship(other.getScheduleRelationship());
         }
+        this.mergeExtensionFields(other);
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
       public final boolean isInitialized() {
+        if (!extensionsAreInitialized()) {
+          
+          return false;
+        }
         return true;
       }
       
@@ -9013,8 +9210,9 @@ public final class GtfsRealtime {
     // @@protoc_insertion_point(class_scope:transit_realtime.TripDescriptor)
   }
   
-  public interface VehicleDescriptorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface VehicleDescriptorOrBuilder extends
+      com.google.protobuf.GeneratedMessage.
+          ExtendableMessageOrBuilder<VehicleDescriptor> {
     
     // optional string id = 1;
     boolean hasId();
@@ -9029,8 +9227,8 @@ public final class GtfsRealtime {
     String getLicensePlate();
   }
   public static final class VehicleDescriptor extends
-      com.google.protobuf.GeneratedMessage
-      implements VehicleDescriptorOrBuilder {
+      com.google.protobuf.GeneratedMessage.ExtendableMessage<
+        VehicleDescriptor> implements VehicleDescriptorOrBuilder {
     // Use VehicleDescriptor.newBuilder() to construct.
     private VehicleDescriptor(Builder builder) {
       super(builder);
@@ -9163,6 +9361,10 @@ public final class GtfsRealtime {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
       
+      if (!extensionsAreInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -9170,6 +9372,9 @@ public final class GtfsRealtime {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      com.google.protobuf.GeneratedMessage
+        .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.VehicleDescriptor>.ExtensionWriter extensionWriter =
+          newExtensionWriter();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getIdBytes());
       }
@@ -9179,6 +9384,7 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, getLicensePlateBytes());
       }
+      extensionWriter.writeUntil(2000, output);
       getUnknownFields().writeTo(output);
     }
     
@@ -9200,6 +9406,7 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getLicensePlateBytes());
       }
+      size += extensionsSerializedSize();
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -9293,8 +9500,8 @@ public final class GtfsRealtime {
       return builder;
     }
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.transit.realtime.GtfsRealtime.VehicleDescriptorOrBuilder {
+        com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+          com.google.transit.realtime.GtfsRealtime.VehicleDescriptor, Builder> implements com.google.transit.realtime.GtfsRealtime.VehicleDescriptorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.transit.realtime.GtfsRealtime.internal_static_transit_realtime_VehicleDescriptor_descriptor;
@@ -9405,11 +9612,16 @@ public final class GtfsRealtime {
         if (other.hasLicensePlate()) {
           setLicensePlate(other.getLicensePlate());
         }
+        this.mergeExtensionFields(other);
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
       public final boolean isInitialized() {
+        if (!extensionsAreInitialized()) {
+          
+          return false;
+        }
         return true;
       }
       
@@ -9576,8 +9788,9 @@ public final class GtfsRealtime {
     // @@protoc_insertion_point(class_scope:transit_realtime.VehicleDescriptor)
   }
   
-  public interface EntitySelectorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface EntitySelectorOrBuilder extends
+      com.google.protobuf.GeneratedMessage.
+          ExtendableMessageOrBuilder<EntitySelector> {
     
     // optional string agency_id = 1;
     boolean hasAgencyId();
@@ -9601,8 +9814,8 @@ public final class GtfsRealtime {
     String getStopId();
   }
   public static final class EntitySelector extends
-      com.google.protobuf.GeneratedMessage
-      implements EntitySelectorOrBuilder {
+      com.google.protobuf.GeneratedMessage.ExtendableMessage<
+        EntitySelector> implements EntitySelectorOrBuilder {
     // Use EntitySelector.newBuilder() to construct.
     private EntitySelector(Builder builder) {
       super(builder);
@@ -9760,6 +9973,16 @@ public final class GtfsRealtime {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
       
+      if (hasTrip()) {
+        if (!getTrip().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (!extensionsAreInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -9767,6 +9990,9 @@ public final class GtfsRealtime {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      com.google.protobuf.GeneratedMessage
+        .ExtendableMessage<com.google.transit.realtime.GtfsRealtime.EntitySelector>.ExtensionWriter extensionWriter =
+          newExtensionWriter();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getAgencyIdBytes());
       }
@@ -9782,6 +10008,7 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeBytes(5, getStopIdBytes());
       }
+      extensionWriter.writeUntil(2000, output);
       getUnknownFields().writeTo(output);
     }
     
@@ -9811,6 +10038,7 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, getStopIdBytes());
       }
+      size += extensionsSerializedSize();
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -9904,8 +10132,8 @@ public final class GtfsRealtime {
       return builder;
     }
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder {
+        com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+          com.google.transit.realtime.GtfsRealtime.EntitySelector, Builder> implements com.google.transit.realtime.GtfsRealtime.EntitySelectorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.transit.realtime.GtfsRealtime.internal_static_transit_realtime_EntitySelector_descriptor;
@@ -10043,11 +10271,22 @@ public final class GtfsRealtime {
         if (other.hasStopId()) {
           setStopId(other.getStopId());
         }
+        this.mergeExtensionFields(other);
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
       public final boolean isInitialized() {
+        if (hasTrip()) {
+          if (!getTrip().isInitialized()) {
+            
+            return false;
+          }
+        }
+        if (!extensionsAreInitialized()) {
+          
+          return false;
+        }
         return true;
       }
       
@@ -11082,7 +11321,7 @@ public final class GtfsRealtime {
       
       public com.google.transit.realtime.GtfsRealtime.TranslatedString buildPartial() {
         com.google.transit.realtime.GtfsRealtime.TranslatedString result = new com.google.transit.realtime.GtfsRealtime.TranslatedString(this);
-        int from_bitField0_ = bitField0_;
+        //int from_bitField0_ = bitField0_;
         if (translationBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
             translation_ = java.util.Collections.unmodifiableList(translation_);
@@ -11467,88 +11706,90 @@ public final class GtfsRealtime {
       "ime.proto\022\020transit_realtime\"i\n\013FeedMessa" +
       "ge\022,\n\006header\030\001 \002(\0132\034.transit_realtime.Fe" +
       "edHeader\022,\n\006entity\030\002 \003(\0132\034.transit_realt" +
-      "ime.FeedEntity\"\307\001\n\nFeedHeader\022\035\n\025gtfs_re" +
+      "ime.FeedEntity\"\317\001\n\nFeedHeader\022\035\n\025gtfs_re" +
       "altime_version\030\001 \002(\t\022Q\n\016incrementality\030\002" +
       " \001(\0162+.transit_realtime.FeedHeader.Incre" +
       "mentality:\014FULL_DATASET\022\021\n\ttimestamp\030\003 \001" +
       "(\004\"4\n\016Incrementality\022\020\n\014FULL_DATASET\020\000\022\020" +
-      "\n\014DIFFERENTIAL\020\001\"\302\001\n\nFeedEntity\022\n\n\002id\030\001 ",
-      "\002(\t\022\031\n\nis_deleted\030\002 \001(\010:\005false\0221\n\013trip_u" +
-      "pdate\030\003 \001(\0132\034.transit_realtime.TripUpdat" +
-      "e\0222\n\007vehicle\030\004 \001(\0132!.transit_realtime.Ve" +
-      "hiclePosition\022&\n\005alert\030\005 \001(\0132\027.transit_r" +
-      "ealtime.Alert\"\350\004\n\nTripUpdate\022.\n\004trip\030\001 \002" +
-      "(\0132 .transit_realtime.TripDescriptor\0224\n\007" +
-      "vehicle\030\003 \001(\0132#.transit_realtime.Vehicle" +
-      "Descriptor\022E\n\020stop_time_update\030\002 \003(\0132+.t" +
-      "ransit_realtime.TripUpdate.StopTimeUpdat" +
-      "e\032A\n\rStopTimeEvent\022\r\n\005delay\030\001 \001(\005\022\014\n\004tim",
-      "e\030\002 \001(\003\022\023\n\013uncertainty\030\003 \001(\005\032\341\002\n\016StopTim" +
-      "eUpdate\022\025\n\rstop_sequence\030\001 \001(\r\022\017\n\007stop_i" +
-      "d\030\004 \001(\t\022;\n\007arrival\030\002 \001(\0132*.transit_realt" +
-      "ime.TripUpdate.StopTimeEvent\022=\n\tdepartur" +
-      "e\030\003 \001(\0132*.transit_realtime.TripUpdate.St" +
-      "opTimeEvent\022j\n\025schedule_relationship\030\005 \001" +
-      "(\0162@.transit_realtime.TripUpdate.StopTim" +
-      "eUpdate.ScheduleRelationship:\tSCHEDULED\"" +
-      "?\n\024ScheduleRelationship\022\r\n\tSCHEDULED\020\000\022\013" +
-      "\n\007SKIPPED\020\001\022\013\n\007NO_DATA\020\002*\006\010\350\007\020\320\017\"\331\004\n\017Veh",
-      "iclePosition\022.\n\004trip\030\001 \001(\0132 .transit_rea" +
-      "ltime.TripDescriptor\0224\n\007vehicle\030\010 \001(\0132#." +
-      "transit_realtime.VehicleDescriptor\022,\n\010po" +
-      "sition\030\002 \001(\0132\032.transit_realtime.Position" +
-      "\022\035\n\025current_stop_sequence\030\003 \001(\r\022\017\n\007stop_" +
-      "id\030\007 \001(\t\022Z\n\016current_status\030\004 \001(\01623.trans" +
-      "it_realtime.VehiclePosition.VehicleStopS" +
-      "tatus:\rIN_TRANSIT_TO\022\021\n\ttimestamp\030\005 \001(\004\022" +
-      "K\n\020congestion_level\030\006 \001(\01621.transit_real" +
-      "time.VehiclePosition.CongestionLevel\"G\n\021",
-      "VehicleStopStatus\022\017\n\013INCOMING_AT\020\000\022\016\n\nST" +
-      "OPPED_AT\020\001\022\021\n\rIN_TRANSIT_TO\020\002\"}\n\017Congest" +
-      "ionLevel\022\034\n\030UNKNOWN_CONGESTION_LEVEL\020\000\022\024" +
-      "\n\020RUNNING_SMOOTHLY\020\001\022\017\n\013STOP_AND_GO\020\002\022\016\n" +
-      "\nCONGESTION\020\003\022\025\n\021SEVERE_CONGESTION\020\004\"\256\006\n" +
-      "\005Alert\0222\n\ractive_period\030\001 \003(\0132\033.transit_" +
-      "realtime.TimeRange\0229\n\017informed_entity\030\005 " +
-      "\003(\0132 .transit_realtime.EntitySelector\022;\n" +
-      "\005cause\030\006 \001(\0162\035.transit_realtime.Alert.Ca" +
-      "use:\rUNKNOWN_CAUSE\022>\n\006effect\030\007 \001(\0162\036.tra",
-      "nsit_realtime.Alert.Effect:\016UNKNOWN_EFFE" +
-      "CT\022/\n\003url\030\010 \001(\0132\".transit_realtime.Trans" +
-      "latedString\0227\n\013header_text\030\n \001(\0132\".trans" +
-      "it_realtime.TranslatedString\022<\n\020descript" +
-      "ion_text\030\013 \001(\0132\".transit_realtime.Transl" +
-      "atedString\"\330\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\001\022" +
-      "\017\n\013OTHER_CAUSE\020\002\022\025\n\021TECHNICAL_PROBLEM\020\003\022" +
-      "\n\n\006STRIKE\020\004\022\021\n\rDEMONSTRATION\020\005\022\014\n\010ACCIDE" +
-      "NT\020\006\022\013\n\007HOLIDAY\020\007\022\013\n\007WEATHER\020\010\022\017\n\013MAINTE" +
-      "NANCE\020\t\022\020\n\014CONSTRUCTION\020\n\022\023\n\017POLICE_ACTI",
-      "VITY\020\013\022\025\n\021MEDICAL_EMERGENCY\020\014\"\265\001\n\006Effect" +
-      "\022\016\n\nNO_SERVICE\020\001\022\023\n\017REDUCED_SERVICE\020\002\022\026\n" +
-      "\022SIGNIFICANT_DELAYS\020\003\022\n\n\006DETOUR\020\004\022\026\n\022ADD" +
-      "ITIONAL_SERVICE\020\005\022\024\n\020MODIFIED_SERVICE\020\006\022" +
-      "\020\n\014OTHER_EFFECT\020\007\022\022\n\016UNKNOWN_EFFECT\020\010\022\016\n" +
-      "\nSTOP_MOVED\020\t\"\'\n\tTimeRange\022\r\n\005start\030\001 \001(" +
-      "\004\022\013\n\003end\030\002 \001(\004\"a\n\010Position\022\020\n\010latitude\030\001" +
+      "\n\014DIFFERENTIAL\020\001*\006\010\350\007\020\320\017\"\302\001\n\nFeedEntity\022",
+      "\n\n\002id\030\001 \002(\t\022\031\n\nis_deleted\030\002 \001(\010:\005false\0221" +
+      "\n\013trip_update\030\003 \001(\0132\034.transit_realtime.T" +
+      "ripUpdate\0222\n\007vehicle\030\004 \001(\0132!.transit_rea" +
+      "ltime.VehiclePosition\022&\n\005alert\030\005 \001(\0132\027.t" +
+      "ransit_realtime.Alert\"\370\004\n\nTripUpdate\022.\n\004" +
+      "trip\030\001 \002(\0132 .transit_realtime.TripDescri" +
+      "ptor\0224\n\007vehicle\030\003 \001(\0132#.transit_realtime" +
+      ".VehicleDescriptor\022E\n\020stop_time_update\030\002" +
+      " \003(\0132+.transit_realtime.TripUpdate.StopT" +
+      "imeUpdate\032I\n\rStopTimeEvent\022\r\n\005delay\030\001 \001(",
+      "\005\022\014\n\004time\030\002 \001(\003\022\023\n\013uncertainty\030\003 \001(\005*\006\010\350" +
+      "\007\020\320\017\032\351\002\n\016StopTimeUpdate\022\025\n\rstop_sequence" +
+      "\030\001 \001(\r\022\017\n\007stop_id\030\004 \001(\t\022;\n\007arrival\030\002 \001(\013" +
+      "2*.transit_realtime.TripUpdate.StopTimeE" +
+      "vent\022=\n\tdeparture\030\003 \001(\0132*.transit_realti" +
+      "me.TripUpdate.StopTimeEvent\022j\n\025schedule_" +
+      "relationship\030\005 \001(\0162@.transit_realtime.Tr" +
+      "ipUpdate.StopTimeUpdate.ScheduleRelation" +
+      "ship:\tSCHEDULED\"?\n\024ScheduleRelationship\022" +
+      "\r\n\tSCHEDULED\020\000\022\013\n\007SKIPPED\020\001\022\013\n\007NO_DATA\020\002",
+      "*\006\010\350\007\020\320\017*\006\010\350\007\020\320\017\"\341\004\n\017VehiclePosition\022.\n\004" +
+      "trip\030\001 \001(\0132 .transit_realtime.TripDescri" +
+      "ptor\0224\n\007vehicle\030\010 \001(\0132#.transit_realtime" +
+      ".VehicleDescriptor\022,\n\010position\030\002 \001(\0132\032.t" +
+      "ransit_realtime.Position\022\035\n\025current_stop" +
+      "_sequence\030\003 \001(\r\022\017\n\007stop_id\030\007 \001(\t\022Z\n\016curr" +
+      "ent_status\030\004 \001(\01623.transit_realtime.Vehi" +
+      "clePosition.VehicleStopStatus:\rIN_TRANSI" +
+      "T_TO\022\021\n\ttimestamp\030\005 \001(\004\022K\n\020congestion_le" +
+      "vel\030\006 \001(\01621.transit_realtime.VehiclePosi",
+      "tion.CongestionLevel\"G\n\021VehicleStopStatu" +
+      "s\022\017\n\013INCOMING_AT\020\000\022\016\n\nSTOPPED_AT\020\001\022\021\n\rIN" +
+      "_TRANSIT_TO\020\002\"}\n\017CongestionLevel\022\034\n\030UNKN" +
+      "OWN_CONGESTION_LEVEL\020\000\022\024\n\020RUNNING_SMOOTH" +
+      "LY\020\001\022\017\n\013STOP_AND_GO\020\002\022\016\n\nCONGESTION\020\003\022\025\n" +
+      "\021SEVERE_CONGESTION\020\004*\006\010\350\007\020\320\017\"\266\006\n\005Alert\0222" +
+      "\n\ractive_period\030\001 \003(\0132\033.transit_realtime" +
+      ".TimeRange\0229\n\017informed_entity\030\005 \003(\0132 .tr" +
+      "ansit_realtime.EntitySelector\022;\n\005cause\030\006" +
+      " \001(\0162\035.transit_realtime.Alert.Cause:\rUNK",
+      "NOWN_CAUSE\022>\n\006effect\030\007 \001(\0162\036.transit_rea" +
+      "ltime.Alert.Effect:\016UNKNOWN_EFFECT\022/\n\003ur" +
+      "l\030\010 \001(\0132\".transit_realtime.TranslatedStr" +
+      "ing\0227\n\013header_text\030\n \001(\0132\".transit_realt" +
+      "ime.TranslatedString\022<\n\020description_text" +
+      "\030\013 \001(\0132\".transit_realtime.TranslatedStri" +
+      "ng\"\330\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\001\022\017\n\013OTHER" +
+      "_CAUSE\020\002\022\025\n\021TECHNICAL_PROBLEM\020\003\022\n\n\006STRIK" +
+      "E\020\004\022\021\n\rDEMONSTRATION\020\005\022\014\n\010ACCIDENT\020\006\022\013\n\007" +
+      "HOLIDAY\020\007\022\013\n\007WEATHER\020\010\022\017\n\013MAINTENANCE\020\t\022",
+      "\020\n\014CONSTRUCTION\020\n\022\023\n\017POLICE_ACTIVITY\020\013\022\025" +
+      "\n\021MEDICAL_EMERGENCY\020\014\"\265\001\n\006Effect\022\016\n\nNO_S" +
+      "ERVICE\020\001\022\023\n\017REDUCED_SERVICE\020\002\022\026\n\022SIGNIFI" +
+      "CANT_DELAYS\020\003\022\n\n\006DETOUR\020\004\022\026\n\022ADDITIONAL_" +
+      "SERVICE\020\005\022\024\n\020MODIFIED_SERVICE\020\006\022\020\n\014OTHER" +
+      "_EFFECT\020\007\022\022\n\016UNKNOWN_EFFECT\020\010\022\016\n\nSTOP_MO" +
+      "VED\020\t*\006\010\350\007\020\320\017\"\'\n\tTimeRange\022\r\n\005start\030\001 \001(" +
+      "\004\022\013\n\003end\030\002 \001(\004\"i\n\010Position\022\020\n\010latitude\030\001" +
       " \002(\002\022\021\n\tlongitude\030\002 \002(\002\022\017\n\007bearing\030\003 \001(\002" +
-      "\022\020\n\010odometer\030\004 \001(\001\022\r\n\005speed\030\005 \001(\002\"\223\002\n\016Tr" +
-      "ipDescriptor\022\017\n\007trip_id\030\001 \001(\t\022\020\n\010route_i",
-      "d\030\005 \001(\t\022\022\n\nstart_time\030\002 \001(\t\022\022\n\nstart_dat" +
-      "e\030\003 \001(\t\022T\n\025schedule_relationship\030\004 \001(\01625" +
-      ".transit_realtime.TripDescriptor.Schedul" +
-      "eRelationship\"`\n\024ScheduleRelationship\022\r\n" +
-      "\tSCHEDULED\020\000\022\t\n\005ADDED\020\001\022\017\n\013UNSCHEDULED\020\002" +
-      "\022\014\n\010CANCELED\020\003\022\017\n\013REPLACEMENT\020\005\"E\n\021Vehic" +
-      "leDescriptor\022\n\n\002id\030\001 \001(\t\022\r\n\005label\030\002 \001(\t\022" +
-      "\025\n\rlicense_plate\030\003 \001(\t\"\212\001\n\016EntitySelecto" +
-      "r\022\021\n\tagency_id\030\001 \001(\t\022\020\n\010route_id\030\002 \001(\t\022\022" +
-      "\n\nroute_type\030\003 \001(\005\022.\n\004trip\030\004 \001(\0132 .trans",
-      "it_realtime.TripDescriptor\022\017\n\007stop_id\030\005 " +
-      "\001(\t\"\206\001\n\020TranslatedString\022C\n\013translation\030" +
-      "\001 \003(\0132..transit_realtime.TranslatedStrin" +
-      "g.Translation\032-\n\013Translation\022\014\n\004text\030\001 \002" +
-      "(\t\022\020\n\010language\030\002 \001(\tB\035\n\033com.google.trans" +
-      "it.realtime"
+      "\022\020\n\010odometer\030\004 \001(\001\022\r\n\005speed\030\005 \001(\002*\006\010\350\007\020\320",
+      "\017\"\233\002\n\016TripDescriptor\022\017\n\007trip_id\030\001 \001(\t\022\020\n" +
+      "\010route_id\030\005 \001(\t\022\022\n\nstart_time\030\002 \001(\t\022\022\n\ns" +
+      "tart_date\030\003 \001(\t\022T\n\025schedule_relationship" +
+      "\030\004 \001(\01625.transit_realtime.TripDescriptor" +
+      ".ScheduleRelationship\"`\n\024ScheduleRelatio" +
+      "nship\022\r\n\tSCHEDULED\020\000\022\t\n\005ADDED\020\001\022\017\n\013UNSCH" +
+      "EDULED\020\002\022\014\n\010CANCELED\020\003\022\017\n\013REPLACEMENT\020\005*" +
+      "\006\010\350\007\020\320\017\"M\n\021VehicleDescriptor\022\n\n\002id\030\001 \001(\t" +
+      "\022\r\n\005label\030\002 \001(\t\022\025\n\rlicense_plate\030\003 \001(\t*\006" +
+      "\010\350\007\020\320\017\"\222\001\n\016EntitySelector\022\021\n\tagency_id\030\001",
+      " \001(\t\022\020\n\010route_id\030\002 \001(\t\022\022\n\nroute_type\030\003 \001" +
+      "(\005\022.\n\004trip\030\004 \001(\0132 .transit_realtime.Trip" +
+      "Descriptor\022\017\n\007stop_id\030\005 \001(\t*\006\010\350\007\020\320\017\"\206\001\n\020" +
+      "TranslatedString\022C\n\013translation\030\001 \003(\0132.." +
+      "transit_realtime.TranslatedString.Transl" +
+      "ation\032-\n\013Translation\022\014\n\004text\030\001 \002(\t\022\020\n\010la" +
+      "nguage\030\002 \001(\tB\035\n\033com.google.transit.realt" +
+      "ime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
