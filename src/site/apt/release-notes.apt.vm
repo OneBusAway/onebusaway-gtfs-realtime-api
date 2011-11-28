@@ -3,6 +3,12 @@ Release Notes
 * ${currentVersion}
 
   * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/${currentVersion}/}}
+
+* 1.0.1
+
+  * Updated to include protocol buffer extension points. 
+
+  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/1.0.1/}}
   
 * 1.0.0
 
