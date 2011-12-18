@@ -33,8 +33,17 @@ public final class GtfsRealtimeOneBusAway {
   private GtfsRealtimeOneBusAway() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
+    registry.add(com.google.transit.realtime.GtfsRealtimeOneBusAway.source);
     registry.add(com.google.transit.realtime.GtfsRealtimeOneBusAway.delay);
   }
+  public static final int SOURCE_FIELD_NUMBER = 1000;
+  public static final
+    com.google.protobuf.GeneratedMessage.GeneratedExtension<
+      com.google.transit.realtime.GtfsRealtime.FeedEntity,
+      java.lang.String> source = com.google.protobuf.GeneratedMessage
+          .newFileScopedGeneratedExtension(
+        java.lang.String.class,
+        null);
   public static final int DELAY_FIELD_NUMBER = 1000;
   public static final
     com.google.protobuf.GeneratedMessage.GeneratedExtension<
@@ -55,16 +64,18 @@ public final class GtfsRealtimeOneBusAway {
       "\n:com/google/transit/realtime/gtfs-realt" +
       "ime-OneBusAway.proto\022\020transit_realtime\032/" +
       "com/google/transit/realtime/gtfs-realtim" +
-      "e.proto:,\n\005delay\022\034.transit_realtime.Trip" +
-      "Update\030\350\007 \001(\005B\035\n\033com.google.transit.real" +
-      "time"
+      "e.proto:-\n\006source\022\034.transit_realtime.Fee" +
+      "dEntity\030\350\007 \001(\t:,\n\005delay\022\034.transit_realti" +
+      "me.TripUpdate\030\350\007 \001(\005B\035\n\033com.google.trans" +
+      "it.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
         public com.google.protobuf.ExtensionRegistry assignDescriptors(
             com.google.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
-          delay.internalInit(descriptor.getExtensions().get(0));
+          source.internalInit(descriptor.getExtensions().get(0));
+          delay.internalInit(descriptor.getExtensions().get(1));
           return null;
         }
       };

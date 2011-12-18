@@ -12,6 +12,11 @@ import "com/google/transit/realtime/gtfs-realtime.proto";
 option java_package = "com.google.transit.realtime";
 package transit_realtime;
 
+extend FeedEntity {
+  // Optional description of the source of a particular feed entity.
+  optional string source = 1000;
+}
+
 extend TripUpdate {
 
   // Delay (in seconds) can be positive (meaning that the vehicle is late) or

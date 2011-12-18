@@ -88,6 +88,11 @@ message FeedEntity {
   optional TripUpdate trip_update = 3;
   optional VehiclePosition vehicle = 4;
   optional Alert alert = 5;
+  
+  // The extensions namespace allows 3rd-party developers to extend the
+  // GTFS-realtime specification in order to add and evaluate new features and
+  // modifications to the spec.
+  extensions 1000 to 1999;
 }
 
 //
