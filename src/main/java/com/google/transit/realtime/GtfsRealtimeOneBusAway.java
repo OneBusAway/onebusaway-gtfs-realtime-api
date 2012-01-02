@@ -35,6 +35,7 @@ public final class GtfsRealtimeOneBusAway {
       com.google.protobuf.ExtensionRegistry registry) {
     registry.add(com.google.transit.realtime.GtfsRealtimeOneBusAway.source);
     registry.add(com.google.transit.realtime.GtfsRealtimeOneBusAway.delay);
+    registry.add(com.google.transit.realtime.GtfsRealtimeOneBusAway.timestamp);
   }
   public static final int SOURCE_FIELD_NUMBER = 1000;
   public static final
@@ -52,6 +53,14 @@ public final class GtfsRealtimeOneBusAway {
           .newFileScopedGeneratedExtension(
         java.lang.Integer.class,
         null);
+  public static final int TIMESTAMP_FIELD_NUMBER = 1001;
+  public static final
+    com.google.protobuf.GeneratedMessage.GeneratedExtension<
+      com.google.transit.realtime.GtfsRealtime.TripUpdate,
+      java.lang.Long> timestamp = com.google.protobuf.GeneratedMessage
+          .newFileScopedGeneratedExtension(
+        java.lang.Long.class,
+        null);
   
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -66,8 +75,9 @@ public final class GtfsRealtimeOneBusAway {
       "com/google/transit/realtime/gtfs-realtim" +
       "e.proto:-\n\006source\022\034.transit_realtime.Fee" +
       "dEntity\030\350\007 \001(\t:,\n\005delay\022\034.transit_realti" +
-      "me.TripUpdate\030\350\007 \001(\005B\035\n\033com.google.trans" +
-      "it.realtime"
+      "me.TripUpdate\030\350\007 \001(\005:0\n\ttimestamp\022\034.tran" +
+      "sit_realtime.TripUpdate\030\351\007 \001(\004B\035\n\033com.go" +
+      "ogle.transit.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -76,6 +86,7 @@ public final class GtfsRealtimeOneBusAway {
           descriptor = root;
           source.internalInit(descriptor.getExtensions().get(0));
           delay.internalInit(descriptor.getExtensions().get(1));
+          timestamp.internalInit(descriptor.getExtensions().get(2));
           return null;
         }
       };

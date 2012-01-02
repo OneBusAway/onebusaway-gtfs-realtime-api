@@ -23,4 +23,8 @@ extend TripUpdate {
   // negative (meaning that the vehicle is ahead of schedule). Delay of 0
   // means that the vehicle is exactly on time.
   optional int32 delay = 1000;
+  
+  // Moment at which the trip update was computed. In POSIX time
+  // (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+  optional uint64 timestamp = 1001;  
 }
