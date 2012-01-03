@@ -2,6 +2,14 @@ Release Notes
 
 * ${currentVersion}
 
+  * Add a number of OneBusAway-specific extensions:
+  
+    * FeedEntity.source
+    
+    * TripUpdate.delay
+    
+    * TripUpdate.timestamp
+
   * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/${currentVersion}/}}
 
 * 1.0.1
