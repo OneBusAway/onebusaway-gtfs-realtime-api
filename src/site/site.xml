@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="onebusaway-gtfs-realtime-api">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd"
+  name="onebusaway-gtfs-realtime-api">
   <bannerLeft>
     <name>OneBusAway</name>
     <src>OneBusAway.png</src>
@@ -10,18 +12,18 @@
   <body>
     <head>
       <!-- Google Analytics - Start -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-2423527-16']);
-  _gaq.push(['_trackPageview']);
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-2423527-16']);
+        _gaq.push(['_trackPageview']);
 
- (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
 
-</script>
+      </script>
       <!-- Google Analytics - End -->
     </head>
     <menu name="Introduction">
