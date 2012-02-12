@@ -3,12 +3,13 @@
   <parent>
     <artifactId>onebusaway</artifactId>
     <groupId>org.onebusaway</groupId>
-    <version>1.1.2</version>
+    <version>1.1.6</version>
   </parent>
   <artifactId>onebusaway-gtfs-realtime-api</artifactId>
   <version>1.0.3-SNAPSHOT</version>
   <name>onebusaway-gtfs-realtime-api</name>
-  <description>Java classes generated from the GTFS-realtime protocol buffer specification</description>
+  <description>Java classes generated from the GTFS-realtime protocol buffer specification.</description>
+  <url>https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/wiki/</url>
 
   <properties>
     <protobuf_java_version>2.4.0a</protobuf_java_version>
@@ -22,10 +23,15 @@
   </repositories>
 
   <scm>
-    <connection>scm:svn:http://onebusaway.googlecode.com/svn/gtfs-realtime/onebusaway-gtfs-realtime-api/trunk</connection>
-    <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/gtfs-realtime/onebusaway-gtfs-realtime-api/trunk</developerConnection>
-    <url>http://code.google.com/p/onebusaway/source/browse/#svn/gtfs-realtime/onebusaway-gtfs-realtime-api/trunk</url>
+    <connection>scm:git:http://github.com/OneBusAway/onebusaway-gtfs-realtime-api.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/OneBusAway/onebusaway-gtfs-realtime-api.git</developerConnection>
+    <url>http://github.com/OneBusAway/onebusaway-gtfs-realtime-api</url>
   </scm>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/issues</url>
+  </issueManagement>
 
   <distributionManagement>
     <!-- Even though we specify this in the parent pom, we need to specify it here to have full control over the url -->
