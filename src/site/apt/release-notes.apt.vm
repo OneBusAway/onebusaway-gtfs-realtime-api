@@ -2,9 +2,13 @@ Release Notes
 
 * ${currentVersion}
 
+  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/${currentVersion}/}}
+    
+* 1.1.0
+
   * Refactor OneBusAway-specific extensions into messages - {{{https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/issues/1}issue}}
 
-  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/${currentVersion}/}}
+  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/1.1.0/}}
 
 * 1.0.3
 
