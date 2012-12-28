@@ -12,6 +12,9 @@ Specifically, the gtfs-realtime.proto:
 
 was used to generate the classes contained within.
 
+Portions of this module are modifications based on work created by the New York
+City Metropolitan Transportation Authority.
+
 All code is Copyright (C) 2011 Google, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");

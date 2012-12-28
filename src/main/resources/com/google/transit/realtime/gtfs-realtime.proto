@@ -239,6 +239,10 @@ message TripUpdate {
   // - stop_sequences 8,9 have delay of 1 min.
   // - stop_sequences 10,... have unknown delay.
   repeated StopTimeUpdate stop_time_update = 2;
+  
+  // Moment at which the vehicle's real-time progress was measured.  In POSIX
+  // time (i.e., the number of seconds since January 1st 1970 00:00:00 UTC).
+  optional uint64 timestamp = 4;
 
   // The extensions namespace allows 3rd-party developers to extend the
   // GTFS-realtime specification in order to add and evaluate new features and

@@ -6,6 +6,7 @@ root of the project:
  -Isrc/main/resources \
  --java_out=src/main/java/ \
  src/main/resources/com/google/transit/realtime/gtfs-realtime.proto \
+ src/main/resources/com/google/transit/realtime/gtfs-realtime-NYCT.proto \
  src/main/resources/com/google/transit/realtime/gtfs-realtime-OneBusAway.proto
 
 Note: you will need to add back a copyright-license header to each source file after regeneration.
