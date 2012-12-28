@@ -1,12 +1,12 @@
 onebusaway-gtfs-realtime-api
 
-  The {{{http://code.google.com/transit/realtime/}GTFS-realtime}} specification defines a standard for exchanging
+  The {{{https://developers.google.com/transit/gtfs-realtime/}GTFS-realtime}} specification defines a standard for exchanging
 real-time public transit information in a machine-readable way.  The core of the specification is a Protocol Buffer
 definition declaring the various data types that make up a GTFS-realtime feed.
 
   While Protocol Buffers are designed to be language agnostic, language-specific bindings are typically generated to
 read or write a buffer using a specific language.  We provide a simple Java library of the classes produced when the
-{{{http://code.google.com/transit/realtime/}GTFS-realtime}} protobuf is compiled for Java.
+{{{https://developers.google.com/transit/gtfs-realtime/}GTFS-realtime}} protobuf is compiled for Java.
 
   You can use the library in a number of ways:
 
@@ -68,4 +68,25 @@ FeedMessage message = feedMessageBuilder.build();
 BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream("path/to/output"));
 message.writeTo(out);
 out.close();
++---+
+
+* Extensions
+
+  The library includes support for a couple of GTFS-realtime extensions, including:
+
+  * {{{https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/blob/master/src/main/resources/com/google/transit/realtime/gtfs-realtime-OneBusAway.proto}OneBusAway-specific extensions}}
+  
+  * {{{https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/blob/master/src/main/resources/com/google/transit/realtime/gtfs-realtime-NYCT.proto}New York City MTA-specific extensions}}
+
+  []
+  
+  The library also provides {{{./apidocs/com/google/transit/realtime/GtfsRealtimeExtensions.html}GtfsRealtimeExtensions}}, which
+has a convenience method for registering all supported extensions with an ExtensionRegistry for use in parsing custom feeds.  Example:
+
++---+
+ExtensionRegistry registry = ExtensionRegistry.newInstance();
+GtfsRealtimeExtensions.registerExtensions(registry);
+URL url = new URL("http://transit-agency.gov/gtfs-realtime-feed-with-extensions");
+FeedMessage message = FeedMessage.parseFrom(url.openStream(), registry);
+...
 +---+
