@@ -24,6 +24,9 @@ read or write a buffer using a specific language.  We provide a simple Java libr
 </dependency>
 +---+
 
+  For SNAPSHOT dependencies, you may need to add the {{{https://github.com/OneBusAway/onebusaway/wiki/Maven-Repository}OneBusAway Maven Repository}}
+to your project.
+
 * Documentation
 
   You can access the {{{./apidocs/index.html}latest Javadoc for the library}}.  Here's a quick example of using the
