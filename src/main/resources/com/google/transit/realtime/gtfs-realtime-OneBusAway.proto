@@ -12,6 +12,25 @@ import "com/google/transit/realtime/gtfs-realtime.proto";
 option java_package = "com.google.transit.realtime";
 package transit_realtime;
 
+message OneBusAwayFeedHeader {
+  // For an incremental feed, the index of the current incremental FeedMessage.
+  // Each incremental FeedMessage sent to a client should sequentially
+  // increment the index, such that a client can detect missed messages by
+  // looking for gaps in the index value.  It is not required that the index
+  // of the first message sent to a client be zero.
+  optional uint64 incremental_index = 1;
+  
+  // For an incremental feed, the maximum amount of time, in seconds, between
+  // incremental updates.  Clients that have not received a FeedMessage, empty
+  // or otherwise, in the specified time interval should assume that the
+  // connection has been lost and reconnect.
+  optional uint32 incremental_heartbeat_interval = 2;
+}
+
+extend FeedHeader {
+  optional OneBusAwayFeedHeader oba_feed_header = 1000;
+}
+
 message OneBusAwayFeedEntity {
   // Optional description of the source of a particular feed entity.
   optional string source = 1;
