@@ -2,6 +2,16 @@ Release Notes
 
 * ${currentVersion}
 
+  * Add TripUpdate timestamp field.
+  
+  * Support for NYCT extensions.
+  
+  * Add OBA extensions for incremental GTFS-realtime support.
+  
+  * Introduce GtfsRealtimeExtensions class with convenience method for registering all known extensions.
+   
+  * Add documentation about GTFS-realtime extensions.
+
   * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/${currentVersion}/}}
     
 * 1.1.0
