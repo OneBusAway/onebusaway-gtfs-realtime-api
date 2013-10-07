@@ -1,5 +1,15 @@
 This project contains Java libraries generated from the protocol buffer definition of the GTFS-realtime spec.  It also
-contains a few OneBusAway-specific extensions.  To regenerate the Java source-code, use the following command from the
+contains OneBusAway-specific and NYCT-specific extensions.
+
+For details on using the library, see the current release documentation:
+
+http://developer.onebusaway.org/modules/onebusaway-gtfs-realtime-api/current/
+
+For bleeding-edge users, see the latest SNAPSHOT documentation:
+
+http://developer.onebusaway.org/modules/onebusaway-gtfs-realtime-api/current-SNAPSHOT/
+
+To regenerate the Java source-code, use the following command from the
 root of the project:
 
 % protoc \
