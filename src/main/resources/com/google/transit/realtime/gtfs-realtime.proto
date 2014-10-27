@@ -509,6 +509,40 @@ message VehicleDescriptor {
 
   // The license plate of the vehicle.
   optional string license_plate = 3;
+  
+   // The degree of occupancy of the vehicle
+  enum OccupancyStatus {
+    // The vehicle is considered empty by most measures, and has few or no
+    // passengers onboard, but is still accepting passengers.
+    EMPTY = 0;
+
+    // The vehicle has a relatively large percentage of seats available.
+    // What percentage of free seats out of the total seats available is to be
+    // considered large enough to fall into this category is determined at the
+    // discretion of the producer.
+    MANY_SEATS_AVAILABLE = 1;
+
+    // The vehicle has a relatively small percentage of seats available.
+    // What percentage of free seats out of the total seats available is to be
+    // considered small enough to fall into this category is determined at the
+    // discretion of the feed producer.
+    FEW_SEATS_AVAILABLE = 2;
+
+    // The vehicle can currently accommodate only standing passengers.
+    STANDING_ROOM_ONLY = 3;
+
+    // The vehicle can currently accommodate only standing passengers
+    // and has limited space for them.
+    CRUSHED_STANDING_ROOM_ONLY = 4;
+
+    // The vehicle is considered full by most measures, but may still be
+    // allowing passengers to board.
+    FULL = 5;
+
+    // The vehicle is not accepting additional passengers.
+    NOT_ACCEPTING_PASSENGERS = 6;
+  }
+  optional OccupancyStatus occupancy_status = 4;
 
   // The extensions namespace allows 3rd-party developers to extend the
   // GTFS-realtime specification in order to add and evaluate new features

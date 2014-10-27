@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011 Google, Inc.
+ * Copyright (C) 2014 Google, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,64 +42,220 @@ public final class GtfsRealtimeOneBusAway {
   }
   public interface OneBusAwayFeedHeaderOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // optional uint64 incremental_index = 1;
+    /**
+     * <code>optional uint64 incremental_index = 1;</code>
+     *
+     * <pre>
+     * For an incremental feed, the index of the current incremental FeedMessage.
+     * Each incremental FeedMessage sent to a client should sequentially
+     * increment the index, such that a client can detect missed messages by
+     * looking for gaps in the index value.  It is not required that the index
+     * of the first message sent to a client be zero.
+     * </pre>
+     */
     boolean hasIncrementalIndex();
+    /**
+     * <code>optional uint64 incremental_index = 1;</code>
+     *
+     * <pre>
+     * For an incremental feed, the index of the current incremental FeedMessage.
+     * Each incremental FeedMessage sent to a client should sequentially
+     * increment the index, such that a client can detect missed messages by
+     * looking for gaps in the index value.  It is not required that the index
+     * of the first message sent to a client be zero.
+     * </pre>
+     */
     long getIncrementalIndex();
-    
+
     // optional uint32 incremental_heartbeat_interval = 2;
+    /**
+     * <code>optional uint32 incremental_heartbeat_interval = 2;</code>
+     *
+     * <pre>
+     * For an incremental feed, the maximum amount of time, in seconds, between
+     * incremental updates.  Clients that have not received a FeedMessage, empty
+     * or otherwise, in the specified time interval should assume that the
+     * connection has been lost and reconnect.
+     * </pre>
+     */
     boolean hasIncrementalHeartbeatInterval();
+    /**
+     * <code>optional uint32 incremental_heartbeat_interval = 2;</code>
+     *
+     * <pre>
+     * For an incremental feed, the maximum amount of time, in seconds, between
+     * incremental updates.  Clients that have not received a FeedMessage, empty
+     * or otherwise, in the specified time interval should assume that the
+     * connection has been lost and reconnect.
+     * </pre>
+     */
     int getIncrementalHeartbeatInterval();
   }
+  /**
+   * Protobuf type {@code transit_realtime.OneBusAwayFeedHeader}
+   */
   public static final class OneBusAwayFeedHeader extends
       com.google.protobuf.GeneratedMessage
       implements OneBusAwayFeedHeaderOrBuilder {
     // Use OneBusAwayFeedHeader.newBuilder() to construct.
-    private OneBusAwayFeedHeader(Builder builder) {
+    private OneBusAwayFeedHeader(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private OneBusAwayFeedHeader(boolean noInit) {}
-    
+    private OneBusAwayFeedHeader(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final OneBusAwayFeedHeader defaultInstance;
     public static OneBusAwayFeedHeader getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public OneBusAwayFeedHeader getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OneBusAwayFeedHeader(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              incrementalIndex_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              incrementalHeartbeatInterval_ = input.readUInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedHeader_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedHeader_fieldAccessorTable;
+      return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedHeader_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.class, com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<OneBusAwayFeedHeader> PARSER =
+        new com.google.protobuf.AbstractParser<OneBusAwayFeedHeader>() {
+      public OneBusAwayFeedHeader parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OneBusAwayFeedHeader(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OneBusAwayFeedHeader> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // optional uint64 incremental_index = 1;
     public static final int INCREMENTAL_INDEX_FIELD_NUMBER = 1;
     private long incrementalIndex_;
+    /**
+     * <code>optional uint64 incremental_index = 1;</code>
+     *
+     * <pre>
+     * For an incremental feed, the index of the current incremental FeedMessage.
+     * Each incremental FeedMessage sent to a client should sequentially
+     * increment the index, such that a client can detect missed messages by
+     * looking for gaps in the index value.  It is not required that the index
+     * of the first message sent to a client be zero.
+     * </pre>
+     */
     public boolean hasIncrementalIndex() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>optional uint64 incremental_index = 1;</code>
+     *
+     * <pre>
+     * For an incremental feed, the index of the current incremental FeedMessage.
+     * Each incremental FeedMessage sent to a client should sequentially
+     * increment the index, such that a client can detect missed messages by
+     * looking for gaps in the index value.  It is not required that the index
+     * of the first message sent to a client be zero.
+     * </pre>
+     */
     public long getIncrementalIndex() {
       return incrementalIndex_;
     }
-    
+
     // optional uint32 incremental_heartbeat_interval = 2;
     public static final int INCREMENTAL_HEARTBEAT_INTERVAL_FIELD_NUMBER = 2;
     private int incrementalHeartbeatInterval_;
+    /**
+     * <code>optional uint32 incremental_heartbeat_interval = 2;</code>
+     *
+     * <pre>
+     * For an incremental feed, the maximum amount of time, in seconds, between
+     * incremental updates.  Clients that have not received a FeedMessage, empty
+     * or otherwise, in the specified time interval should assume that the
+     * connection has been lost and reconnect.
+     * </pre>
+     */
     public boolean hasIncrementalHeartbeatInterval() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>optional uint32 incremental_heartbeat_interval = 2;</code>
+     *
+     * <pre>
+     * For an incremental feed, the maximum amount of time, in seconds, between
+     * incremental updates.  Clients that have not received a FeedMessage, empty
+     * or otherwise, in the specified time interval should assume that the
+     * connection has been lost and reconnect.
+     * </pre>
+     */
     public int getIncrementalHeartbeatInterval() {
       return incrementalHeartbeatInterval_;
     }
-    
+
     private void initFields() {
       incrementalIndex_ = 0L;
       incrementalHeartbeatInterval_ = 0;
@@ -108,11 +264,11 @@ public final class GtfsRealtimeOneBusAway {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -124,12 +280,12 @@ public final class GtfsRealtimeOneBusAway {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -143,94 +299,83 @@ public final class GtfsRealtimeOneBusAway {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code transit_realtime.OneBusAwayFeedHeader}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeaderOrBuilder {
@@ -238,18 +383,21 @@ public final class GtfsRealtimeOneBusAway {
           getDescriptor() {
         return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedHeader_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedHeader_fieldAccessorTable;
+        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedHeader_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.class, com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.Builder.class);
       }
-      
+
       // Construct using com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -260,7 +408,7 @@ public final class GtfsRealtimeOneBusAway {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         incrementalIndex_ = 0L;
@@ -269,20 +417,20 @@ public final class GtfsRealtimeOneBusAway {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.getDescriptor();
+        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedHeader_descriptor;
       }
-      
+
       public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader getDefaultInstanceForType() {
         return com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.getDefaultInstance();
       }
-      
+
       public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader build() {
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader result = buildPartial();
         if (!result.isInitialized()) {
@@ -290,17 +438,7 @@ public final class GtfsRealtimeOneBusAway {
         }
         return result;
       }
-      
-      private com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader buildPartial() {
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader result = new com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader(this);
         int from_bitField0_ = bitField0_;
@@ -317,7 +455,7 @@ public final class GtfsRealtimeOneBusAway {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader)other);
@@ -326,7 +464,7 @@ public final class GtfsRealtimeOneBusAway {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader other) {
         if (other == com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.getDefaultInstance()) return this;
         if (other.hasIncrementalIndex()) {
@@ -338,171 +476,348 @@ public final class GtfsRealtimeOneBusAway {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              incrementalIndex_ = input.readUInt64();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              incrementalHeartbeatInterval_ = input.readUInt32();
-              break;
-            }
+        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // optional uint64 incremental_index = 1;
       private long incrementalIndex_ ;
+      /**
+       * <code>optional uint64 incremental_index = 1;</code>
+       *
+       * <pre>
+       * For an incremental feed, the index of the current incremental FeedMessage.
+       * Each incremental FeedMessage sent to a client should sequentially
+       * increment the index, such that a client can detect missed messages by
+       * looking for gaps in the index value.  It is not required that the index
+       * of the first message sent to a client be zero.
+       * </pre>
+       */
       public boolean hasIncrementalIndex() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>optional uint64 incremental_index = 1;</code>
+       *
+       * <pre>
+       * For an incremental feed, the index of the current incremental FeedMessage.
+       * Each incremental FeedMessage sent to a client should sequentially
+       * increment the index, such that a client can detect missed messages by
+       * looking for gaps in the index value.  It is not required that the index
+       * of the first message sent to a client be zero.
+       * </pre>
+       */
       public long getIncrementalIndex() {
         return incrementalIndex_;
       }
+      /**
+       * <code>optional uint64 incremental_index = 1;</code>
+       *
+       * <pre>
+       * For an incremental feed, the index of the current incremental FeedMessage.
+       * Each incremental FeedMessage sent to a client should sequentially
+       * increment the index, such that a client can detect missed messages by
+       * looking for gaps in the index value.  It is not required that the index
+       * of the first message sent to a client be zero.
+       * </pre>
+       */
       public Builder setIncrementalIndex(long value) {
         bitField0_ |= 0x00000001;
         incrementalIndex_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional uint64 incremental_index = 1;</code>
+       *
+       * <pre>
+       * For an incremental feed, the index of the current incremental FeedMessage.
+       * Each incremental FeedMessage sent to a client should sequentially
+       * increment the index, such that a client can detect missed messages by
+       * looking for gaps in the index value.  It is not required that the index
+       * of the first message sent to a client be zero.
+       * </pre>
+       */
       public Builder clearIncrementalIndex() {
         bitField0_ = (bitField0_ & ~0x00000001);
         incrementalIndex_ = 0L;
         onChanged();
         return this;
       }
-      
+
       // optional uint32 incremental_heartbeat_interval = 2;
       private int incrementalHeartbeatInterval_ ;
+      /**
+       * <code>optional uint32 incremental_heartbeat_interval = 2;</code>
+       *
+       * <pre>
+       * For an incremental feed, the maximum amount of time, in seconds, between
+       * incremental updates.  Clients that have not received a FeedMessage, empty
+       * or otherwise, in the specified time interval should assume that the
+       * connection has been lost and reconnect.
+       * </pre>
+       */
       public boolean hasIncrementalHeartbeatInterval() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>optional uint32 incremental_heartbeat_interval = 2;</code>
+       *
+       * <pre>
+       * For an incremental feed, the maximum amount of time, in seconds, between
+       * incremental updates.  Clients that have not received a FeedMessage, empty
+       * or otherwise, in the specified time interval should assume that the
+       * connection has been lost and reconnect.
+       * </pre>
+       */
       public int getIncrementalHeartbeatInterval() {
         return incrementalHeartbeatInterval_;
       }
+      /**
+       * <code>optional uint32 incremental_heartbeat_interval = 2;</code>
+       *
+       * <pre>
+       * For an incremental feed, the maximum amount of time, in seconds, between
+       * incremental updates.  Clients that have not received a FeedMessage, empty
+       * or otherwise, in the specified time interval should assume that the
+       * connection has been lost and reconnect.
+       * </pre>
+       */
       public Builder setIncrementalHeartbeatInterval(int value) {
         bitField0_ |= 0x00000002;
         incrementalHeartbeatInterval_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional uint32 incremental_heartbeat_interval = 2;</code>
+       *
+       * <pre>
+       * For an incremental feed, the maximum amount of time, in seconds, between
+       * incremental updates.  Clients that have not received a FeedMessage, empty
+       * or otherwise, in the specified time interval should assume that the
+       * connection has been lost and reconnect.
+       * </pre>
+       */
       public Builder clearIncrementalHeartbeatInterval() {
         bitField0_ = (bitField0_ & ~0x00000002);
         incrementalHeartbeatInterval_ = 0;
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:transit_realtime.OneBusAwayFeedHeader)
     }
-    
+
     static {
       defaultInstance = new OneBusAwayFeedHeader(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:transit_realtime.OneBusAwayFeedHeader)
   }
-  
+
   public interface OneBusAwayFeedEntityOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // optional string source = 1;
+    /**
+     * <code>optional string source = 1;</code>
+     *
+     * <pre>
+     * Optional description of the source of a particular feed entity.
+     * </pre>
+     */
     boolean hasSource();
-    String getSource();
+    /**
+     * <code>optional string source = 1;</code>
+     *
+     * <pre>
+     * Optional description of the source of a particular feed entity.
+     * </pre>
+     */
+    java.lang.String getSource();
+    /**
+     * <code>optional string source = 1;</code>
+     *
+     * <pre>
+     * Optional description of the source of a particular feed entity.
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getSourceBytes();
   }
+  /**
+   * Protobuf type {@code transit_realtime.OneBusAwayFeedEntity}
+   */
   public static final class OneBusAwayFeedEntity extends
       com.google.protobuf.GeneratedMessage
       implements OneBusAwayFeedEntityOrBuilder {
     // Use OneBusAwayFeedEntity.newBuilder() to construct.
-    private OneBusAwayFeedEntity(Builder builder) {
+    private OneBusAwayFeedEntity(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private OneBusAwayFeedEntity(boolean noInit) {}
-    
+    private OneBusAwayFeedEntity(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final OneBusAwayFeedEntity defaultInstance;
     public static OneBusAwayFeedEntity getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public OneBusAwayFeedEntity getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OneBusAwayFeedEntity(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              source_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedEntity_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedEntity_fieldAccessorTable;
+      return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedEntity_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.class, com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<OneBusAwayFeedEntity> PARSER =
+        new com.google.protobuf.AbstractParser<OneBusAwayFeedEntity>() {
+      public OneBusAwayFeedEntity parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OneBusAwayFeedEntity(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OneBusAwayFeedEntity> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // optional string source = 1;
     public static final int SOURCE_FIELD_NUMBER = 1;
     private java.lang.Object source_;
+    /**
+     * <code>optional string source = 1;</code>
+     *
+     * <pre>
+     * Optional description of the source of a particular feed entity.
+     * </pre>
+     */
     public boolean hasSource() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getSource() {
+    /**
+     * <code>optional string source = 1;</code>
+     *
+     * <pre>
+     * Optional description of the source of a particular feed entity.
+     * </pre>
+     */
+    public java.lang.String getSource() {
       java.lang.Object ref = source_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           source_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getSourceBytes() {
+    /**
+     * <code>optional string source = 1;</code>
+     *
+     * <pre>
+     * Optional description of the source of a particular feed entity.
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getSourceBytes() {
       java.lang.Object ref = source_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         source_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     private void initFields() {
       source_ = "";
     }
@@ -510,11 +825,11 @@ public final class GtfsRealtimeOneBusAway {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -523,12 +838,12 @@ public final class GtfsRealtimeOneBusAway {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -538,94 +853,83 @@ public final class GtfsRealtimeOneBusAway {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code transit_realtime.OneBusAwayFeedEntity}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntityOrBuilder {
@@ -633,18 +937,21 @@ public final class GtfsRealtimeOneBusAway {
           getDescriptor() {
         return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedEntity_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedEntity_fieldAccessorTable;
+        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedEntity_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.class, com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.Builder.class);
       }
-      
+
       // Construct using com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -655,27 +962,27 @@ public final class GtfsRealtimeOneBusAway {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         source_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.getDescriptor();
+        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayFeedEntity_descriptor;
       }
-      
+
       public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity getDefaultInstanceForType() {
         return com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.getDefaultInstance();
       }
-      
+
       public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity build() {
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity result = buildPartial();
         if (!result.isInitialized()) {
@@ -683,17 +990,7 @@ public final class GtfsRealtimeOneBusAway {
         }
         return result;
       }
-      
-      private com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity buildPartial() {
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity result = new com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity(this);
         int from_bitField0_ = bitField0_;
@@ -706,7 +1003,7 @@ public final class GtfsRealtimeOneBusAway {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity)other);
@@ -715,70 +1012,100 @@ public final class GtfsRealtimeOneBusAway {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity other) {
         if (other == com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.getDefaultInstance()) return this;
         if (other.hasSource()) {
-          setSource(other.getSource());
+          bitField0_ |= 0x00000001;
+          source_ = other.source_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              source_ = input.readBytes();
-              break;
-            }
+        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // optional string source = 1;
       private java.lang.Object source_ = "";
+      /**
+       * <code>optional string source = 1;</code>
+       *
+       * <pre>
+       * Optional description of the source of a particular feed entity.
+       * </pre>
+       */
       public boolean hasSource() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getSource() {
+      /**
+       * <code>optional string source = 1;</code>
+       *
+       * <pre>
+       * Optional description of the source of a particular feed entity.
+       * </pre>
+       */
+      public java.lang.String getSource() {
         java.lang.Object ref = source_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           source_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setSource(String value) {
+      /**
+       * <code>optional string source = 1;</code>
+       *
+       * <pre>
+       * Optional description of the source of a particular feed entity.
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getSourceBytes() {
+        java.lang.Object ref = source_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          source_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string source = 1;</code>
+       *
+       * <pre>
+       * Optional description of the source of a particular feed entity.
+       * </pre>
+       */
+      public Builder setSource(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -787,89 +1114,248 @@ public final class GtfsRealtimeOneBusAway {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional string source = 1;</code>
+       *
+       * <pre>
+       * Optional description of the source of a particular feed entity.
+       * </pre>
+       */
       public Builder clearSource() {
         bitField0_ = (bitField0_ & ~0x00000001);
         source_ = getDefaultInstance().getSource();
         onChanged();
         return this;
       }
-      void setSource(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>optional string source = 1;</code>
+       *
+       * <pre>
+       * Optional description of the source of a particular feed entity.
+       * </pre>
+       */
+      public Builder setSourceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         source_ = value;
         onChanged();
+        return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:transit_realtime.OneBusAwayFeedEntity)
     }
-    
+
     static {
       defaultInstance = new OneBusAwayFeedEntity(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:transit_realtime.OneBusAwayFeedEntity)
   }
-  
+
   public interface OneBusAwayTripUpdateOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // optional int32 delay = 1;
+    /**
+     * <code>optional int32 delay = 1;</code>
+     *
+     * <pre>
+     * Delay (in seconds) can be positive (meaning that the vehicle is late) or
+     * negative (meaning that the vehicle is ahead of schedule). Delay of 0
+     * means that the vehicle is exactly on time.
+     * </pre>
+     */
     boolean hasDelay();
+    /**
+     * <code>optional int32 delay = 1;</code>
+     *
+     * <pre>
+     * Delay (in seconds) can be positive (meaning that the vehicle is late) or
+     * negative (meaning that the vehicle is ahead of schedule). Delay of 0
+     * means that the vehicle is exactly on time.
+     * </pre>
+     */
     int getDelay();
-    
+
     // optional uint64 timestamp = 2;
+    /**
+     * <code>optional uint64 timestamp = 2;</code>
+     *
+     * <pre>
+     * Moment at which the trip update was computed. In POSIX time
+     * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+     * </pre>
+     */
     boolean hasTimestamp();
+    /**
+     * <code>optional uint64 timestamp = 2;</code>
+     *
+     * <pre>
+     * Moment at which the trip update was computed. In POSIX time
+     * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+     * </pre>
+     */
     long getTimestamp();
   }
+  /**
+   * Protobuf type {@code transit_realtime.OneBusAwayTripUpdate}
+   */
   public static final class OneBusAwayTripUpdate extends
       com.google.protobuf.GeneratedMessage
       implements OneBusAwayTripUpdateOrBuilder {
     // Use OneBusAwayTripUpdate.newBuilder() to construct.
-    private OneBusAwayTripUpdate(Builder builder) {
+    private OneBusAwayTripUpdate(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private OneBusAwayTripUpdate(boolean noInit) {}
-    
+    private OneBusAwayTripUpdate(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final OneBusAwayTripUpdate defaultInstance;
     public static OneBusAwayTripUpdate getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public OneBusAwayTripUpdate getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OneBusAwayTripUpdate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              delay_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              timestamp_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayTripUpdate_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayTripUpdate_fieldAccessorTable;
+      return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayTripUpdate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate.class, com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<OneBusAwayTripUpdate> PARSER =
+        new com.google.protobuf.AbstractParser<OneBusAwayTripUpdate>() {
+      public OneBusAwayTripUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OneBusAwayTripUpdate(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OneBusAwayTripUpdate> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // optional int32 delay = 1;
     public static final int DELAY_FIELD_NUMBER = 1;
     private int delay_;
+    /**
+     * <code>optional int32 delay = 1;</code>
+     *
+     * <pre>
+     * Delay (in seconds) can be positive (meaning that the vehicle is late) or
+     * negative (meaning that the vehicle is ahead of schedule). Delay of 0
+     * means that the vehicle is exactly on time.
+     * </pre>
+     */
     public boolean hasDelay() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>optional int32 delay = 1;</code>
+     *
+     * <pre>
+     * Delay (in seconds) can be positive (meaning that the vehicle is late) or
+     * negative (meaning that the vehicle is ahead of schedule). Delay of 0
+     * means that the vehicle is exactly on time.
+     * </pre>
+     */
     public int getDelay() {
       return delay_;
     }
-    
+
     // optional uint64 timestamp = 2;
     public static final int TIMESTAMP_FIELD_NUMBER = 2;
     private long timestamp_;
+    /**
+     * <code>optional uint64 timestamp = 2;</code>
+     *
+     * <pre>
+     * Moment at which the trip update was computed. In POSIX time
+     * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+     * </pre>
+     */
     public boolean hasTimestamp() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>optional uint64 timestamp = 2;</code>
+     *
+     * <pre>
+     * Moment at which the trip update was computed. In POSIX time
+     * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+     * </pre>
+     */
     public long getTimestamp() {
       return timestamp_;
     }
-    
+
     private void initFields() {
       delay_ = 0;
       timestamp_ = 0L;
@@ -878,11 +1364,11 @@ public final class GtfsRealtimeOneBusAway {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -894,12 +1380,12 @@ public final class GtfsRealtimeOneBusAway {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -913,94 +1399,83 @@ public final class GtfsRealtimeOneBusAway {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code transit_realtime.OneBusAwayTripUpdate}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdateOrBuilder {
@@ -1008,18 +1483,21 @@ public final class GtfsRealtimeOneBusAway {
           getDescriptor() {
         return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayTripUpdate_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayTripUpdate_fieldAccessorTable;
+        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayTripUpdate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate.class, com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate.Builder.class);
       }
-      
+
       // Construct using com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1030,7 +1508,7 @@ public final class GtfsRealtimeOneBusAway {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         delay_ = 0;
@@ -1039,20 +1517,20 @@ public final class GtfsRealtimeOneBusAway {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate.getDescriptor();
+        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayTripUpdate_descriptor;
       }
-      
+
       public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate getDefaultInstanceForType() {
         return com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate.getDefaultInstance();
       }
-      
+
       public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate build() {
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate result = buildPartial();
         if (!result.isInitialized()) {
@@ -1060,17 +1538,7 @@ public final class GtfsRealtimeOneBusAway {
         }
         return result;
       }
-      
-      private com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate buildPartial() {
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate result = new com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate(this);
         int from_bitField0_ = bitField0_;
@@ -1087,7 +1555,7 @@ public final class GtfsRealtimeOneBusAway {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate)other);
@@ -1096,7 +1564,7 @@ public final class GtfsRealtimeOneBusAway {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate other) {
         if (other == com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate.getDefaultInstance()) return this;
         if (other.hasDelay()) {
@@ -1108,104 +1576,159 @@ public final class GtfsRealtimeOneBusAway {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              delay_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              timestamp_ = input.readUInt64();
-              break;
-            }
+        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // optional int32 delay = 1;
       private int delay_ ;
+      /**
+       * <code>optional int32 delay = 1;</code>
+       *
+       * <pre>
+       * Delay (in seconds) can be positive (meaning that the vehicle is late) or
+       * negative (meaning that the vehicle is ahead of schedule). Delay of 0
+       * means that the vehicle is exactly on time.
+       * </pre>
+       */
       public boolean hasDelay() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>optional int32 delay = 1;</code>
+       *
+       * <pre>
+       * Delay (in seconds) can be positive (meaning that the vehicle is late) or
+       * negative (meaning that the vehicle is ahead of schedule). Delay of 0
+       * means that the vehicle is exactly on time.
+       * </pre>
+       */
       public int getDelay() {
         return delay_;
       }
+      /**
+       * <code>optional int32 delay = 1;</code>
+       *
+       * <pre>
+       * Delay (in seconds) can be positive (meaning that the vehicle is late) or
+       * negative (meaning that the vehicle is ahead of schedule). Delay of 0
+       * means that the vehicle is exactly on time.
+       * </pre>
+       */
       public Builder setDelay(int value) {
         bitField0_ |= 0x00000001;
         delay_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional int32 delay = 1;</code>
+       *
+       * <pre>
+       * Delay (in seconds) can be positive (meaning that the vehicle is late) or
+       * negative (meaning that the vehicle is ahead of schedule). Delay of 0
+       * means that the vehicle is exactly on time.
+       * </pre>
+       */
       public Builder clearDelay() {
         bitField0_ = (bitField0_ & ~0x00000001);
         delay_ = 0;
         onChanged();
         return this;
       }
-      
+
       // optional uint64 timestamp = 2;
       private long timestamp_ ;
+      /**
+       * <code>optional uint64 timestamp = 2;</code>
+       *
+       * <pre>
+       * Moment at which the trip update was computed. In POSIX time
+       * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+       * </pre>
+       */
       public boolean hasTimestamp() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>optional uint64 timestamp = 2;</code>
+       *
+       * <pre>
+       * Moment at which the trip update was computed. In POSIX time
+       * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+       * </pre>
+       */
       public long getTimestamp() {
         return timestamp_;
       }
+      /**
+       * <code>optional uint64 timestamp = 2;</code>
+       *
+       * <pre>
+       * Moment at which the trip update was computed. In POSIX time
+       * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+       * </pre>
+       */
       public Builder setTimestamp(long value) {
         bitField0_ |= 0x00000002;
         timestamp_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional uint64 timestamp = 2;</code>
+       *
+       * <pre>
+       * Moment at which the trip update was computed. In POSIX time
+       * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+       * </pre>
+       */
       public Builder clearTimestamp() {
         bitField0_ = (bitField0_ & ~0x00000002);
         timestamp_ = 0L;
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:transit_realtime.OneBusAwayTripUpdate)
     }
-    
+
     static {
       defaultInstance = new OneBusAwayTripUpdate(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:transit_realtime.OneBusAwayTripUpdate)
   }
-  
+
   public static final int OBA_FEED_HEADER_FIELD_NUMBER = 1000;
+  /**
+   * <code>extend .transit_realtime.FeedHeader { ... }</code>
+   *
+   * <pre>
+   * Optional description of the source of a particular feed entity.
+   * </pre>
+   */
   public static final
     com.google.protobuf.GeneratedMessage.GeneratedExtension<
       com.google.transit.realtime.GtfsRealtime.FeedHeader,
@@ -1214,6 +1737,14 @@ public final class GtfsRealtimeOneBusAway {
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.class,
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.getDefaultInstance());
   public static final int OBA_FEED_ENTITY_FIELD_NUMBER = 1000;
+  /**
+   * <code>extend .transit_realtime.FeedEntity { ... }</code>
+   *
+   * <pre>
+   * Moment at which the trip update was computed. In POSIX time
+   * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+   * </pre>
+   */
   public static final
     com.google.protobuf.GeneratedMessage.GeneratedExtension<
       com.google.transit.realtime.GtfsRealtime.FeedEntity,
@@ -1222,6 +1753,9 @@ public final class GtfsRealtimeOneBusAway {
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.class,
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.getDefaultInstance());
   public static final int OBA_TRIP_UPDATE_FIELD_NUMBER = 1000;
+  /**
+   * <code>extend .transit_realtime.TripUpdate { ... }</code>
+   */
   public static final
     com.google.protobuf.GeneratedMessage.GeneratedExtension<
       com.google.transit.realtime.GtfsRealtime.TripUpdate,
@@ -1244,7 +1778,7 @@ public final class GtfsRealtimeOneBusAway {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_transit_realtime_OneBusAwayTripUpdate_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -1280,25 +1814,19 @@ public final class GtfsRealtimeOneBusAway {
           internal_static_transit_realtime_OneBusAwayFeedHeader_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_transit_realtime_OneBusAwayFeedHeader_descriptor,
-              new java.lang.String[] { "IncrementalIndex", "IncrementalHeartbeatInterval", },
-              com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.class,
-              com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedHeader.Builder.class);
+              new java.lang.String[] { "IncrementalIndex", "IncrementalHeartbeatInterval", });
           internal_static_transit_realtime_OneBusAwayFeedEntity_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_transit_realtime_OneBusAwayFeedEntity_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_transit_realtime_OneBusAwayFeedEntity_descriptor,
-              new java.lang.String[] { "Source", },
-              com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.class,
-              com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayFeedEntity.Builder.class);
+              new java.lang.String[] { "Source", });
           internal_static_transit_realtime_OneBusAwayTripUpdate_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_transit_realtime_OneBusAwayTripUpdate_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_transit_realtime_OneBusAwayTripUpdate_descriptor,
-              new java.lang.String[] { "Delay", "Timestamp", },
-              com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate.class,
-              com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayTripUpdate.Builder.class);
+              new java.lang.String[] { "Delay", "Timestamp", });
           obaFeedHeader.internalInit(descriptor.getExtensions().get(0));
           obaFeedEntity.internalInit(descriptor.getExtensions().get(1));
           obaTripUpdate.internalInit(descriptor.getExtensions().get(2));
@@ -1311,6 +1839,6 @@ public final class GtfsRealtimeOneBusAway {
           com.google.transit.realtime.GtfsRealtime.getDescriptor(),
         }, assigner);
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }
