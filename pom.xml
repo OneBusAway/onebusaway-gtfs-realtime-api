@@ -12,7 +12,7 @@
   <url>https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/wiki/</url>
 
   <properties>
-    <protobuf_java_version>2.4.0a</protobuf_java_version>
+    <protobuf_java_version>2.5.0</protobuf_java_version>
   </properties>
 
   <repositories>
