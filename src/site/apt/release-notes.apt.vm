@@ -2,6 +2,16 @@ Release Notes
 
 * ${currentVersion}
 
+  * Update to use gtfs-realtime-bindings to provide the core Java bindings for gtfs-realtime.proto.
+
+  * The "timestamp" and "delay" fieldshave been marked as deprecated in
+    <<<gtfs-realtime-OneBusAway.proto>>>, as there is experimental support for them
+    in <<<gtfs-realtime.proto>>> these days.
+
+  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/${currentVersion}/}}
+
+* 1.1.1
+
   * Add TripUpdate timestamp field.
   
   * Support for NYCT extensions.
@@ -12,7 +22,7 @@ Release Notes
    
   * Add documentation about GTFS-realtime extensions.
 
-  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/${currentVersion}/}}
+  * Full Documentation: {{${site_base_url}/onebusaway-gtfs-realtime-api/1.1.1/}}
     
 * 1.1.0
 
