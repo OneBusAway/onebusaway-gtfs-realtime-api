@@ -20,7 +20,7 @@
 
   <scm>
     <connection>scm:git:http://github.com/OneBusAway/onebusaway-gtfs-realtime-api.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/OneBusAway/onebusaway-gtfs-realtime-api.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/OneBusAway/onebusaway-gtfs-realtime-api.git</developerConnection>
     <url>http://github.com/OneBusAway/onebusaway-gtfs-realtime-api</url>
   </scm>
 
