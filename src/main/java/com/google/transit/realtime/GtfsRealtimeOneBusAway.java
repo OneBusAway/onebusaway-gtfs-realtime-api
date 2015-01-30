@@ -1159,47 +1159,55 @@ public final class GtfsRealtimeOneBusAway {
   public interface OneBusAwayTripUpdateOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional int32 delay = 1;
+    // optional int32 delay = 1 [deprecated = true];
     /**
-     * <code>optional int32 delay = 1;</code>
+     * <code>optional int32 delay = 1 [deprecated = true];</code>
      *
      * <pre>
      * Delay (in seconds) can be positive (meaning that the vehicle is late) or
      * negative (meaning that the vehicle is ahead of schedule). Delay of 0
      * means that the vehicle is exactly on time.
+     *
+     * Deprecated in favor of TripUpdate.delay
      * </pre>
      */
-    boolean hasDelay();
+    @java.lang.Deprecated boolean hasDelay();
     /**
-     * <code>optional int32 delay = 1;</code>
+     * <code>optional int32 delay = 1 [deprecated = true];</code>
      *
      * <pre>
      * Delay (in seconds) can be positive (meaning that the vehicle is late) or
      * negative (meaning that the vehicle is ahead of schedule). Delay of 0
      * means that the vehicle is exactly on time.
+     *
+     * Deprecated in favor of TripUpdate.delay
      * </pre>
      */
-    int getDelay();
+    @java.lang.Deprecated int getDelay();
 
-    // optional uint64 timestamp = 2;
+    // optional uint64 timestamp = 2 [deprecated = true];
     /**
-     * <code>optional uint64 timestamp = 2;</code>
+     * <code>optional uint64 timestamp = 2 [deprecated = true];</code>
      *
      * <pre>
      * Moment at which the trip update was computed. In POSIX time
      * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+     *
+     * Deprecated in favor of TripUpdate.timestamp
      * </pre>
      */
-    boolean hasTimestamp();
+    @java.lang.Deprecated boolean hasTimestamp();
     /**
-     * <code>optional uint64 timestamp = 2;</code>
+     * <code>optional uint64 timestamp = 2 [deprecated = true];</code>
      *
      * <pre>
      * Moment at which the trip update was computed. In POSIX time
      * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+     *
+     * Deprecated in favor of TripUpdate.timestamp
      * </pre>
      */
-    long getTimestamp();
+    @java.lang.Deprecated long getTimestamp();
   }
   /**
    * Protobuf type {@code transit_realtime.OneBusAwayTripUpdate}
@@ -1302,57 +1310,65 @@ public final class GtfsRealtimeOneBusAway {
     }
 
     private int bitField0_;
-    // optional int32 delay = 1;
+    // optional int32 delay = 1 [deprecated = true];
     public static final int DELAY_FIELD_NUMBER = 1;
     private int delay_;
     /**
-     * <code>optional int32 delay = 1;</code>
+     * <code>optional int32 delay = 1 [deprecated = true];</code>
      *
      * <pre>
      * Delay (in seconds) can be positive (meaning that the vehicle is late) or
      * negative (meaning that the vehicle is ahead of schedule). Delay of 0
      * means that the vehicle is exactly on time.
+     *
+     * Deprecated in favor of TripUpdate.delay
      * </pre>
      */
-    public boolean hasDelay() {
+    @java.lang.Deprecated public boolean hasDelay() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional int32 delay = 1;</code>
+     * <code>optional int32 delay = 1 [deprecated = true];</code>
      *
      * <pre>
      * Delay (in seconds) can be positive (meaning that the vehicle is late) or
      * negative (meaning that the vehicle is ahead of schedule). Delay of 0
      * means that the vehicle is exactly on time.
+     *
+     * Deprecated in favor of TripUpdate.delay
      * </pre>
      */
-    public int getDelay() {
+    @java.lang.Deprecated public int getDelay() {
       return delay_;
     }
 
-    // optional uint64 timestamp = 2;
+    // optional uint64 timestamp = 2 [deprecated = true];
     public static final int TIMESTAMP_FIELD_NUMBER = 2;
     private long timestamp_;
     /**
-     * <code>optional uint64 timestamp = 2;</code>
+     * <code>optional uint64 timestamp = 2 [deprecated = true];</code>
      *
      * <pre>
      * Moment at which the trip update was computed. In POSIX time
      * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+     *
+     * Deprecated in favor of TripUpdate.timestamp
      * </pre>
      */
-    public boolean hasTimestamp() {
+    @java.lang.Deprecated public boolean hasTimestamp() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional uint64 timestamp = 2;</code>
+     * <code>optional uint64 timestamp = 2 [deprecated = true];</code>
      *
      * <pre>
      * Moment at which the trip update was computed. In POSIX time
      * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+     *
+     * Deprecated in favor of TripUpdate.timestamp
      * </pre>
      */
-    public long getTimestamp() {
+    @java.lang.Deprecated public long getTimestamp() {
       return timestamp_;
     }
 
@@ -1600,110 +1616,126 @@ public final class GtfsRealtimeOneBusAway {
       }
       private int bitField0_;
 
-      // optional int32 delay = 1;
+      // optional int32 delay = 1 [deprecated = true];
       private int delay_ ;
       /**
-       * <code>optional int32 delay = 1;</code>
+       * <code>optional int32 delay = 1 [deprecated = true];</code>
        *
        * <pre>
        * Delay (in seconds) can be positive (meaning that the vehicle is late) or
        * negative (meaning that the vehicle is ahead of schedule). Delay of 0
        * means that the vehicle is exactly on time.
+       *
+       * Deprecated in favor of TripUpdate.delay
        * </pre>
        */
-      public boolean hasDelay() {
+      @java.lang.Deprecated public boolean hasDelay() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional int32 delay = 1;</code>
+       * <code>optional int32 delay = 1 [deprecated = true];</code>
        *
        * <pre>
        * Delay (in seconds) can be positive (meaning that the vehicle is late) or
        * negative (meaning that the vehicle is ahead of schedule). Delay of 0
        * means that the vehicle is exactly on time.
+       *
+       * Deprecated in favor of TripUpdate.delay
        * </pre>
        */
-      public int getDelay() {
+      @java.lang.Deprecated public int getDelay() {
         return delay_;
       }
       /**
-       * <code>optional int32 delay = 1;</code>
+       * <code>optional int32 delay = 1 [deprecated = true];</code>
        *
        * <pre>
        * Delay (in seconds) can be positive (meaning that the vehicle is late) or
        * negative (meaning that the vehicle is ahead of schedule). Delay of 0
        * means that the vehicle is exactly on time.
+       *
+       * Deprecated in favor of TripUpdate.delay
        * </pre>
        */
-      public Builder setDelay(int value) {
+      @java.lang.Deprecated public Builder setDelay(int value) {
         bitField0_ |= 0x00000001;
         delay_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 delay = 1;</code>
+       * <code>optional int32 delay = 1 [deprecated = true];</code>
        *
        * <pre>
        * Delay (in seconds) can be positive (meaning that the vehicle is late) or
        * negative (meaning that the vehicle is ahead of schedule). Delay of 0
        * means that the vehicle is exactly on time.
+       *
+       * Deprecated in favor of TripUpdate.delay
        * </pre>
        */
-      public Builder clearDelay() {
+      @java.lang.Deprecated public Builder clearDelay() {
         bitField0_ = (bitField0_ & ~0x00000001);
         delay_ = 0;
         onChanged();
         return this;
       }
 
-      // optional uint64 timestamp = 2;
+      // optional uint64 timestamp = 2 [deprecated = true];
       private long timestamp_ ;
       /**
-       * <code>optional uint64 timestamp = 2;</code>
+       * <code>optional uint64 timestamp = 2 [deprecated = true];</code>
        *
        * <pre>
        * Moment at which the trip update was computed. In POSIX time
        * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+       *
+       * Deprecated in favor of TripUpdate.timestamp
        * </pre>
        */
-      public boolean hasTimestamp() {
+      @java.lang.Deprecated public boolean hasTimestamp() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional uint64 timestamp = 2;</code>
+       * <code>optional uint64 timestamp = 2 [deprecated = true];</code>
        *
        * <pre>
        * Moment at which the trip update was computed. In POSIX time
        * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+       *
+       * Deprecated in favor of TripUpdate.timestamp
        * </pre>
        */
-      public long getTimestamp() {
+      @java.lang.Deprecated public long getTimestamp() {
         return timestamp_;
       }
       /**
-       * <code>optional uint64 timestamp = 2;</code>
+       * <code>optional uint64 timestamp = 2 [deprecated = true];</code>
        *
        * <pre>
        * Moment at which the trip update was computed. In POSIX time
        * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+       *
+       * Deprecated in favor of TripUpdate.timestamp
        * </pre>
        */
-      public Builder setTimestamp(long value) {
+      @java.lang.Deprecated public Builder setTimestamp(long value) {
         bitField0_ |= 0x00000002;
         timestamp_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint64 timestamp = 2;</code>
+       * <code>optional uint64 timestamp = 2 [deprecated = true];</code>
        *
        * <pre>
        * Moment at which the trip update was computed. In POSIX time
        * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+       *
+       * Deprecated in favor of TripUpdate.timestamp
        * </pre>
        */
-      public Builder clearTimestamp() {
+      @java.lang.Deprecated public Builder clearTimestamp() {
         bitField0_ = (bitField0_ & ~0x00000002);
         timestamp_ = 0L;
         onChanged();
@@ -1743,6 +1775,8 @@ public final class GtfsRealtimeOneBusAway {
    * <pre>
    * Moment at which the trip update was computed. In POSIX time
    * (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
+   *
+   * Deprecated in favor of TripUpdate.timestamp
    * </pre>
    */
   public static final
@@ -1793,16 +1827,17 @@ public final class GtfsRealtimeOneBusAway {
       "e.proto\"Y\n\024OneBusAwayFeedHeader\022\031\n\021incre" +
       "mental_index\030\001 \001(\004\022&\n\036incremental_heartb" +
       "eat_interval\030\002 \001(\r\"&\n\024OneBusAwayFeedEnti" +
-      "ty\022\016\n\006source\030\001 \001(\t\"8\n\024OneBusAwayTripUpda" +
-      "te\022\r\n\005delay\030\001 \001(\005\022\021\n\ttimestamp\030\002 \001(\004:^\n\017" +
-      "oba_feed_header\022\034.transit_realtime.FeedH" +
-      "eader\030\350\007 \001(\0132&.transit_realtime.OneBusAw",
-      "ayFeedHeader:^\n\017oba_feed_entity\022\034.transi" +
-      "t_realtime.FeedEntity\030\350\007 \001(\0132&.transit_r" +
-      "ealtime.OneBusAwayFeedEntity:^\n\017oba_trip" +
-      "_update\022\034.transit_realtime.TripUpdate\030\350\007" +
-      " \001(\0132&.transit_realtime.OneBusAwayTripUp" +
-      "dateB\035\n\033com.google.transit.realtime"
+      "ty\022\016\n\006source\030\001 \001(\t\"@\n\024OneBusAwayTripUpda" +
+      "te\022\021\n\005delay\030\001 \001(\005B\002\030\001\022\025\n\ttimestamp\030\002 \001(\004" +
+      "B\002\030\001:^\n\017oba_feed_header\022\034.transit_realti" +
+      "me.FeedHeader\030\350\007 \001(\0132&.transit_realtime.",
+      "OneBusAwayFeedHeader:^\n\017oba_feed_entity\022" +
+      "\034.transit_realtime.FeedEntity\030\350\007 \001(\0132&.t" +
+      "ransit_realtime.OneBusAwayFeedEntity:^\n\017" +
+      "oba_trip_update\022\034.transit_realtime.TripU" +
+      "pdate\030\350\007 \001(\0132&.transit_realtime.OneBusAw" +
+      "ayTripUpdateB\035\n\033com.google.transit.realt" +
+      "ime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

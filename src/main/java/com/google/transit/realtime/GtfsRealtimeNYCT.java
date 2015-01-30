@@ -309,6 +309,12 @@ public final class GtfsRealtimeNYCT {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
+      if (hasReplacementPeriod()) {
+        if (!getReplacementPeriod().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -533,6 +539,12 @@ public final class GtfsRealtimeNYCT {
       }
 
       public final boolean isInitialized() {
+        if (hasReplacementPeriod()) {
+          if (!getReplacementPeriod().isInitialized()) {
+            
+            return false;
+          }
+        }
         return true;
       }
 
@@ -1212,6 +1224,12 @@ public final class GtfsRealtimeNYCT {
         memoizedIsInitialized = 0;
         return false;
       }
+      for (int i = 0; i < getTripReplacementPeriodCount(); i++) {
+        if (!getTripReplacementPeriod(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -1467,6 +1485,12 @@ public final class GtfsRealtimeNYCT {
         if (!hasNyctSubwayVersion()) {
           
           return false;
+        }
+        for (int i = 0; i < getTripReplacementPeriodCount(); i++) {
+          if (!getTripReplacementPeriod(i).isInitialized()) {
+            
+            return false;
+          }
         }
         return true;
       }

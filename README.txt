@@ -15,7 +15,6 @@ root of the project:
 % protoc \
  -Isrc/main/resources \
  --java_out=src/main/java/ \
- src/main/resources/com/google/transit/realtime/gtfs-realtime.proto \
  src/main/resources/com/google/transit/realtime/gtfs-realtime-NYCT.proto \
  src/main/resources/com/google/transit/realtime/gtfs-realtime-OneBusAway.proto
 

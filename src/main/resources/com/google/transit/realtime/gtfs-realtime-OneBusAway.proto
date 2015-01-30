@@ -44,11 +44,15 @@ message OneBusAwayTripUpdate {
   // Delay (in seconds) can be positive (meaning that the vehicle is late) or
   // negative (meaning that the vehicle is ahead of schedule). Delay of 0
   // means that the vehicle is exactly on time.
-  optional int32 delay = 1;
+  //
+  // Deprecated in favor of TripUpdate.delay
+  optional int32 delay = 1 [deprecated = true];
   
   // Moment at which the trip update was computed. In POSIX time
   // (i.e., number of seconds since January 1st 1970 00:00:00 UTC).
-  optional uint64 timestamp = 2;
+  //
+  // Deprecated in favor of TripUpdate.timestamp
+  optional uint64 timestamp = 2 [deprecated = true];
 }
 
 extend TripUpdate {
