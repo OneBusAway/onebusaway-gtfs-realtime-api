@@ -1,5 +1,4 @@
-This project contains Java libraries generated from the protocol buffer definition of the GTFS-realtime spec.  It also
-contains OneBusAway-specific and NYCT-specific extensions.
+This project contains Java libraries generated from the OneBusAway-specific and NYCT-specific GTFS-realtime protocol buffer extensions.
 
 For details on using the library, see the current release documentation:
 
