@@ -53,8 +53,19 @@ message OneBusAwayTripUpdate {
   //
   // Deprecated in favor of TripUpdate.timestamp
   optional uint64 timestamp = 2 [deprecated = true];
+
+  // trip headsign
+  optional string tripHeadsign = 3;
 }
 
 extend TripUpdate {
   optional OneBusAwayTripUpdate oba_trip_update = 1000;
+}
+
+message OneBusAwayStopTimeUpdate {
+  optional string stopHeadsign = 1;
+}
+
+extend TripUpdate.StopTimeUpdate {
+  optional OneBusAwayStopTimeUpdate oba_stop_time_update = 1000;
 }
