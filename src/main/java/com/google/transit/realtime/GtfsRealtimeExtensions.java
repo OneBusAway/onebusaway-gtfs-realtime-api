@@ -37,6 +37,8 @@ public class GtfsRealtimeExtensions {
     registry.add(GtfsRealtimeOneBusAway.obaFeedHeader);
     registry.add(GtfsRealtimeOneBusAway.obaFeedEntity);
     registry.add(GtfsRealtimeOneBusAway.obaTripUpdate);
+    registry.add(GtfsRealtimeOneBusAway.obaEntitySelector);
+    registry.add(GtfsRealtimeOneBusAway.obaStopTimeUpdate);
     registry.add(GtfsRealtimeMNR.mnrStopTimeUpdate);
   }
 }
