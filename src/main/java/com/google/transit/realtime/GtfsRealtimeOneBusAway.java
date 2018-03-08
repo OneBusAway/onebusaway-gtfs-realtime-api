@@ -11,6 +11,7 @@ public final class GtfsRealtimeOneBusAway {
     registry.add(com.google.transit.realtime.GtfsRealtimeOneBusAway.obaFeedEntity);
     registry.add(com.google.transit.realtime.GtfsRealtimeOneBusAway.obaTripUpdate);
     registry.add(com.google.transit.realtime.GtfsRealtimeOneBusAway.obaStopTimeUpdate);
+    registry.add(com.google.transit.realtime.GtfsRealtimeOneBusAway.obaEntitySelector);
   }
   public interface OneBusAwayFeedHeaderOrBuilder extends
       // @@protoc_insertion_point(interface_extends:transit_realtime.OneBusAwayFeedHeader)
@@ -2391,6 +2392,482 @@ public final class GtfsRealtimeOneBusAway {
     // @@protoc_insertion_point(class_scope:transit_realtime.OneBusAwayStopTimeUpdate)
   }
 
+  public interface OneBusAwayEntitySelectorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:transit_realtime.OneBusAwayEntitySelector)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string elevatorId = 1;</code>
+     */
+    boolean hasElevatorId();
+    /**
+     * <code>optional string elevatorId = 1;</code>
+     */
+    java.lang.String getElevatorId();
+    /**
+     * <code>optional string elevatorId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getElevatorIdBytes();
+  }
+  /**
+   * Protobuf type {@code transit_realtime.OneBusAwayEntitySelector}
+   */
+  public static final class OneBusAwayEntitySelector extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:transit_realtime.OneBusAwayEntitySelector)
+      OneBusAwayEntitySelectorOrBuilder {
+    // Use OneBusAwayEntitySelector.newBuilder() to construct.
+    private OneBusAwayEntitySelector(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private OneBusAwayEntitySelector(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final OneBusAwayEntitySelector defaultInstance;
+    public static OneBusAwayEntitySelector getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public OneBusAwayEntitySelector getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OneBusAwayEntitySelector(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              elevatorId_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayEntitySelector_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayEntitySelector_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector.class, com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<OneBusAwayEntitySelector> PARSER =
+        new com.google.protobuf.AbstractParser<OneBusAwayEntitySelector>() {
+      public OneBusAwayEntitySelector parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OneBusAwayEntitySelector(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OneBusAwayEntitySelector> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int ELEVATORID_FIELD_NUMBER = 1;
+    private java.lang.Object elevatorId_;
+    /**
+     * <code>optional string elevatorId = 1;</code>
+     */
+    public boolean hasElevatorId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string elevatorId = 1;</code>
+     */
+    public java.lang.String getElevatorId() {
+      java.lang.Object ref = elevatorId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          elevatorId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string elevatorId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getElevatorIdBytes() {
+      java.lang.Object ref = elevatorId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        elevatorId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      elevatorId_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getElevatorIdBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getElevatorIdBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code transit_realtime.OneBusAwayEntitySelector}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:transit_realtime.OneBusAwayEntitySelector)
+        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelectorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayEntitySelector_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayEntitySelector_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector.class, com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector.Builder.class);
+      }
+
+      // Construct using com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        elevatorId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.transit.realtime.GtfsRealtimeOneBusAway.internal_static_transit_realtime_OneBusAwayEntitySelector_descriptor;
+      }
+
+      public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector getDefaultInstanceForType() {
+        return com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector.getDefaultInstance();
+      }
+
+      public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector build() {
+        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector buildPartial() {
+        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector result = new com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.elevatorId_ = elevatorId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector) {
+          return mergeFrom((com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector other) {
+        if (other == com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector.getDefaultInstance()) return this;
+        if (other.hasElevatorId()) {
+          bitField0_ |= 0x00000001;
+          elevatorId_ = other.elevatorId_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object elevatorId_ = "";
+      /**
+       * <code>optional string elevatorId = 1;</code>
+       */
+      public boolean hasElevatorId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string elevatorId = 1;</code>
+       */
+      public java.lang.String getElevatorId() {
+        java.lang.Object ref = elevatorId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            elevatorId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string elevatorId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getElevatorIdBytes() {
+        java.lang.Object ref = elevatorId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          elevatorId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string elevatorId = 1;</code>
+       */
+      public Builder setElevatorId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        elevatorId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string elevatorId = 1;</code>
+       */
+      public Builder clearElevatorId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        elevatorId_ = getDefaultInstance().getElevatorId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string elevatorId = 1;</code>
+       */
+      public Builder setElevatorIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        elevatorId_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:transit_realtime.OneBusAwayEntitySelector)
+    }
+
+    static {
+      defaultInstance = new OneBusAwayEntitySelector(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:transit_realtime.OneBusAwayEntitySelector)
+  }
+
   public static final int OBA_FEED_HEADER_FIELD_NUMBER = 1000;
   /**
    * <code>extend .transit_realtime.FeedHeader { ... }</code>
@@ -2435,6 +2912,17 @@ public final class GtfsRealtimeOneBusAway {
           .newFileScopedGeneratedExtension(
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayStopTimeUpdate.class,
         com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayStopTimeUpdate.getDefaultInstance());
+  public static final int OBA_ENTITY_SELECTOR_FIELD_NUMBER = 1000;
+  /**
+   * <code>extend .transit_realtime.EntitySelector { ... }</code>
+   */
+  public static final
+    com.google.protobuf.GeneratedMessage.GeneratedExtension<
+      com.google.transit.realtime.GtfsRealtime.EntitySelector,
+      com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector> obaEntitySelector = com.google.protobuf.GeneratedMessage
+          .newFileScopedGeneratedExtension(
+        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector.class,
+        com.google.transit.realtime.GtfsRealtimeOneBusAway.OneBusAwayEntitySelector.getDefaultInstance());
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_OneBusAwayFeedHeader_descriptor;
   private static
@@ -2455,6 +2943,11 @@ public final class GtfsRealtimeOneBusAway {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_transit_realtime_OneBusAwayStopTimeUpdate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_transit_realtime_OneBusAwayEntitySelector_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_transit_realtime_OneBusAwayEntitySelector_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2473,18 +2966,22 @@ public final class GtfsRealtimeOneBusAway {
       "ty\022\016\n\006source\030\001 \001(\t\"V\n\024OneBusAwayTripUpda" +
       "te\022\021\n\005delay\030\001 \001(\005B\002\030\001\022\025\n\ttimestamp\030\002 \001(\004" +
       "B\002\030\001\022\024\n\014tripHeadsign\030\003 \001(\t\"0\n\030OneBusAway" +
-      "StopTimeUpdate\022\024\n\014stopHeadsign\030\001 \001(\t:^\n\017",
-      "oba_feed_header\022\034.transit_realtime.FeedH" +
-      "eader\030\350\007 \001(\0132&.transit_realtime.OneBusAw" +
-      "ayFeedHeader:^\n\017oba_feed_entity\022\034.transi" +
-      "t_realtime.FeedEntity\030\350\007 \001(\0132&.transit_r" +
-      "ealtime.OneBusAwayFeedEntity:^\n\017oba_trip" +
-      "_update\022\034.transit_realtime.TripUpdate\030\350\007" +
-      " \001(\0132&.transit_realtime.OneBusAwayTripUp" +
-      "date:v\n\024oba_stop_time_update\022+.transit_r" +
-      "ealtime.TripUpdate.StopTimeUpdate\030\350\007 \001(\013" +
-      "2*.transit_realtime.OneBusAwayStopTimeUp",
-      "dateB\035\n\033com.google.transit.realtime"
+      "StopTimeUpdate\022\024\n\014stopHeadsign\030\001 \001(\t\".\n\030",
+      "OneBusAwayEntitySelector\022\022\n\nelevatorId\030\001" +
+      " \001(\t:^\n\017oba_feed_header\022\034.transit_realti" +
+      "me.FeedHeader\030\350\007 \001(\0132&.transit_realtime." +
+      "OneBusAwayFeedHeader:^\n\017oba_feed_entity\022" +
+      "\034.transit_realtime.FeedEntity\030\350\007 \001(\0132&.t" +
+      "ransit_realtime.OneBusAwayFeedEntity:^\n\017" +
+      "oba_trip_update\022\034.transit_realtime.TripU" +
+      "pdate\030\350\007 \001(\0132&.transit_realtime.OneBusAw" +
+      "ayTripUpdate:v\n\024oba_stop_time_update\022+.t" +
+      "ransit_realtime.TripUpdate.StopTimeUpdat",
+      "e\030\350\007 \001(\0132*.transit_realtime.OneBusAwaySt" +
+      "opTimeUpdate:j\n\023oba_entity_selector\022 .tr" +
+      "ansit_realtime.EntitySelector\030\350\007 \001(\0132*.t" +
+      "ransit_realtime.OneBusAwayEntitySelector" +
+      "B\035\n\033com.google.transit.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2523,10 +3020,17 @@ public final class GtfsRealtimeOneBusAway {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_transit_realtime_OneBusAwayStopTimeUpdate_descriptor,
         new java.lang.String[] { "StopHeadsign", });
+    internal_static_transit_realtime_OneBusAwayEntitySelector_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_transit_realtime_OneBusAwayEntitySelector_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_transit_realtime_OneBusAwayEntitySelector_descriptor,
+        new java.lang.String[] { "ElevatorId", });
     obaFeedHeader.internalInit(descriptor.getExtensions().get(0));
     obaFeedEntity.internalInit(descriptor.getExtensions().get(1));
     obaTripUpdate.internalInit(descriptor.getExtensions().get(2));
     obaStopTimeUpdate.internalInit(descriptor.getExtensions().get(3));
+    obaEntitySelector.internalInit(descriptor.getExtensions().get(4));
     com.google.transit.realtime.GtfsRealtime.getDescriptor();
   }
 

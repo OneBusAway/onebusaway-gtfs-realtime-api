@@ -69,3 +69,11 @@ message OneBusAwayStopTimeUpdate {
 extend TripUpdate.StopTimeUpdate {
   optional OneBusAwayStopTimeUpdate oba_stop_time_update = 1000;
 }
+
+message OneBusAwayEntitySelector {
+  optional string elevatorId = 1;
+}
+
+extend EntitySelector {
+  optional OneBusAwayEntitySelector oba_entity_selector = 1000;
+}
