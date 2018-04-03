@@ -40,5 +40,6 @@ public class GtfsRealtimeExtensions {
     registry.add(GtfsRealtimeOneBusAway.obaEntitySelector);
     registry.add(GtfsRealtimeOneBusAway.obaStopTimeUpdate);
     registry.add(GtfsRealtimeMNR.mnrStopTimeUpdate);
+    // warning: cannot add both GtfsRealtimeMNR.mnrStopTimeUpdate and GtfsRealtimeLIRR.MtaStopTimeUpdate.track to the same registry
   }
 }
