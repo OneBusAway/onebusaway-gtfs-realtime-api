@@ -26,11 +26,19 @@ public class GtfsRealtimeExtensions {
 
   /**
    * Adds all known GTFS-realtime extension messages to the specified extension
-   * registry.
+   * registry, except LIRR, unless includeLIRR=true. If includeLIRR=true, the
+   * LIRR extension will be added to the registry but the MNR extension will
+   * not be.
+   *
+   * LIRR and MNR GTFS-RT extensions both use extension ID 1005. Since MNR has
+   * been assigned extension ID 1005 in the Google registry, it makes sense to
+   * default to MNR.
    * 
-   * @param registry
+   * @param registry registry to add the extensions to
+   * @param includeLIRR if true, include LIRR extension; if false, include MNR
+   *                    extension.
    */
-  public static void registerExtensions(ExtensionRegistry registry) {
+  public static void registerExtensions(ExtensionRegistry registry, boolean includeLIRR) {
     registry.add(GtfsRealtimeNYCT.nyctFeedHeader);
     registry.add(GtfsRealtimeNYCT.nyctStopTimeUpdate);
     registry.add(GtfsRealtimeNYCT.nyctTripDescriptor);
@@ -39,6 +47,21 @@ public class GtfsRealtimeExtensions {
     registry.add(GtfsRealtimeOneBusAway.obaTripUpdate);
     registry.add(GtfsRealtimeOneBusAway.obaEntitySelector);
     registry.add(GtfsRealtimeOneBusAway.obaStopTimeUpdate);
-    registry.add(GtfsRealtimeMNR.mnrStopTimeUpdate);
+    // warning: cannot add both GtfsRealtimeMNR.mnrStopTimeUpdate and GtfsRealtimeLIRR.MtaStopTimeUpdate.track to the same registry
+    if (includeLIRR) {
+      registry.add(GtfsRealtimeLIRR.MtaStopTimeUpdate.track);
+    } else {
+      registry.add(GtfsRealtimeMNR.mnrStopTimeUpdate);
+    }
+  }
+
+  /**
+   * Adds all known GTFS-realtime extension messages to the specified extension
+   * registry, except LIRR.
+   *
+   * @param registry registry to add the extensions to
+   */
+  public static void registerExtensions(ExtensionRegistry registry) {
+    registerExtensions(registry, false);
   }
 }
