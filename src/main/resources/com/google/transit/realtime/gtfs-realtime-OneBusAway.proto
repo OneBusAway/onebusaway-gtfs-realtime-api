@@ -56,6 +56,9 @@ message OneBusAwayTripUpdate {
 
   // trip headsign
   optional string tripHeadsign = 3;
+
+  // trip direction
+  optional string tripDirection = 4;
 }
 
 extend TripUpdate {
