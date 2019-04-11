@@ -40,6 +40,7 @@ public final class GtfsRealtimeMNR {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
     registry.add(com.google.transit.realtime.GtfsRealtimeMNR.mnrStopTimeUpdate);
+    registry.add(com.google.transit.realtime.GtfsRealtimeMNR.mnrVehiclePosition);
   }
   public interface MnrStopTimeUpdateOrBuilder extends
       // @@protoc_insertion_point(interface_extends:transit_realtime.MnrStopTimeUpdate)
@@ -565,6 +566,485 @@ public final class GtfsRealtimeMNR {
     // @@protoc_insertion_point(class_scope:transit_realtime.MnrStopTimeUpdate)
   }
 
+  public interface MnrVehiclePositionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:transit_realtime.MnrVehiclePosition)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+     */
+    boolean hasCurrentStatus();
+    /**
+     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+     */
+    com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus getCurrentStatus();
+  }
+  /**
+   * Protobuf type {@code transit_realtime.MnrVehiclePosition}
+   */
+  public static final class MnrVehiclePosition extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:transit_realtime.MnrVehiclePosition)
+      MnrVehiclePositionOrBuilder {
+    // Use MnrVehiclePosition.newBuilder() to construct.
+    private MnrVehiclePosition(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private MnrVehiclePosition(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final MnrVehiclePosition defaultInstance;
+    public static MnrVehiclePosition getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public MnrVehiclePosition getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MnrVehiclePosition(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+              com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus value = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                currentStatus_ = value;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.transit.realtime.GtfsRealtimeMNR.internal_static_transit_realtime_MnrVehiclePosition_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.transit.realtime.GtfsRealtimeMNR.internal_static_transit_realtime_MnrVehiclePosition_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.class, com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<MnrVehiclePosition> PARSER =
+        new com.google.protobuf.AbstractParser<MnrVehiclePosition>() {
+      public MnrVehiclePosition parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MnrVehiclePosition(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MnrVehiclePosition> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus}
+     */
+    public enum MnrVehicleStopStatus
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>DELAYED = 1;</code>
+       */
+      DELAYED(0, 1),
+      ;
+
+      /**
+       * <code>DELAYED = 1;</code>
+       */
+      public static final int DELAYED_VALUE = 1;
+
+
+      public final int getNumber() { return value; }
+
+      public static MnrVehicleStopStatus valueOf(int value) {
+        switch (value) {
+          case 1: return DELAYED;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<MnrVehicleStopStatus>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static com.google.protobuf.Internal.EnumLiteMap<MnrVehicleStopStatus>
+          internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<MnrVehicleStopStatus>() {
+              public MnrVehicleStopStatus findValueByNumber(int number) {
+                return MnrVehicleStopStatus.valueOf(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final MnrVehicleStopStatus[] VALUES = values();
+
+      public static MnrVehicleStopStatus valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private MnrVehicleStopStatus(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus)
+    }
+
+    private int bitField0_;
+    public static final int CURRENT_STATUS_FIELD_NUMBER = 1;
+    private com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus currentStatus_;
+    /**
+     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+     */
+    public boolean hasCurrentStatus() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+     */
+    public com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus getCurrentStatus() {
+      return currentStatus_;
+    }
+
+    private void initFields() {
+      currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(1, currentStatus_.getNumber());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, currentStatus_.getNumber());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code transit_realtime.MnrVehiclePosition}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:transit_realtime.MnrVehiclePosition)
+        com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePositionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.transit.realtime.GtfsRealtimeMNR.internal_static_transit_realtime_MnrVehiclePosition_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.transit.realtime.GtfsRealtimeMNR.internal_static_transit_realtime_MnrVehiclePosition_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.class, com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.Builder.class);
+      }
+
+      // Construct using com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.transit.realtime.GtfsRealtimeMNR.internal_static_transit_realtime_MnrVehiclePosition_descriptor;
+      }
+
+      public com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition getDefaultInstanceForType() {
+        return com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.getDefaultInstance();
+      }
+
+      public com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition build() {
+        com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition buildPartial() {
+        com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition result = new com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.currentStatus_ = currentStatus_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition) {
+          return mergeFrom((com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition other) {
+        if (other == com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.getDefaultInstance()) return this;
+        if (other.hasCurrentStatus()) {
+          setCurrentStatus(other.getCurrentStatus());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED;
+      /**
+       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+       */
+      public boolean hasCurrentStatus() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+       */
+      public com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus getCurrentStatus() {
+        return currentStatus_;
+      }
+      /**
+       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+       */
+      public Builder setCurrentStatus(com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        currentStatus_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+       */
+      public Builder clearCurrentStatus() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:transit_realtime.MnrVehiclePosition)
+    }
+
+    static {
+      defaultInstance = new MnrVehiclePosition(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:transit_realtime.MnrVehiclePosition)
+  }
+
   public static final int MNR_STOP_TIME_UPDATE_FIELD_NUMBER = 1005;
   /**
    * <code>extend .transit_realtime.TripUpdate.StopTimeUpdate { ... }</code>
@@ -576,11 +1056,27 @@ public final class GtfsRealtimeMNR {
           .newFileScopedGeneratedExtension(
         com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate.class,
         com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate.getDefaultInstance());
+  public static final int MNR_VEHICLE_POSITION_FIELD_NUMBER = 1005;
+  /**
+   * <code>extend .transit_realtime.VehiclePosition { ... }</code>
+   */
+  public static final
+    com.google.protobuf.GeneratedMessage.GeneratedExtension<
+      com.google.transit.realtime.GtfsRealtime.VehiclePosition,
+      com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition> mnrVehiclePosition = com.google.protobuf.GeneratedMessage
+          .newFileScopedGeneratedExtension(
+        com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.class,
+        com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.getDefaultInstance());
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_MnrStopTimeUpdate_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_transit_realtime_MnrStopTimeUpdate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_transit_realtime_MnrVehiclePosition_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_transit_realtime_MnrVehiclePosition_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -593,11 +1089,17 @@ public final class GtfsRealtimeMNR {
       "\n3com/google/transit/realtime/gtfs-realt" +
       "ime-MNR.proto\022\020transit_realtime\032/com/goo" +
       "gle/transit/realtime/gtfs-realtime.proto" +
-      "\"\"\n\021MnrStopTimeUpdate\022\r\n\005track\030\001 \001(\t:o\n\024" +
-      "mnr_stop_time_update\022+.transit_realtime." +
-      "TripUpdate.StopTimeUpdate\030\355\007 \001(\0132#.trans" +
-      "it_realtime.MnrStopTimeUpdateB\035\n\033com.goo" +
-      "gle.transit.realtime"
+      "\"\"\n\021MnrStopTimeUpdate\022\r\n\005track\030\001 \001(\t\"\214\001\n" +
+      "\022MnrVehiclePosition\022Q\n\016current_status\030\001 " +
+      "\001(\01629.transit_realtime.MnrVehiclePositio" +
+      "n.MnrVehicleStopStatus\"#\n\024MnrVehicleStop" +
+      "Status\022\013\n\007DELAYED\020\001:o\n\024mnr_stop_time_upd" +
+      "ate\022+.transit_realtime.TripUpdate.StopTi" +
+      "meUpdate\030\355\007 \001(\0132#.transit_realtime.MnrSt",
+      "opTimeUpdate:f\n\024mnr_vehicle_position\022!.t" +
+      "ransit_realtime.VehiclePosition\030\355\007 \001(\0132$" +
+      ".transit_realtime.MnrVehiclePositionB\035\n\033" +
+      "com.google.transit.realtime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -618,7 +1120,14 @@ public final class GtfsRealtimeMNR {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_transit_realtime_MnrStopTimeUpdate_descriptor,
         new java.lang.String[] { "Track", });
+    internal_static_transit_realtime_MnrVehiclePosition_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_transit_realtime_MnrVehiclePosition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_transit_realtime_MnrVehiclePosition_descriptor,
+        new java.lang.String[] { "CurrentStatus", });
     mnrStopTimeUpdate.internalInit(descriptor.getExtensions().get(0));
+    mnrVehiclePosition.internalInit(descriptor.getExtensions().get(1));
     com.google.transit.realtime.GtfsRealtime.getDescriptor();
   }
 

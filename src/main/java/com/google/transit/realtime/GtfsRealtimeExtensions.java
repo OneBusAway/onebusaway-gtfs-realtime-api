@@ -69,6 +69,7 @@ public class GtfsRealtimeExtensions {
       registry.add(GtfsRealtimeLIRR.MtaStopTimeUpdate.track);
     } else {
       registry.add(GtfsRealtimeMNR.mnrStopTimeUpdate);
+      registry.add(GtfsRealtimeMNR.mnrVehiclePosition);
     }
   }
 

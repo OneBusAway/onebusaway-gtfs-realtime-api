@@ -12,3 +12,14 @@ message MnrStopTimeUpdate {
 extend transit_realtime.TripUpdate.StopTimeUpdate {
    optional MnrStopTimeUpdate mnr_stop_time_update = 1005;
 }
+
+message MnrVehiclePosition {
+   enum MnrVehicleStopStatus {
+      DELAYED = 1;
+   }
+   optional MnrVehicleStopStatus current_status = 1;
+}
+
+extend transit_realtime.VehiclePosition {
+   optional MnrVehiclePosition mnr_vehicle_position = 1005;
+}
