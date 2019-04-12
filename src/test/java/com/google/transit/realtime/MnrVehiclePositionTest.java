@@ -56,6 +56,17 @@ public class MnrVehiclePositionTest {
                 vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).getCurrentStatus());
     }
 
+    @Test
+    public void testVehiclePositionWithExtensionIgnoreNotPresent() {
+        GtfsRealtime.VehiclePosition vp = createVehiclePositionWithExtension(false);
+        assertTrue(vp.hasExtension(GtfsRealtimeMNR.mnrVehiclePosition));
+        assertFalse(vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).hasCurrentStatus());
+
+        // ill-defined:
+        assertEquals(GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED,
+                vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).getCurrentStatus());
+    }
+
     private static GtfsRealtime.VehiclePosition createVehiclePosition() {
         return GtfsRealtime.VehiclePosition.getDefaultInstance();
     }
