@@ -25,6 +25,11 @@ public class MnrVehiclePositionTest {
     public void testVanillaVehiclePosition() {
         GtfsRealtime.VehiclePosition vp = createVehiclePosition();
         assertFalse(vp.hasExtension(GtfsRealtimeMNR.mnrVehiclePosition));
+        // If extension is queried regardless:
+        assertFalse(vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).hasCurrentStatus());
+        // Default status should be NONE:
+        assertEquals(GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.NONE,
+                vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).getCurrentStatus());
     }
 
     @Test
@@ -32,6 +37,9 @@ public class MnrVehiclePositionTest {
         GtfsRealtime.VehiclePosition vp = createVehiclePositionWithExtension(false);
         assertTrue(vp.hasExtension(GtfsRealtimeMNR.mnrVehiclePosition));
         assertFalse(vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).hasCurrentStatus());
+        // Default status should be NONE:
+        assertEquals(GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.NONE,
+                vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).getCurrentStatus());
     }
 
     @Test
@@ -39,30 +47,6 @@ public class MnrVehiclePositionTest {
         GtfsRealtime.VehiclePosition vp = createVehiclePositionWithExtension(true);
         assertTrue(vp.hasExtension(GtfsRealtimeMNR.mnrVehiclePosition));
         assertTrue(vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).hasCurrentStatus());
-        assertEquals(GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED,
-                vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).getCurrentStatus());
-    }
-
-    @Test
-    public void testVanillaVehiclePositionIgnoreNotPresent() {
-        GtfsRealtime.VehiclePosition vp = createVehiclePosition();
-        assertFalse(vp.hasExtension(GtfsRealtimeMNR.mnrVehiclePosition));
-
-        // This seems ill-defined, since the extension is reported non-present:
-        assertFalse(vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).hasCurrentStatus());
-
-        // Even more ill-defined!
-        assertEquals(GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED,
-                vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).getCurrentStatus());
-    }
-
-    @Test
-    public void testVehiclePositionWithExtensionIgnoreNotPresent() {
-        GtfsRealtime.VehiclePosition vp = createVehiclePositionWithExtension(false);
-        assertTrue(vp.hasExtension(GtfsRealtimeMNR.mnrVehiclePosition));
-        assertFalse(vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).hasCurrentStatus());
-
-        // ill-defined:
         assertEquals(GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED,
                 vp.getExtension(GtfsRealtimeMNR.mnrVehiclePosition).getCurrentStatus());
     }

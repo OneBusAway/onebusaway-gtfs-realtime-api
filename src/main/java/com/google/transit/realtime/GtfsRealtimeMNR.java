@@ -571,11 +571,11 @@ public final class GtfsRealtimeMNR {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1 [default = NONE];</code>
      */
     boolean hasCurrentStatus();
     /**
-     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1 [default = NONE];</code>
      */
     com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus getCurrentStatus();
   }
@@ -687,11 +687,19 @@ public final class GtfsRealtimeMNR {
     public enum MnrVehicleStopStatus
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
+       * <code>NONE = 0;</code>
+       */
+      NONE(0, 0),
+      /**
        * <code>DELAYED = 1;</code>
        */
-      DELAYED(0, 1),
+      DELAYED(1, 1),
       ;
 
+      /**
+       * <code>NONE = 0;</code>
+       */
+      public static final int NONE_VALUE = 0;
       /**
        * <code>DELAYED = 1;</code>
        */
@@ -702,6 +710,7 @@ public final class GtfsRealtimeMNR {
 
       public static MnrVehicleStopStatus valueOf(int value) {
         switch (value) {
+          case 0: return NONE;
           case 1: return DELAYED;
           default: return null;
         }
@@ -758,20 +767,20 @@ public final class GtfsRealtimeMNR {
     public static final int CURRENT_STATUS_FIELD_NUMBER = 1;
     private com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus currentStatus_;
     /**
-     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1 [default = NONE];</code>
      */
     public boolean hasCurrentStatus() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+     * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1 [default = NONE];</code>
      */
     public com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus getCurrentStatus() {
       return currentStatus_;
     }
 
     private void initFields() {
-      currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED;
+      currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.NONE;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -919,7 +928,7 @@ public final class GtfsRealtimeMNR {
 
       public Builder clear() {
         super.clear();
-        currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED;
+        currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.NONE;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -999,21 +1008,21 @@ public final class GtfsRealtimeMNR {
       }
       private int bitField0_;
 
-      private com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED;
+      private com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.NONE;
       /**
-       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1 [default = NONE];</code>
        */
       public boolean hasCurrentStatus() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1 [default = NONE];</code>
        */
       public com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus getCurrentStatus() {
         return currentStatus_;
       }
       /**
-       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1 [default = NONE];</code>
        */
       public Builder setCurrentStatus(com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus value) {
         if (value == null) {
@@ -1025,11 +1034,11 @@ public final class GtfsRealtimeMNR {
         return this;
       }
       /**
-       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1;</code>
+       * <code>optional .transit_realtime.MnrVehiclePosition.MnrVehicleStopStatus current_status = 1 [default = NONE];</code>
        */
       public Builder clearCurrentStatus() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.DELAYED;
+        currentStatus_ = com.google.transit.realtime.GtfsRealtimeMNR.MnrVehiclePosition.MnrVehicleStopStatus.NONE;
         onChanged();
         return this;
       }
@@ -1089,17 +1098,18 @@ public final class GtfsRealtimeMNR {
       "\n3com/google/transit/realtime/gtfs-realt" +
       "ime-MNR.proto\022\020transit_realtime\032/com/goo" +
       "gle/transit/realtime/gtfs-realtime.proto" +
-      "\"\"\n\021MnrStopTimeUpdate\022\r\n\005track\030\001 \001(\t\"\214\001\n" +
-      "\022MnrVehiclePosition\022Q\n\016current_status\030\001 " +
+      "\"\"\n\021MnrStopTimeUpdate\022\r\n\005track\030\001 \001(\t\"\234\001\n" +
+      "\022MnrVehiclePosition\022W\n\016current_status\030\001 " +
       "\001(\01629.transit_realtime.MnrVehiclePositio" +
-      "n.MnrVehicleStopStatus\"#\n\024MnrVehicleStop" +
-      "Status\022\013\n\007DELAYED\020\001:o\n\024mnr_stop_time_upd" +
-      "ate\022+.transit_realtime.TripUpdate.StopTi" +
-      "meUpdate\030\355\007 \001(\0132#.transit_realtime.MnrSt",
-      "opTimeUpdate:f\n\024mnr_vehicle_position\022!.t" +
-      "ransit_realtime.VehiclePosition\030\355\007 \001(\0132$" +
-      ".transit_realtime.MnrVehiclePositionB\035\n\033" +
-      "com.google.transit.realtime"
+      "n.MnrVehicleStopStatus:\004NONE\"-\n\024MnrVehic" +
+      "leStopStatus\022\010\n\004NONE\020\000\022\013\n\007DELAYED\020\001:o\n\024m" +
+      "nr_stop_time_update\022+.transit_realtime.T" +
+      "ripUpdate.StopTimeUpdate\030\355\007 \001(\0132#.transi",
+      "t_realtime.MnrStopTimeUpdate:f\n\024mnr_vehi" +
+      "cle_position\022!.transit_realtime.VehicleP" +
+      "osition\030\355\007 \001(\0132$.transit_realtime.MnrVeh" +
+      "iclePositionB\035\n\033com.google.transit.realt" +
+      "ime"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

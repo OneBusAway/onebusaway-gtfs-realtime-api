@@ -15,9 +15,10 @@ extend transit_realtime.TripUpdate.StopTimeUpdate {
 
 message MnrVehiclePosition {
    enum MnrVehicleStopStatus {
+      NONE = 0;
       DELAYED = 1;
    }
-   optional MnrVehicleStopStatus current_status = 1;
+   optional MnrVehicleStopStatus current_status = 1 [default = NONE];
 }
 
 extend transit_realtime.VehiclePosition {
