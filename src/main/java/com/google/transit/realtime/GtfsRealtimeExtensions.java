@@ -70,6 +70,9 @@ public class GtfsRealtimeExtensions {
     } else {
       registry.add(GtfsRealtimeMNR.mnrStopTimeUpdate);
     }
+    registry.add(GtfsRealtimeServiceStatus.mercuryFeedHeader);
+    registry.add(GtfsRealtimeServiceStatus.mercuryEntitySelector);
+    registry.add(GtfsRealtimeServiceStatus.mercuryAlert);
   }
 
   /**
