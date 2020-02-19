@@ -1,8 +1,13 @@
 //
 // Mercury extensions for the GTFS-realtime protocol.
 //
+syntax = "proto2";
+
+import "com/google/transit/realtime/gtfs-realtime.proto";
+
 option java_package = "com.google.transit.realtime";
-import "gtfs-realtime.proto";
+
+package transit_realtime;
 // Mercury extensions for the Feed Header
 message MercuryFeedHeader {
   // Version of the Mercury extensions
