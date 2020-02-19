@@ -1,0 +1,54 @@
+//
+// Mercury extensions for the GTFS-realtime protocol.
+//
+option java_package = "com.google.transit.realtime";
+import "gtfs-realtime.proto";
+// Mercury extensions for the Feed Header
+message MercuryFeedHeader {
+  // Version of the Mercury extensions
+  // The current version is 1.0
+  required string mercury_version = 1;
+}
+extend transit_realtime.FeedHeader {
+ optional MercuryFeedHeader mercury_feed_header = 1001;
+}
+// Mercury extensions for the Feed Alert
+message MercuryAlert {
+  required uint64 created_at = 1;
+  required uint64 updated_at = 2;
+  required string alert_type = 3;
+}
+extend transit_realtime.Alert {
+ optional MercuryAlert mercury_alert = 1001;
+}
+// Mercury extensions for the Feed Entity Selector
+message MercuryEntitySelector {
+  // What is the priority of the affected entity. Use to construct the entity sort_order.
+  enum Priority {
+    NO_SCHEDULED_SERVICE = 1;
+    SUNDAY_SCHEDULE = 2;
+    SATURDAY_SCHEDULE = 3;
+    HOLIDAY_SERVICE = 4;
+    EXTRA_SERVICE = 5;
+    PLANNED_WORK = 6;
+    ON_OR_CLOSE = 7;
+    SLOW_SPEEDS = 8;
+    SOME_DELAYS = 9;
+    SPECIAL_EVENT = 10;
+    STATIONS_SKIPPED = 11;
+    DELAYS = 12;
+    EXPRESS_TO_LOCAL = 13;
+    SOME_REROUTES = 14;
+    LOCAL_TO_EXPRESS = 15;
+    SERVICE_CHANGE = 16;
+    TRAINS_REROUTED = 17;
+    PART_SUSPENDED = 18;
+    MULTIPLE_IMPACTS = 19;
+    SUSPENDED = 20;
+  }
+  // Format for sort_order is 'GTFS-ID:Priority'
+  required string sort_order = 1;
+}
+extend transit_realtime.EntitySelector {
+ optional MercuryEntitySelector mercury_entity_selector = 1001;
+}
