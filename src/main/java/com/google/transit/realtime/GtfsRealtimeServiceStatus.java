@@ -6,79 +6,82 @@ package com.google.transit.realtime;
 public final class GtfsRealtimeServiceStatus {
   private GtfsRealtimeServiceStatus() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+      com.google.protobuf.ExtensionRegistry registry) {
     registry.add(com.google.transit.realtime.GtfsRealtimeServiceStatus.mercuryFeedHeader);
     registry.add(com.google.transit.realtime.GtfsRealtimeServiceStatus.mercuryAlert);
     registry.add(com.google.transit.realtime.GtfsRealtimeServiceStatus.mercuryEntitySelector);
-  }
-
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface MercuryFeedHeaderOrBuilder extends
       // @@protoc_insertion_point(interface_extends:transit_realtime.MercuryFeedHeader)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <code>required string mercury_version = 1;</code>
+     *
      * <pre>
      * Version of the Mercury extensions
      * The current version is 1.0
      * </pre>
-     *
-     * <code>required string mercury_version = 1;</code>
      */
     boolean hasMercuryVersion();
     /**
+     * <code>required string mercury_version = 1;</code>
+     *
      * <pre>
      * Version of the Mercury extensions
      * The current version is 1.0
      * </pre>
-     *
-     * <code>required string mercury_version = 1;</code>
      */
     java.lang.String getMercuryVersion();
     /**
+     * <code>required string mercury_version = 1;</code>
+     *
      * <pre>
      * Version of the Mercury extensions
      * The current version is 1.0
      * </pre>
-     *
-     * <code>required string mercury_version = 1;</code>
      */
     com.google.protobuf.ByteString
         getMercuryVersionBytes();
   }
   /**
+   * Protobuf type {@code transit_realtime.MercuryFeedHeader}
+   *
    * <pre>
    * Mercury extensions for the Feed Header
    * </pre>
-   *
-   * Protobuf type {@code transit_realtime.MercuryFeedHeader}
    */
-  public  static final class MercuryFeedHeader extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class MercuryFeedHeader extends
+      com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:transit_realtime.MercuryFeedHeader)
       MercuryFeedHeaderOrBuilder {
     // Use MercuryFeedHeader.newBuilder() to construct.
-    private MercuryFeedHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    private MercuryFeedHeader(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private MercuryFeedHeader() {
-      mercuryVersion_ = "";
+    private MercuryFeedHeader(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final MercuryFeedHeader defaultInstance;
+    public static MercuryFeedHeader getDefaultInstance() {
+      return defaultInstance;
     }
 
+    public MercuryFeedHeader getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+        getUnknownFields() {
       return this.unknownFields;
     }
     private MercuryFeedHeader(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
+      initFields();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -109,7 +112,7 @@ public final class GtfsRealtimeServiceStatus {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+            e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -120,34 +123,49 @@ public final class GtfsRealtimeServiceStatus {
       return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryFeedHeader_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryFeedHeader_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader.class, com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<MercuryFeedHeader> PARSER =
+        new com.google.protobuf.AbstractParser<MercuryFeedHeader>() {
+      public MercuryFeedHeader parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MercuryFeedHeader(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MercuryFeedHeader> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     public static final int MERCURY_VERSION_FIELD_NUMBER = 1;
-    private volatile java.lang.Object mercuryVersion_;
+    private java.lang.Object mercuryVersion_;
     /**
+     * <code>required string mercury_version = 1;</code>
+     *
      * <pre>
      * Version of the Mercury extensions
      * The current version is 1.0
      * </pre>
-     *
-     * <code>required string mercury_version = 1;</code>
      */
     public boolean hasMercuryVersion() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     * <code>required string mercury_version = 1;</code>
+     *
      * <pre>
      * Version of the Mercury extensions
      * The current version is 1.0
      * </pre>
-     *
-     * <code>required string mercury_version = 1;</code>
      */
     public java.lang.String getMercuryVersion() {
       java.lang.Object ref = mercuryVersion_;
@@ -164,12 +182,12 @@ public final class GtfsRealtimeServiceStatus {
       }
     }
     /**
+     * <code>required string mercury_version = 1;</code>
+     *
      * <pre>
      * Version of the Mercury extensions
      * The current version is 1.0
      * </pre>
-     *
-     * <code>required string mercury_version = 1;</code>
      */
     public com.google.protobuf.ByteString
         getMercuryVersionBytes() {
@@ -185,6 +203,9 @@ public final class GtfsRealtimeServiceStatus {
       }
     }
 
+    private void initFields() {
+      mercuryVersion_ = "";
+    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -201,60 +222,33 @@ public final class GtfsRealtimeServiceStatus {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, mercuryVersion_);
+        output.writeBytes(1, getMercuryVersionBytes());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSize;
+      int size = memoizedSerializedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, mercuryVersion_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getMercuryVersionBytes());
       }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
     @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader)) {
-        return super.equals(obj);
-      }
-      com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader other = (com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader) obj;
-
-      boolean result = true;
-      result = result && (hasMercuryVersion() == other.hasMercuryVersion());
-      if (hasMercuryVersion()) {
-        result = result && getMercuryVersion()
-            .equals(other.getMercuryVersion());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      if (hasMercuryVersion()) {
-        hash = (37 * hash) + MERCURY_VERSION_FIELD_NUMBER;
-        hash = (53 * hash) + getMercuryVersion().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
     }
 
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader parseFrom(
@@ -280,69 +274,58 @@ public final class GtfsRealtimeServiceStatus {
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
 
+    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
     public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      return newBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
+    public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
+     * Protobuf type {@code transit_realtime.MercuryFeedHeader}
+     *
      * <pre>
      * Mercury extensions for the Feed Header
      * </pre>
-     *
-     * Protobuf type {@code transit_realtime.MercuryFeedHeader}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:transit_realtime.MercuryFeedHeader)
         com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeaderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -350,7 +333,7 @@ public final class GtfsRealtimeServiceStatus {
         return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryFeedHeader_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryFeedHeader_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -363,20 +346,27 @@ public final class GtfsRealtimeServiceStatus {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
+      private static Builder create() {
+        return new Builder();
+      }
+
       public Builder clear() {
         super.clear();
         mercuryVersion_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -409,32 +399,6 @@ public final class GtfsRealtimeServiceStatus {
         return result;
       }
 
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader)other);
@@ -451,13 +415,13 @@ public final class GtfsRealtimeServiceStatus {
           mercuryVersion_ = other.mercuryVersion_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasMercuryVersion()) {
+          
           return false;
         }
         return true;
@@ -472,7 +436,7 @@ public final class GtfsRealtimeServiceStatus {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
+          throw e;
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -484,23 +448,23 @@ public final class GtfsRealtimeServiceStatus {
 
       private java.lang.Object mercuryVersion_ = "";
       /**
+       * <code>required string mercury_version = 1;</code>
+       *
        * <pre>
        * Version of the Mercury extensions
        * The current version is 1.0
        * </pre>
-       *
-       * <code>required string mercury_version = 1;</code>
        */
       public boolean hasMercuryVersion() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       * <code>required string mercury_version = 1;</code>
+       *
        * <pre>
        * Version of the Mercury extensions
        * The current version is 1.0
        * </pre>
-       *
-       * <code>required string mercury_version = 1;</code>
        */
       public java.lang.String getMercuryVersion() {
         java.lang.Object ref = mercuryVersion_;
@@ -517,12 +481,12 @@ public final class GtfsRealtimeServiceStatus {
         }
       }
       /**
+       * <code>required string mercury_version = 1;</code>
+       *
        * <pre>
        * Version of the Mercury extensions
        * The current version is 1.0
        * </pre>
-       *
-       * <code>required string mercury_version = 1;</code>
        */
       public com.google.protobuf.ByteString
           getMercuryVersionBytes() {
@@ -538,12 +502,12 @@ public final class GtfsRealtimeServiceStatus {
         }
       }
       /**
+       * <code>required string mercury_version = 1;</code>
+       *
        * <pre>
        * Version of the Mercury extensions
        * The current version is 1.0
        * </pre>
-       *
-       * <code>required string mercury_version = 1;</code>
        */
       public Builder setMercuryVersion(
           java.lang.String value) {
@@ -556,12 +520,12 @@ public final class GtfsRealtimeServiceStatus {
         return this;
       }
       /**
+       * <code>required string mercury_version = 1;</code>
+       *
        * <pre>
        * Version of the Mercury extensions
        * The current version is 1.0
        * </pre>
-       *
-       * <code>required string mercury_version = 1;</code>
        */
       public Builder clearMercuryVersion() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -570,12 +534,12 @@ public final class GtfsRealtimeServiceStatus {
         return this;
       }
       /**
+       * <code>required string mercury_version = 1;</code>
+       *
        * <pre>
        * Version of the Mercury extensions
        * The current version is 1.0
        * </pre>
-       *
-       * <code>required string mercury_version = 1;</code>
        */
       public Builder setMercuryVersionBytes(
           com.google.protobuf.ByteString value) {
@@ -587,53 +551,16 @@ public final class GtfsRealtimeServiceStatus {
         onChanged();
         return this;
       }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
 
       // @@protoc_insertion_point(builder_scope:transit_realtime.MercuryFeedHeader)
     }
 
-    // @@protoc_insertion_point(class_scope:transit_realtime.MercuryFeedHeader)
-    private static final com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader();
+      defaultInstance = new MercuryFeedHeader(true);
+      defaultInstance.initFields();
     }
 
-    public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<MercuryFeedHeader>
-        PARSER = new com.google.protobuf.AbstractParser<MercuryFeedHeader>() {
-      public MercuryFeedHeader parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MercuryFeedHeader(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<MercuryFeedHeader> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MercuryFeedHeader> getParserForType() {
-      return PARSER;
-    }
-
-    public com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryFeedHeader getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
+    // @@protoc_insertion_point(class_scope:transit_realtime.MercuryFeedHeader)
   }
 
   public interface MercuryAlertOrBuilder extends
@@ -673,36 +600,43 @@ public final class GtfsRealtimeServiceStatus {
         getAlertTypeBytes();
   }
   /**
+   * Protobuf type {@code transit_realtime.MercuryAlert}
+   *
    * <pre>
    * Mercury extensions for the Feed Alert
    * </pre>
-   *
-   * Protobuf type {@code transit_realtime.MercuryAlert}
    */
-  public  static final class MercuryAlert extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class MercuryAlert extends
+      com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:transit_realtime.MercuryAlert)
       MercuryAlertOrBuilder {
     // Use MercuryAlert.newBuilder() to construct.
-    private MercuryAlert(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    private MercuryAlert(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private MercuryAlert() {
-      createdAt_ = 0L;
-      updatedAt_ = 0L;
-      alertType_ = "";
+    private MercuryAlert(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final MercuryAlert defaultInstance;
+    public static MercuryAlert getDefaultInstance() {
+      return defaultInstance;
     }
 
+    public MercuryAlert getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+        getUnknownFields() {
       return this.unknownFields;
     }
     private MercuryAlert(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
+      initFields();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -743,7 +677,7 @@ public final class GtfsRealtimeServiceStatus {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+            e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -754,11 +688,26 @@ public final class GtfsRealtimeServiceStatus {
       return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryAlert_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryAlert_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert.class, com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<MercuryAlert> PARSER =
+        new com.google.protobuf.AbstractParser<MercuryAlert>() {
+      public MercuryAlert parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MercuryAlert(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MercuryAlert> getParserForType() {
+      return PARSER;
     }
 
     private int bitField0_;
@@ -793,7 +742,7 @@ public final class GtfsRealtimeServiceStatus {
     }
 
     public static final int ALERT_TYPE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object alertType_;
+    private java.lang.Object alertType_;
     /**
      * <code>required string alert_type = 3;</code>
      */
@@ -834,6 +783,11 @@ public final class GtfsRealtimeServiceStatus {
       }
     }
 
+    private void initFields() {
+      createdAt_ = 0L;
+      updatedAt_ = 0L;
+      alertType_ = "";
+    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -858,6 +812,7 @@ public final class GtfsRealtimeServiceStatus {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeUInt64(1, createdAt_);
       }
@@ -865,13 +820,14 @@ public final class GtfsRealtimeServiceStatus {
         output.writeUInt64(2, updatedAt_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, alertType_);
+        output.writeBytes(3, getAlertTypeBytes());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSize;
+      int size = memoizedSerializedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -884,68 +840,19 @@ public final class GtfsRealtimeServiceStatus {
           .computeUInt64Size(2, updatedAt_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, alertType_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getAlertTypeBytes());
       }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
     @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert)) {
-        return super.equals(obj);
-      }
-      com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert other = (com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert) obj;
-
-      boolean result = true;
-      result = result && (hasCreatedAt() == other.hasCreatedAt());
-      if (hasCreatedAt()) {
-        result = result && (getCreatedAt()
-            == other.getCreatedAt());
-      }
-      result = result && (hasUpdatedAt() == other.hasUpdatedAt());
-      if (hasUpdatedAt()) {
-        result = result && (getUpdatedAt()
-            == other.getUpdatedAt());
-      }
-      result = result && (hasAlertType() == other.hasAlertType());
-      if (hasAlertType()) {
-        result = result && getAlertType()
-            .equals(other.getAlertType());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      if (hasCreatedAt()) {
-        hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getCreatedAt());
-      }
-      if (hasUpdatedAt()) {
-        hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getUpdatedAt());
-      }
-      if (hasAlertType()) {
-        hash = (37 * hash) + ALERT_TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getAlertType().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
     }
 
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert parseFrom(
@@ -971,69 +878,58 @@ public final class GtfsRealtimeServiceStatus {
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
 
+    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
     public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      return newBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
+    public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
+     * Protobuf type {@code transit_realtime.MercuryAlert}
+     *
      * <pre>
      * Mercury extensions for the Feed Alert
      * </pre>
-     *
-     * Protobuf type {@code transit_realtime.MercuryAlert}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:transit_realtime.MercuryAlert)
         com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlertOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -1041,7 +937,7 @@ public final class GtfsRealtimeServiceStatus {
         return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryAlert_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryAlert_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1054,15 +950,18 @@ public final class GtfsRealtimeServiceStatus {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
+      private static Builder create() {
+        return new Builder();
+      }
+
       public Builder clear() {
         super.clear();
         createdAt_ = 0L;
@@ -1072,6 +971,10 @@ public final class GtfsRealtimeServiceStatus {
         alertType_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -1112,32 +1015,6 @@ public final class GtfsRealtimeServiceStatus {
         return result;
       }
 
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert)other);
@@ -1160,19 +1037,21 @@ public final class GtfsRealtimeServiceStatus {
           alertType_ = other.alertType_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasCreatedAt()) {
+          
           return false;
         }
         if (!hasUpdatedAt()) {
+          
           return false;
         }
         if (!hasAlertType()) {
+          
           return false;
         }
         return true;
@@ -1187,7 +1066,7 @@ public final class GtfsRealtimeServiceStatus {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
+          throw e;
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -1336,53 +1215,16 @@ public final class GtfsRealtimeServiceStatus {
         onChanged();
         return this;
       }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
 
       // @@protoc_insertion_point(builder_scope:transit_realtime.MercuryAlert)
     }
 
-    // @@protoc_insertion_point(class_scope:transit_realtime.MercuryAlert)
-    private static final com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert();
+      defaultInstance = new MercuryAlert(true);
+      defaultInstance.initFields();
     }
 
-    public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<MercuryAlert>
-        PARSER = new com.google.protobuf.AbstractParser<MercuryAlert>() {
-      public MercuryAlert parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MercuryAlert(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<MercuryAlert> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MercuryAlert> getParserForType() {
-      return PARSER;
-    }
-
-    public com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryAlert getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
+    // @@protoc_insertion_point(class_scope:transit_realtime.MercuryAlert)
   }
 
   public interface MercuryEntitySelectorOrBuilder extends
@@ -1390,60 +1232,69 @@ public final class GtfsRealtimeServiceStatus {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <code>required string sort_order = 1;</code>
+     *
      * <pre>
      * Format for sort_order is 'GTFS-ID:Priority'
      * </pre>
-     *
-     * <code>required string sort_order = 1;</code>
      */
     boolean hasSortOrder();
     /**
+     * <code>required string sort_order = 1;</code>
+     *
      * <pre>
      * Format for sort_order is 'GTFS-ID:Priority'
      * </pre>
-     *
-     * <code>required string sort_order = 1;</code>
      */
     java.lang.String getSortOrder();
     /**
+     * <code>required string sort_order = 1;</code>
+     *
      * <pre>
      * Format for sort_order is 'GTFS-ID:Priority'
      * </pre>
-     *
-     * <code>required string sort_order = 1;</code>
      */
     com.google.protobuf.ByteString
         getSortOrderBytes();
   }
   /**
+   * Protobuf type {@code transit_realtime.MercuryEntitySelector}
+   *
    * <pre>
    * Mercury extensions for the Feed Entity Selector
    * </pre>
-   *
-   * Protobuf type {@code transit_realtime.MercuryEntitySelector}
    */
-  public  static final class MercuryEntitySelector extends
-      com.google.protobuf.GeneratedMessageV3 implements
+  public static final class MercuryEntitySelector extends
+      com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:transit_realtime.MercuryEntitySelector)
       MercuryEntitySelectorOrBuilder {
     // Use MercuryEntitySelector.newBuilder() to construct.
-    private MercuryEntitySelector(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    private MercuryEntitySelector(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private MercuryEntitySelector() {
-      sortOrder_ = "";
+    private MercuryEntitySelector(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final MercuryEntitySelector defaultInstance;
+    public static MercuryEntitySelector getDefaultInstance() {
+      return defaultInstance;
     }
 
+    public MercuryEntitySelector getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+        getUnknownFields() {
       return this.unknownFields;
     }
     private MercuryEntitySelector(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
+      initFields();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1474,7 +1325,7 @@ public final class GtfsRealtimeServiceStatus {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+            e.getMessage()).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1485,102 +1336,117 @@ public final class GtfsRealtimeServiceStatus {
       return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryEntitySelector_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryEntitySelector_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector.class, com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<MercuryEntitySelector> PARSER =
+        new com.google.protobuf.AbstractParser<MercuryEntitySelector>() {
+      public MercuryEntitySelector parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MercuryEntitySelector(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MercuryEntitySelector> getParserForType() {
+      return PARSER;
+    }
+
     /**
+     * Protobuf enum {@code transit_realtime.MercuryEntitySelector.Priority}
+     *
      * <pre>
      * What is the priority of the affected entity. Use to construct the entity sort_order.
      * </pre>
-     *
-     * Protobuf enum {@code transit_realtime.MercuryEntitySelector.Priority}
      */
     public enum Priority
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <code>NO_SCHEDULED_SERVICE = 1;</code>
        */
-      NO_SCHEDULED_SERVICE(1),
+      NO_SCHEDULED_SERVICE(0, 1),
       /**
        * <code>SUNDAY_SCHEDULE = 2;</code>
        */
-      SUNDAY_SCHEDULE(2),
+      SUNDAY_SCHEDULE(1, 2),
       /**
        * <code>SATURDAY_SCHEDULE = 3;</code>
        */
-      SATURDAY_SCHEDULE(3),
+      SATURDAY_SCHEDULE(2, 3),
       /**
        * <code>HOLIDAY_SERVICE = 4;</code>
        */
-      HOLIDAY_SERVICE(4),
+      HOLIDAY_SERVICE(3, 4),
       /**
        * <code>EXTRA_SERVICE = 5;</code>
        */
-      EXTRA_SERVICE(5),
+      EXTRA_SERVICE(4, 5),
       /**
        * <code>PLANNED_WORK = 6;</code>
        */
-      PLANNED_WORK(6),
+      PLANNED_WORK(5, 6),
       /**
        * <code>ON_OR_CLOSE = 7;</code>
        */
-      ON_OR_CLOSE(7),
+      ON_OR_CLOSE(6, 7),
       /**
        * <code>SLOW_SPEEDS = 8;</code>
        */
-      SLOW_SPEEDS(8),
+      SLOW_SPEEDS(7, 8),
       /**
        * <code>SOME_DELAYS = 9;</code>
        */
-      SOME_DELAYS(9),
+      SOME_DELAYS(8, 9),
       /**
        * <code>SPECIAL_EVENT = 10;</code>
        */
-      SPECIAL_EVENT(10),
+      SPECIAL_EVENT(9, 10),
       /**
        * <code>STATIONS_SKIPPED = 11;</code>
        */
-      STATIONS_SKIPPED(11),
+      STATIONS_SKIPPED(10, 11),
       /**
        * <code>DELAYS = 12;</code>
        */
-      DELAYS(12),
+      DELAYS(11, 12),
       /**
        * <code>EXPRESS_TO_LOCAL = 13;</code>
        */
-      EXPRESS_TO_LOCAL(13),
+      EXPRESS_TO_LOCAL(12, 13),
       /**
        * <code>SOME_REROUTES = 14;</code>
        */
-      SOME_REROUTES(14),
+      SOME_REROUTES(13, 14),
       /**
        * <code>LOCAL_TO_EXPRESS = 15;</code>
        */
-      LOCAL_TO_EXPRESS(15),
+      LOCAL_TO_EXPRESS(14, 15),
       /**
        * <code>SERVICE_CHANGE = 16;</code>
        */
-      SERVICE_CHANGE(16),
+      SERVICE_CHANGE(15, 16),
       /**
        * <code>TRAINS_REROUTED = 17;</code>
        */
-      TRAINS_REROUTED(17),
+      TRAINS_REROUTED(16, 17),
       /**
        * <code>PART_SUSPENDED = 18;</code>
        */
-      PART_SUSPENDED(18),
+      PART_SUSPENDED(17, 18),
       /**
        * <code>MULTIPLE_IMPACTS = 19;</code>
        */
-      MULTIPLE_IMPACTS(19),
+      MULTIPLE_IMPACTS(18, 19),
       /**
        * <code>SUSPENDED = 20;</code>
        */
-      SUSPENDED(20),
+      SUSPENDED(19, 20),
       ;
 
       /**
@@ -1665,19 +1531,9 @@ public final class GtfsRealtimeServiceStatus {
       public static final int SUSPENDED_VALUE = 20;
 
 
-      public final int getNumber() {
-        return value;
-      }
+      public final int getNumber() { return value; }
 
-      /**
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
       public static Priority valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static Priority forNumber(int value) {
         switch (value) {
           case 1: return NO_SCHEDULED_SERVICE;
           case 2: return SUNDAY_SCHEDULE;
@@ -1707,17 +1563,17 @@ public final class GtfsRealtimeServiceStatus {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          Priority> internalValueMap =
+      private static com.google.protobuf.Internal.EnumLiteMap<Priority>
+          internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<Priority>() {
               public Priority findValueByNumber(int number) {
-                return Priority.forNumber(number);
+                return Priority.valueOf(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(ordinal());
+        return getDescriptor().getValues().get(index);
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -1739,9 +1595,11 @@ public final class GtfsRealtimeServiceStatus {
         return VALUES[desc.getIndex()];
       }
 
+      private final int index;
       private final int value;
 
-      private Priority(int value) {
+      private Priority(int index, int value) {
+        this.index = index;
         this.value = value;
       }
 
@@ -1750,23 +1608,23 @@ public final class GtfsRealtimeServiceStatus {
 
     private int bitField0_;
     public static final int SORT_ORDER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object sortOrder_;
+    private java.lang.Object sortOrder_;
     /**
+     * <code>required string sort_order = 1;</code>
+     *
      * <pre>
      * Format for sort_order is 'GTFS-ID:Priority'
      * </pre>
-     *
-     * <code>required string sort_order = 1;</code>
      */
     public boolean hasSortOrder() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
+     * <code>required string sort_order = 1;</code>
+     *
      * <pre>
      * Format for sort_order is 'GTFS-ID:Priority'
      * </pre>
-     *
-     * <code>required string sort_order = 1;</code>
      */
     public java.lang.String getSortOrder() {
       java.lang.Object ref = sortOrder_;
@@ -1783,11 +1641,11 @@ public final class GtfsRealtimeServiceStatus {
       }
     }
     /**
+     * <code>required string sort_order = 1;</code>
+     *
      * <pre>
      * Format for sort_order is 'GTFS-ID:Priority'
      * </pre>
-     *
-     * <code>required string sort_order = 1;</code>
      */
     public com.google.protobuf.ByteString
         getSortOrderBytes() {
@@ -1803,6 +1661,9 @@ public final class GtfsRealtimeServiceStatus {
       }
     }
 
+    private void initFields() {
+      sortOrder_ = "";
+    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1819,60 +1680,33 @@ public final class GtfsRealtimeServiceStatus {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sortOrder_);
+        output.writeBytes(1, getSortOrderBytes());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSize;
+      int size = memoizedSerializedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sortOrder_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getSortOrderBytes());
       }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
     @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector)) {
-        return super.equals(obj);
-      }
-      com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector other = (com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector) obj;
-
-      boolean result = true;
-      result = result && (hasSortOrder() == other.hasSortOrder());
-      if (hasSortOrder()) {
-        result = result && getSortOrder()
-            .equals(other.getSortOrder());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      if (hasSortOrder()) {
-        hash = (37 * hash) + SORT_ORDER_FIELD_NUMBER;
-        hash = (53 * hash) + getSortOrder().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
     }
 
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector parseFrom(
@@ -1898,69 +1732,58 @@ public final class GtfsRealtimeServiceStatus {
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
 
+    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
     public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      return newBuilder().mergeFrom(prototype);
     }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
+    public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
+     * Protobuf type {@code transit_realtime.MercuryEntitySelector}
+     *
      * <pre>
      * Mercury extensions for the Feed Entity Selector
      * </pre>
-     *
-     * Protobuf type {@code transit_realtime.MercuryEntitySelector}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:transit_realtime.MercuryEntitySelector)
         com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelectorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -1968,7 +1791,7 @@ public final class GtfsRealtimeServiceStatus {
         return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryEntitySelector_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.google.transit.realtime.GtfsRealtimeServiceStatus.internal_static_transit_realtime_MercuryEntitySelector_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1981,20 +1804,27 @@ public final class GtfsRealtimeServiceStatus {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
+      private static Builder create() {
+        return new Builder();
+      }
+
       public Builder clear() {
         super.clear();
         sortOrder_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -2027,32 +1857,6 @@ public final class GtfsRealtimeServiceStatus {
         return result;
       }
 
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector)other);
@@ -2069,13 +1873,13 @@ public final class GtfsRealtimeServiceStatus {
           sortOrder_ = other.sortOrder_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasSortOrder()) {
+          
           return false;
         }
         return true;
@@ -2090,7 +1894,7 @@ public final class GtfsRealtimeServiceStatus {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
+          throw e;
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -2102,21 +1906,21 @@ public final class GtfsRealtimeServiceStatus {
 
       private java.lang.Object sortOrder_ = "";
       /**
+       * <code>required string sort_order = 1;</code>
+       *
        * <pre>
        * Format for sort_order is 'GTFS-ID:Priority'
        * </pre>
-       *
-       * <code>required string sort_order = 1;</code>
        */
       public boolean hasSortOrder() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
+       * <code>required string sort_order = 1;</code>
+       *
        * <pre>
        * Format for sort_order is 'GTFS-ID:Priority'
        * </pre>
-       *
-       * <code>required string sort_order = 1;</code>
        */
       public java.lang.String getSortOrder() {
         java.lang.Object ref = sortOrder_;
@@ -2133,11 +1937,11 @@ public final class GtfsRealtimeServiceStatus {
         }
       }
       /**
+       * <code>required string sort_order = 1;</code>
+       *
        * <pre>
        * Format for sort_order is 'GTFS-ID:Priority'
        * </pre>
-       *
-       * <code>required string sort_order = 1;</code>
        */
       public com.google.protobuf.ByteString
           getSortOrderBytes() {
@@ -2153,11 +1957,11 @@ public final class GtfsRealtimeServiceStatus {
         }
       }
       /**
+       * <code>required string sort_order = 1;</code>
+       *
        * <pre>
        * Format for sort_order is 'GTFS-ID:Priority'
        * </pre>
-       *
-       * <code>required string sort_order = 1;</code>
        */
       public Builder setSortOrder(
           java.lang.String value) {
@@ -2170,11 +1974,11 @@ public final class GtfsRealtimeServiceStatus {
         return this;
       }
       /**
+       * <code>required string sort_order = 1;</code>
+       *
        * <pre>
        * Format for sort_order is 'GTFS-ID:Priority'
        * </pre>
-       *
-       * <code>required string sort_order = 1;</code>
        */
       public Builder clearSortOrder() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -2183,11 +1987,11 @@ public final class GtfsRealtimeServiceStatus {
         return this;
       }
       /**
+       * <code>required string sort_order = 1;</code>
+       *
        * <pre>
        * Format for sort_order is 'GTFS-ID:Priority'
        * </pre>
-       *
-       * <code>required string sort_order = 1;</code>
        */
       public Builder setSortOrderBytes(
           com.google.protobuf.ByteString value) {
@@ -2199,53 +2003,16 @@ public final class GtfsRealtimeServiceStatus {
         onChanged();
         return this;
       }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
 
       // @@protoc_insertion_point(builder_scope:transit_realtime.MercuryEntitySelector)
     }
 
-    // @@protoc_insertion_point(class_scope:transit_realtime.MercuryEntitySelector)
-    private static final com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector();
+      defaultInstance = new MercuryEntitySelector(true);
+      defaultInstance.initFields();
     }
 
-    public static com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<MercuryEntitySelector>
-        PARSER = new com.google.protobuf.AbstractParser<MercuryEntitySelector>() {
-      public MercuryEntitySelector parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MercuryEntitySelector(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<MercuryEntitySelector> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MercuryEntitySelector> getParserForType() {
-      return PARSER;
-    }
-
-    public com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
+    // @@protoc_insertion_point(class_scope:transit_realtime.MercuryEntitySelector)
   }
 
   public static final int MERCURY_FEED_HEADER_FIELD_NUMBER = 1001;
@@ -2283,25 +2050,25 @@ public final class GtfsRealtimeServiceStatus {
         com.google.transit.realtime.GtfsRealtimeServiceStatus.MercuryEntitySelector.getDefaultInstance());
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_MercuryFeedHeader_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_transit_realtime_MercuryFeedHeader_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_MercuryAlert_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_transit_realtime_MercuryAlert_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_MercuryEntitySelector_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_transit_realtime_MercuryEntitySelector_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
+  private static com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -2348,19 +2115,19 @@ public final class GtfsRealtimeServiceStatus {
     internal_static_transit_realtime_MercuryFeedHeader_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_transit_realtime_MercuryFeedHeader_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_transit_realtime_MercuryFeedHeader_descriptor,
         new java.lang.String[] { "MercuryVersion", });
     internal_static_transit_realtime_MercuryAlert_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_transit_realtime_MercuryAlert_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_transit_realtime_MercuryAlert_descriptor,
         new java.lang.String[] { "CreatedAt", "UpdatedAt", "AlertType", });
     internal_static_transit_realtime_MercuryEntitySelector_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_transit_realtime_MercuryEntitySelector_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_transit_realtime_MercuryEntitySelector_descriptor,
         new java.lang.String[] { "SortOrder", });
     mercuryFeedHeader.internalInit(descriptor.getExtensions().get(0));
