@@ -3,20 +3,13 @@
   <parent>
     <artifactId>onebusaway</artifactId>
     <groupId>org.onebusaway</groupId>
-    <version>1.2.4</version>
+    <version>1.2.6-SNAPSHOT</version>
   </parent>
   <artifactId>onebusaway-gtfs-realtime-api</artifactId>
   <version>1.2.12-SNAPSHOT</version>
   <name>onebusaway-gtfs-realtime-api</name>
   <description>Java classes for OBA-specific extensions to the GTFS-realtime protocol buffer specification.</description>
   <url>https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/wiki/</url>
-
-  <repositories>
-    <repository>
-      <id>public.onebusaway.org</id>
-      <url>http://nexus.onebusaway.org/content/groups/public/</url>
-    </repository>
-  </repositories>
 
   <scm>
     <connection>scm:git:http://github.com/OneBusAway/onebusaway-gtfs-realtime-api.git</connection>
