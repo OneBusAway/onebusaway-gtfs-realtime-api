@@ -24,12 +24,17 @@ message MercuryAlert {
   required uint64 updated_at = 2;
   required string alert_type = 3;
 }
+
 extend transit_realtime.Alert {
  optional MercuryAlert mercury_alert = 1001;
 }
+
 // Mercury extensions for the Feed Entity Selector
 message MercuryEntitySelector {
+
   // What is the priority of the affected entity. Use to construct the entity sort_order.
+  // Note: Nyct Bus uses a different priority ordering
+
   enum Priority {
     NO_SCHEDULED_SERVICE = 1;
     SUNDAY_SCHEDULE = 2;
@@ -51,10 +56,38 @@ message MercuryEntitySelector {
     PART_SUSPENDED = 18;
     MULTIPLE_IMPACTS = 19;
     SUSPENDED = 20;
+    BUSING = 21;
   }
+
+  enum Nyct_Bus_Priority {
+    NO_SCHEDULED_SERVICE = 1;
+    SUNDAY_SCHEDULE = 2;
+    SATURDAY_SCHEDULE = 3;
+    HOLIDAY_SERVICE = 4;
+    PLANNED_DETOUR = 5;
+    EXTRA_SERVICE = 6;
+    PLANNED_WORK = 7;
+    ON_OR_CLOSE = 8;
+    SLOW_SPEEDS = 9;
+    SOME_DELAYS = 10;
+    SPECIAL_EVENT = 11;
+    STATIONS_SKIPPED = 12;
+    DELAYS = 13;
+    EXPRESS_TO_LOCAL = 14;
+    SOME_REROUTES = 15;
+    DETOUR = 16;
+    LOCAL_TO_EXPRESS = 17;
+    SERVICE_CHANGE = 18;
+    TRAINS_REROUTED = 19;
+    PART_SUSPENDED = 20;
+    MULTIPLE_IMPACTS = 21;
+    SUSPENDED = 22;
+  }
+
   // Format for sort_order is 'GTFS-ID:Priority'
   required string sort_order = 1;
 }
+
 extend transit_realtime.EntitySelector {
  optional MercuryEntitySelector mercury_entity_selector = 1001;
 }
