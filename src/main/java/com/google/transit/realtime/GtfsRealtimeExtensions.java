@@ -56,23 +56,15 @@ public class GtfsRealtimeExtensions {
    *                    extension.
    */
   public static void registerExtensions(ExtensionRegistry registry, boolean includeLIRR) {
-    registry.add(GtfsRealtimeNYCT.nyctFeedHeader);
-    registry.add(GtfsRealtimeNYCT.nyctStopTimeUpdate);
-    registry.add(GtfsRealtimeNYCT.nyctTripDescriptor);
-    registry.add(GtfsRealtimeOneBusAway.obaFeedHeader);
-    registry.add(GtfsRealtimeOneBusAway.obaFeedEntity);
-    registry.add(GtfsRealtimeOneBusAway.obaTripUpdate);
-    registry.add(GtfsRealtimeOneBusAway.obaEntitySelector);
-    registry.add(GtfsRealtimeOneBusAway.obaStopTimeUpdate);
+    GtfsRealtimeNYCT.registerAllExtensions(registry);
+    GtfsRealtimeOneBusAway.registerAllExtensions(registry);
     // warning: cannot add both GtfsRealtimeMNR.mnrStopTimeUpdate and GtfsRealtimeLIRR.MtaStopTimeUpdate.track to the same registry
     if (includeLIRR) {
-      registry.add(GtfsRealtimeLIRR.MtaStopTimeUpdate.track);
+      GtfsRealtimeLIRR.registerAllExtensions(registry);
     } else {
-      registry.add(GtfsRealtimeMNR.mnrStopTimeUpdate);
+      GtfsRealtimeMNR.registerAllExtensions(registry);
     }
-    registry.add(GtfsRealtimeServiceStatus.mercuryFeedHeader);
-    registry.add(GtfsRealtimeServiceStatus.mercuryEntitySelector);
-    registry.add(GtfsRealtimeServiceStatus.mercuryAlert);
+    GtfsRealtimeServiceStatus.registerAllExtensions(registry);
   }
 
   /**
