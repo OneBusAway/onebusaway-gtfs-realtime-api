@@ -60,9 +60,14 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.google.transit</groupId>
+      <groupId>io.mobilitydata.transit</groupId>
       <artifactId>gtfs-realtime-bindings</artifactId>
-      <version>0.0.4</version>
+      <version>0.0.5</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>3.11.4</version>
     </dependency>
   </dependencies>
 </project>

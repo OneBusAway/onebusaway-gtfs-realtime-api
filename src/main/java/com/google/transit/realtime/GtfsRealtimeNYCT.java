@@ -38,103 +38,116 @@ package com.google.transit.realtime;
 public final class GtfsRealtimeNYCT {
   private GtfsRealtimeNYCT() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
+      com.google.protobuf.ExtensionRegistryLite registry) {
     registry.add(com.google.transit.realtime.GtfsRealtimeNYCT.nyctFeedHeader);
     registry.add(com.google.transit.realtime.GtfsRealtimeNYCT.nyctTripDescriptor);
     registry.add(com.google.transit.realtime.GtfsRealtimeNYCT.nyctStopTimeUpdate);
+  }
+
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface TripReplacementPeriodOrBuilder extends
       // @@protoc_insertion_point(interface_extends:transit_realtime.TripReplacementPeriod)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string route_id = 1;</code>
-     *
      * <pre>
      * The replacement period is for this route
      * </pre>
+     *
+     * <code>optional string route_id = 1;</code>
+     * @return Whether the routeId field is set.
      */
     boolean hasRouteId();
     /**
-     * <code>optional string route_id = 1;</code>
-     *
      * <pre>
      * The replacement period is for this route
      * </pre>
+     *
+     * <code>optional string route_id = 1;</code>
+     * @return The routeId.
      */
     java.lang.String getRouteId();
     /**
-     * <code>optional string route_id = 1;</code>
-     *
      * <pre>
      * The replacement period is for this route
      * </pre>
+     *
+     * <code>optional string route_id = 1;</code>
+     * @return The bytes for routeId.
      */
     com.google.protobuf.ByteString
         getRouteIdBytes();
 
     /**
-     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-     *
      * <pre>
      * The start time is omitted, the end time is currently now + 30 minutes for
      * all routes of the A division
      * </pre>
+     *
+     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
+     * @return Whether the replacementPeriod field is set.
      */
     boolean hasReplacementPeriod();
     /**
-     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-     *
      * <pre>
      * The start time is omitted, the end time is currently now + 30 minutes for
      * all routes of the A division
      * </pre>
+     *
+     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
+     * @return The replacementPeriod.
      */
     com.google.transit.realtime.GtfsRealtime.TimeRange getReplacementPeriod();
     /**
-     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-     *
      * <pre>
      * The start time is omitted, the end time is currently now + 30 minutes for
      * all routes of the A division
      * </pre>
+     *
+     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
      */
     com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder getReplacementPeriodOrBuilder();
   }
   /**
    * Protobuf type {@code transit_realtime.TripReplacementPeriod}
    */
-  public static final class TripReplacementPeriod extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class TripReplacementPeriod extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:transit_realtime.TripReplacementPeriod)
       TripReplacementPeriodOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use TripReplacementPeriod.newBuilder() to construct.
-    private TripReplacementPeriod(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private TripReplacementPeriod(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private TripReplacementPeriod(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final TripReplacementPeriod defaultInstance;
-    public static TripReplacementPeriod getDefaultInstance() {
-      return defaultInstance;
+    private TripReplacementPeriod() {
+      routeId_ = "";
     }
 
-    public TripReplacementPeriod getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TripReplacementPeriod();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private TripReplacementPeriod(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -146,13 +159,6 @@ public final class GtfsRealtimeNYCT {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -161,7 +167,7 @@ public final class GtfsRealtimeNYCT {
             }
             case 18: {
               com.google.transit.realtime.GtfsRealtime.TimeRange.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (((bitField0_ & 0x00000002) != 0)) {
                 subBuilder = replacementPeriod_.toBuilder();
               }
               replacementPeriod_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.TimeRange.PARSER, extensionRegistry);
@@ -172,13 +178,20 @@ public final class GtfsRealtimeNYCT {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -189,47 +202,35 @@ public final class GtfsRealtimeNYCT {
       return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_TripReplacementPeriod_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_TripReplacementPeriod_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.class, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<TripReplacementPeriod> PARSER =
-        new com.google.protobuf.AbstractParser<TripReplacementPeriod>() {
-      public TripReplacementPeriod parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TripReplacementPeriod(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TripReplacementPeriod> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int ROUTE_ID_FIELD_NUMBER = 1;
-    private java.lang.Object routeId_;
+    private volatile java.lang.Object routeId_;
     /**
-     * <code>optional string route_id = 1;</code>
-     *
      * <pre>
      * The replacement period is for this route
      * </pre>
+     *
+     * <code>optional string route_id = 1;</code>
+     * @return Whether the routeId field is set.
      */
     public boolean hasRouteId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional string route_id = 1;</code>
-     *
      * <pre>
      * The replacement period is for this route
      * </pre>
+     *
+     * <code>optional string route_id = 1;</code>
+     * @return The routeId.
      */
     public java.lang.String getRouteId() {
       java.lang.Object ref = routeId_;
@@ -246,11 +247,12 @@ public final class GtfsRealtimeNYCT {
       }
     }
     /**
-     * <code>optional string route_id = 1;</code>
-     *
      * <pre>
      * The replacement period is for this route
      * </pre>
+     *
+     * <code>optional string route_id = 1;</code>
+     * @return The bytes for routeId.
      */
     public com.google.protobuf.ByteString
         getRouteIdBytes() {
@@ -269,44 +271,43 @@ public final class GtfsRealtimeNYCT {
     public static final int REPLACEMENT_PERIOD_FIELD_NUMBER = 2;
     private com.google.transit.realtime.GtfsRealtime.TimeRange replacementPeriod_;
     /**
-     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-     *
      * <pre>
      * The start time is omitted, the end time is currently now + 30 minutes for
      * all routes of the A division
      * </pre>
+     *
+     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
+     * @return Whether the replacementPeriod field is set.
      */
     public boolean hasReplacementPeriod() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-     *
      * <pre>
      * The start time is omitted, the end time is currently now + 30 minutes for
      * all routes of the A division
      * </pre>
+     *
+     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
+     * @return The replacementPeriod.
      */
     public com.google.transit.realtime.GtfsRealtime.TimeRange getReplacementPeriod() {
-      return replacementPeriod_;
+      return replacementPeriod_ == null ? com.google.transit.realtime.GtfsRealtime.TimeRange.getDefaultInstance() : replacementPeriod_;
     }
     /**
-     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-     *
      * <pre>
      * The start time is omitted, the end time is currently now + 30 minutes for
      * all routes of the A division
      * </pre>
+     *
+     * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
      */
     public com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder getReplacementPeriodOrBuilder() {
-      return replacementPeriod_;
+      return replacementPeriod_ == null ? com.google.transit.realtime.GtfsRealtime.TimeRange.getDefaultInstance() : replacementPeriod_;
     }
 
-    private void initFields() {
-      routeId_ = "";
-      replacementPeriod_ = com.google.transit.realtime.GtfsRealtime.TimeRange.getDefaultInstance();
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -322,44 +323,91 @@ public final class GtfsRealtimeNYCT {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getRouteIdBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, routeId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, replacementPeriod_);
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeMessage(2, getReplacementPeriod());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getRouteIdBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, routeId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, replacementPeriod_);
+          .computeMessageSize(2, getReplacementPeriod());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod)) {
+        return super.equals(obj);
+      }
+      com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod other = (com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod) obj;
+
+      if (hasRouteId() != other.hasRouteId()) return false;
+      if (hasRouteId()) {
+        if (!getRouteId()
+            .equals(other.getRouteId())) return false;
+      }
+      if (hasReplacementPeriod() != other.hasReplacementPeriod()) return false;
+      if (hasReplacementPeriod()) {
+        if (!getReplacementPeriod()
+            .equals(other.getReplacementPeriod())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasRouteId()) {
+        hash = (37 * hash) + ROUTE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getRouteId().hashCode();
+      }
+      if (hasReplacementPeriod()) {
+        hash = (37 * hash) + REPLACEMENT_PERIOD_FIELD_NUMBER;
+        hash = (53 * hash) + getReplacementPeriod().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -383,46 +431,59 @@ public final class GtfsRealtimeNYCT {
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -430,7 +491,7 @@ public final class GtfsRealtimeNYCT {
      * Protobuf type {@code transit_realtime.TripReplacementPeriod}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:transit_realtime.TripReplacementPeriod)
         com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriodOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -438,7 +499,8 @@ public final class GtfsRealtimeNYCT {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_TripReplacementPeriod_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_TripReplacementPeriod_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -451,25 +513,23 @@ public final class GtfsRealtimeNYCT {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getReplacementPeriodFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         routeId_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         if (replacementPeriodBuilder_ == null) {
-          replacementPeriod_ = com.google.transit.realtime.GtfsRealtime.TimeRange.getDefaultInstance();
+          replacementPeriod_ = null;
         } else {
           replacementPeriodBuilder_.clear();
         }
@@ -477,19 +537,18 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_TripReplacementPeriod_descriptor;
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod getDefaultInstanceForType() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod build() {
         com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod result = buildPartial();
         if (!result.isInitialized()) {
@@ -498,27 +557,61 @@ public final class GtfsRealtimeNYCT {
         return result;
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod buildPartial() {
         com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod result = new com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.routeId_ = routeId_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          if (replacementPeriodBuilder_ == null) {
+            result.replacementPeriod_ = replacementPeriod_;
+          } else {
+            result.replacementPeriod_ = replacementPeriodBuilder_.build();
+          }
           to_bitField0_ |= 0x00000002;
-        }
-        if (replacementPeriodBuilder_ == null) {
-          result.replacementPeriod_ = replacementPeriod_;
-        } else {
-          result.replacementPeriod_ = replacementPeriodBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod)other);
@@ -538,20 +631,22 @@ public final class GtfsRealtimeNYCT {
         if (other.hasReplacementPeriod()) {
           mergeReplacementPeriod(other.getReplacementPeriod());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (hasReplacementPeriod()) {
           if (!getReplacementPeriod().isInitialized()) {
-            
             return false;
           }
         }
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -561,7 +656,7 @@ public final class GtfsRealtimeNYCT {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -573,21 +668,23 @@ public final class GtfsRealtimeNYCT {
 
       private java.lang.Object routeId_ = "";
       /**
-       * <code>optional string route_id = 1;</code>
-       *
        * <pre>
        * The replacement period is for this route
        * </pre>
+       *
+       * <code>optional string route_id = 1;</code>
+       * @return Whether the routeId field is set.
        */
       public boolean hasRouteId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional string route_id = 1;</code>
-       *
        * <pre>
        * The replacement period is for this route
        * </pre>
+       *
+       * <code>optional string route_id = 1;</code>
+       * @return The routeId.
        */
       public java.lang.String getRouteId() {
         java.lang.Object ref = routeId_;
@@ -604,11 +701,12 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>optional string route_id = 1;</code>
-       *
        * <pre>
        * The replacement period is for this route
        * </pre>
+       *
+       * <code>optional string route_id = 1;</code>
+       * @return The bytes for routeId.
        */
       public com.google.protobuf.ByteString
           getRouteIdBytes() {
@@ -624,11 +722,13 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>optional string route_id = 1;</code>
-       *
        * <pre>
        * The replacement period is for this route
        * </pre>
+       *
+       * <code>optional string route_id = 1;</code>
+       * @param value The routeId to set.
+       * @return This builder for chaining.
        */
       public Builder setRouteId(
           java.lang.String value) {
@@ -641,11 +741,12 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional string route_id = 1;</code>
-       *
        * <pre>
        * The replacement period is for this route
        * </pre>
+       *
+       * <code>optional string route_id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearRouteId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -654,11 +755,13 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional string route_id = 1;</code>
-       *
        * <pre>
        * The replacement period is for this route
        * </pre>
+       *
+       * <code>optional string route_id = 1;</code>
+       * @param value The bytes for routeId to set.
+       * @return This builder for chaining.
        */
       public Builder setRouteIdBytes(
           com.google.protobuf.ByteString value) {
@@ -671,42 +774,44 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
 
-      private com.google.transit.realtime.GtfsRealtime.TimeRange replacementPeriod_ = com.google.transit.realtime.GtfsRealtime.TimeRange.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.transit.realtime.GtfsRealtime.TimeRange replacementPeriod_;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TimeRange, com.google.transit.realtime.GtfsRealtime.TimeRange.Builder, com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder> replacementPeriodBuilder_;
       /**
-       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-       *
        * <pre>
        * The start time is omitted, the end time is currently now + 30 minutes for
        * all routes of the A division
        * </pre>
+       *
+       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
+       * @return Whether the replacementPeriod field is set.
        */
       public boolean hasReplacementPeriod() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-       *
        * <pre>
        * The start time is omitted, the end time is currently now + 30 minutes for
        * all routes of the A division
        * </pre>
+       *
+       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
+       * @return The replacementPeriod.
        */
       public com.google.transit.realtime.GtfsRealtime.TimeRange getReplacementPeriod() {
         if (replacementPeriodBuilder_ == null) {
-          return replacementPeriod_;
+          return replacementPeriod_ == null ? com.google.transit.realtime.GtfsRealtime.TimeRange.getDefaultInstance() : replacementPeriod_;
         } else {
           return replacementPeriodBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-       *
        * <pre>
        * The start time is omitted, the end time is currently now + 30 minutes for
        * all routes of the A division
        * </pre>
+       *
+       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
        */
       public Builder setReplacementPeriod(com.google.transit.realtime.GtfsRealtime.TimeRange value) {
         if (replacementPeriodBuilder_ == null) {
@@ -722,12 +827,12 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-       *
        * <pre>
        * The start time is omitted, the end time is currently now + 30 minutes for
        * all routes of the A division
        * </pre>
+       *
+       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
        */
       public Builder setReplacementPeriod(
           com.google.transit.realtime.GtfsRealtime.TimeRange.Builder builderForValue) {
@@ -741,16 +846,17 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-       *
        * <pre>
        * The start time is omitted, the end time is currently now + 30 minutes for
        * all routes of the A division
        * </pre>
+       *
+       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
        */
       public Builder mergeReplacementPeriod(com.google.transit.realtime.GtfsRealtime.TimeRange value) {
         if (replacementPeriodBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+          if (((bitField0_ & 0x00000002) != 0) &&
+              replacementPeriod_ != null &&
               replacementPeriod_ != com.google.transit.realtime.GtfsRealtime.TimeRange.getDefaultInstance()) {
             replacementPeriod_ =
               com.google.transit.realtime.GtfsRealtime.TimeRange.newBuilder(replacementPeriod_).mergeFrom(value).buildPartial();
@@ -765,16 +871,16 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-       *
        * <pre>
        * The start time is omitted, the end time is currently now + 30 minutes for
        * all routes of the A division
        * </pre>
+       *
+       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
        */
       public Builder clearReplacementPeriod() {
         if (replacementPeriodBuilder_ == null) {
-          replacementPeriod_ = com.google.transit.realtime.GtfsRealtime.TimeRange.getDefaultInstance();
+          replacementPeriod_ = null;
           onChanged();
         } else {
           replacementPeriodBuilder_.clear();
@@ -783,12 +889,12 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-       *
        * <pre>
        * The start time is omitted, the end time is currently now + 30 minutes for
        * all routes of the A division
        * </pre>
+       *
+       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
        */
       public com.google.transit.realtime.GtfsRealtime.TimeRange.Builder getReplacementPeriodBuilder() {
         bitField0_ |= 0x00000002;
@@ -796,33 +902,34 @@ public final class GtfsRealtimeNYCT {
         return getReplacementPeriodFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-       *
        * <pre>
        * The start time is omitted, the end time is currently now + 30 minutes for
        * all routes of the A division
        * </pre>
+       *
+       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
        */
       public com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder getReplacementPeriodOrBuilder() {
         if (replacementPeriodBuilder_ != null) {
           return replacementPeriodBuilder_.getMessageOrBuilder();
         } else {
-          return replacementPeriod_;
+          return replacementPeriod_ == null ?
+              com.google.transit.realtime.GtfsRealtime.TimeRange.getDefaultInstance() : replacementPeriod_;
         }
       }
       /**
-       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
-       *
        * <pre>
        * The start time is omitted, the end time is currently now + 30 minutes for
        * all routes of the A division
        * </pre>
+       *
+       * <code>optional .transit_realtime.TimeRange replacement_period = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtime.TimeRange, com.google.transit.realtime.GtfsRealtime.TimeRange.Builder, com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder> 
           getReplacementPeriodFieldBuilder() {
         if (replacementPeriodBuilder_ == null) {
-          replacementPeriodBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          replacementPeriodBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.google.transit.realtime.GtfsRealtime.TimeRange, com.google.transit.realtime.GtfsRealtime.TimeRange.Builder, com.google.transit.realtime.GtfsRealtime.TimeRangeOrBuilder>(
                   getReplacementPeriod(),
                   getParentForChildren(),
@@ -831,16 +938,57 @@ public final class GtfsRealtimeNYCT {
         }
         return replacementPeriodBuilder_;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:transit_realtime.TripReplacementPeriod)
     }
 
+    // @@protoc_insertion_point(class_scope:transit_realtime.TripReplacementPeriod)
+    private static final com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod DEFAULT_INSTANCE;
     static {
-      defaultInstance = new TripReplacementPeriod(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod();
     }
 
-    // @@protoc_insertion_point(class_scope:transit_realtime.TripReplacementPeriod)
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<TripReplacementPeriod>
+        PARSER = new com.google.protobuf.AbstractParser<TripReplacementPeriod>() {
+      @java.lang.Override
+      public TripReplacementPeriod parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TripReplacementPeriod(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TripReplacementPeriod> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TripReplacementPeriod> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface NyctFeedHeaderOrBuilder extends
@@ -848,37 +996,38 @@ public final class GtfsRealtimeNYCT {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required string nyct_subway_version = 1;</code>
-     *
      * <pre>
      * Version of the NYCT Subway extensions
      * The current version is 1.0
      * </pre>
+     *
+     * <code>required string nyct_subway_version = 1;</code>
+     * @return Whether the nyctSubwayVersion field is set.
      */
     boolean hasNyctSubwayVersion();
     /**
-     * <code>required string nyct_subway_version = 1;</code>
-     *
      * <pre>
      * Version of the NYCT Subway extensions
      * The current version is 1.0
      * </pre>
+     *
+     * <code>required string nyct_subway_version = 1;</code>
+     * @return The nyctSubwayVersion.
      */
     java.lang.String getNyctSubwayVersion();
     /**
-     * <code>required string nyct_subway_version = 1;</code>
-     *
      * <pre>
      * Version of the NYCT Subway extensions
      * The current version is 1.0
      * </pre>
+     *
+     * <code>required string nyct_subway_version = 1;</code>
+     * @return The bytes for nyctSubwayVersion.
      */
     com.google.protobuf.ByteString
         getNyctSubwayVersionBytes();
 
     /**
-     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-     *
      * <pre>
      * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
      * trip within the trip_replacement_period. 
@@ -889,12 +1038,12 @@ public final class GtfsRealtimeNYCT {
      * a list of the routes where the trips in the feed replace all 
      * scheduled trips within the replacement period.
      * </pre>
+     *
+     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
      */
     java.util.List<com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod> 
         getTripReplacementPeriodList();
     /**
-     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-     *
      * <pre>
      * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
      * trip within the trip_replacement_period. 
@@ -905,11 +1054,11 @@ public final class GtfsRealtimeNYCT {
      * a list of the routes where the trips in the feed replace all 
      * scheduled trips within the replacement period.
      * </pre>
+     *
+     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
      */
     com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod getTripReplacementPeriod(int index);
     /**
-     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-     *
      * <pre>
      * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
      * trip within the trip_replacement_period. 
@@ -920,11 +1069,11 @@ public final class GtfsRealtimeNYCT {
      * a list of the routes where the trips in the feed replace all 
      * scheduled trips within the replacement period.
      * </pre>
+     *
+     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
      */
     int getTripReplacementPeriodCount();
     /**
-     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-     *
      * <pre>
      * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
      * trip within the trip_replacement_period. 
@@ -935,12 +1084,12 @@ public final class GtfsRealtimeNYCT {
      * a list of the routes where the trips in the feed replace all 
      * scheduled trips within the replacement period.
      * </pre>
+     *
+     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
      */
     java.util.List<? extends com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriodOrBuilder> 
         getTripReplacementPeriodOrBuilderList();
     /**
-     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-     *
      * <pre>
      * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
      * trip within the trip_replacement_period. 
@@ -951,48 +1100,53 @@ public final class GtfsRealtimeNYCT {
      * a list of the routes where the trips in the feed replace all 
      * scheduled trips within the replacement period.
      * </pre>
+     *
+     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
      */
     com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriodOrBuilder getTripReplacementPeriodOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code transit_realtime.NyctFeedHeader}
-   *
    * <pre>
    * NYCT Subway extensions for the feed header
    * </pre>
+   *
+   * Protobuf type {@code transit_realtime.NyctFeedHeader}
    */
-  public static final class NyctFeedHeader extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class NyctFeedHeader extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:transit_realtime.NyctFeedHeader)
       NyctFeedHeaderOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use NyctFeedHeader.newBuilder() to construct.
-    private NyctFeedHeader(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private NyctFeedHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private NyctFeedHeader(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final NyctFeedHeader defaultInstance;
-    public static NyctFeedHeader getDefaultInstance() {
-      return defaultInstance;
+    private NyctFeedHeader() {
+      nyctSubwayVersion_ = "";
+      tripReplacementPeriod_ = java.util.Collections.emptyList();
     }
 
-    public NyctFeedHeader getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NyctFeedHeader();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private NyctFeedHeader(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1004,13 +1158,6 @@ public final class GtfsRealtimeNYCT {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -1018,11 +1165,19 @@ public final class GtfsRealtimeNYCT {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 tripReplacementPeriod_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              tripReplacementPeriod_.add(input.readMessage(com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.PARSER, extensionRegistry));
+              tripReplacementPeriod_.add(
+                  input.readMessage(com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -1031,9 +1186,9 @@ public final class GtfsRealtimeNYCT {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
           tripReplacementPeriod_ = java.util.Collections.unmodifiableList(tripReplacementPeriod_);
         }
         this.unknownFields = unknownFields.build();
@@ -1045,49 +1200,37 @@ public final class GtfsRealtimeNYCT {
       return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctFeedHeader_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctFeedHeader_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader.class, com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<NyctFeedHeader> PARSER =
-        new com.google.protobuf.AbstractParser<NyctFeedHeader>() {
-      public NyctFeedHeader parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NyctFeedHeader(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<NyctFeedHeader> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int NYCT_SUBWAY_VERSION_FIELD_NUMBER = 1;
-    private java.lang.Object nyctSubwayVersion_;
+    private volatile java.lang.Object nyctSubwayVersion_;
     /**
-     * <code>required string nyct_subway_version = 1;</code>
-     *
      * <pre>
      * Version of the NYCT Subway extensions
      * The current version is 1.0
      * </pre>
+     *
+     * <code>required string nyct_subway_version = 1;</code>
+     * @return Whether the nyctSubwayVersion field is set.
      */
     public boolean hasNyctSubwayVersion() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required string nyct_subway_version = 1;</code>
-     *
      * <pre>
      * Version of the NYCT Subway extensions
      * The current version is 1.0
      * </pre>
+     *
+     * <code>required string nyct_subway_version = 1;</code>
+     * @return The nyctSubwayVersion.
      */
     public java.lang.String getNyctSubwayVersion() {
       java.lang.Object ref = nyctSubwayVersion_;
@@ -1104,12 +1247,13 @@ public final class GtfsRealtimeNYCT {
       }
     }
     /**
-     * <code>required string nyct_subway_version = 1;</code>
-     *
      * <pre>
      * Version of the NYCT Subway extensions
      * The current version is 1.0
      * </pre>
+     *
+     * <code>required string nyct_subway_version = 1;</code>
+     * @return The bytes for nyctSubwayVersion.
      */
     public com.google.protobuf.ByteString
         getNyctSubwayVersionBytes() {
@@ -1128,8 +1272,6 @@ public final class GtfsRealtimeNYCT {
     public static final int TRIP_REPLACEMENT_PERIOD_FIELD_NUMBER = 2;
     private java.util.List<com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod> tripReplacementPeriod_;
     /**
-     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-     *
      * <pre>
      * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
      * trip within the trip_replacement_period. 
@@ -1140,13 +1282,13 @@ public final class GtfsRealtimeNYCT {
      * a list of the routes where the trips in the feed replace all 
      * scheduled trips within the replacement period.
      * </pre>
+     *
+     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
      */
     public java.util.List<com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod> getTripReplacementPeriodList() {
       return tripReplacementPeriod_;
     }
     /**
-     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-     *
      * <pre>
      * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
      * trip within the trip_replacement_period. 
@@ -1157,14 +1299,14 @@ public final class GtfsRealtimeNYCT {
      * a list of the routes where the trips in the feed replace all 
      * scheduled trips within the replacement period.
      * </pre>
+     *
+     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
      */
     public java.util.List<? extends com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriodOrBuilder> 
         getTripReplacementPeriodOrBuilderList() {
       return tripReplacementPeriod_;
     }
     /**
-     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-     *
      * <pre>
      * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
      * trip within the trip_replacement_period. 
@@ -1175,13 +1317,13 @@ public final class GtfsRealtimeNYCT {
      * a list of the routes where the trips in the feed replace all 
      * scheduled trips within the replacement period.
      * </pre>
+     *
+     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
      */
     public int getTripReplacementPeriodCount() {
       return tripReplacementPeriod_.size();
     }
     /**
-     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-     *
      * <pre>
      * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
      * trip within the trip_replacement_period. 
@@ -1192,13 +1334,13 @@ public final class GtfsRealtimeNYCT {
      * a list of the routes where the trips in the feed replace all 
      * scheduled trips within the replacement period.
      * </pre>
+     *
+     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
      */
     public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod getTripReplacementPeriod(int index) {
       return tripReplacementPeriod_.get(index);
     }
     /**
-     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-     *
      * <pre>
      * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
      * trip within the trip_replacement_period. 
@@ -1209,17 +1351,16 @@ public final class GtfsRealtimeNYCT {
      * a list of the routes where the trips in the feed replace all 
      * scheduled trips within the replacement period.
      * </pre>
+     *
+     * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
      */
     public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriodOrBuilder getTripReplacementPeriodOrBuilder(
         int index) {
       return tripReplacementPeriod_.get(index);
     }
 
-    private void initFields() {
-      nyctSubwayVersion_ = "";
-      tripReplacementPeriod_ = java.util.Collections.emptyList();
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1239,44 +1380,88 @@ public final class GtfsRealtimeNYCT {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getNyctSubwayVersionBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, nyctSubwayVersion_);
       }
       for (int i = 0; i < tripReplacementPeriod_.size(); i++) {
         output.writeMessage(2, tripReplacementPeriod_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getNyctSubwayVersionBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, nyctSubwayVersion_);
       }
       for (int i = 0; i < tripReplacementPeriod_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, tripReplacementPeriod_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader)) {
+        return super.equals(obj);
+      }
+      com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader other = (com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader) obj;
+
+      if (hasNyctSubwayVersion() != other.hasNyctSubwayVersion()) return false;
+      if (hasNyctSubwayVersion()) {
+        if (!getNyctSubwayVersion()
+            .equals(other.getNyctSubwayVersion())) return false;
+      }
+      if (!getTripReplacementPeriodList()
+          .equals(other.getTripReplacementPeriodList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasNyctSubwayVersion()) {
+        hash = (37 * hash) + NYCT_SUBWAY_VERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getNyctSubwayVersion().hashCode();
+      }
+      if (getTripReplacementPeriodCount() > 0) {
+        hash = (37 * hash) + TRIP_REPLACEMENT_PERIOD_FIELD_NUMBER;
+        hash = (53 * hash) + getTripReplacementPeriodList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1300,58 +1485,71 @@ public final class GtfsRealtimeNYCT {
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code transit_realtime.NyctFeedHeader}
-     *
      * <pre>
      * NYCT Subway extensions for the feed header
      * </pre>
+     *
+     * Protobuf type {@code transit_realtime.NyctFeedHeader}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:transit_realtime.NyctFeedHeader)
         com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeaderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -1359,7 +1557,8 @@ public final class GtfsRealtimeNYCT {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctFeedHeader_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctFeedHeader_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1372,19 +1571,17 @@ public final class GtfsRealtimeNYCT {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getTripReplacementPeriodFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         nyctSubwayVersion_ = "";
@@ -1398,19 +1595,18 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctFeedHeader_descriptor;
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader getDefaultInstanceForType() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader build() {
         com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader result = buildPartial();
         if (!result.isInitialized()) {
@@ -1419,16 +1615,17 @@ public final class GtfsRealtimeNYCT {
         return result;
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader buildPartial() {
         com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader result = new com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.nyctSubwayVersion_ = nyctSubwayVersion_;
         if (tripReplacementPeriodBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             tripReplacementPeriod_ = java.util.Collections.unmodifiableList(tripReplacementPeriod_);
             bitField0_ = (bitField0_ & ~0x00000002);
           }
@@ -1441,6 +1638,39 @@ public final class GtfsRealtimeNYCT {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader)other);
@@ -1476,31 +1706,32 @@ public final class GtfsRealtimeNYCT {
               tripReplacementPeriod_ = other.tripReplacementPeriod_;
               bitField0_ = (bitField0_ & ~0x00000002);
               tripReplacementPeriodBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTripReplacementPeriodFieldBuilder() : null;
             } else {
               tripReplacementPeriodBuilder_.addAllMessages(other.tripReplacementPeriod_);
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasNyctSubwayVersion()) {
-          
           return false;
         }
         for (int i = 0; i < getTripReplacementPeriodCount(); i++) {
           if (!getTripReplacementPeriod(i).isInitialized()) {
-            
             return false;
           }
         }
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1510,7 +1741,7 @@ public final class GtfsRealtimeNYCT {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -1522,23 +1753,25 @@ public final class GtfsRealtimeNYCT {
 
       private java.lang.Object nyctSubwayVersion_ = "";
       /**
-       * <code>required string nyct_subway_version = 1;</code>
-       *
        * <pre>
        * Version of the NYCT Subway extensions
        * The current version is 1.0
        * </pre>
+       *
+       * <code>required string nyct_subway_version = 1;</code>
+       * @return Whether the nyctSubwayVersion field is set.
        */
       public boolean hasNyctSubwayVersion() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required string nyct_subway_version = 1;</code>
-       *
        * <pre>
        * Version of the NYCT Subway extensions
        * The current version is 1.0
        * </pre>
+       *
+       * <code>required string nyct_subway_version = 1;</code>
+       * @return The nyctSubwayVersion.
        */
       public java.lang.String getNyctSubwayVersion() {
         java.lang.Object ref = nyctSubwayVersion_;
@@ -1555,12 +1788,13 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>required string nyct_subway_version = 1;</code>
-       *
        * <pre>
        * Version of the NYCT Subway extensions
        * The current version is 1.0
        * </pre>
+       *
+       * <code>required string nyct_subway_version = 1;</code>
+       * @return The bytes for nyctSubwayVersion.
        */
       public com.google.protobuf.ByteString
           getNyctSubwayVersionBytes() {
@@ -1576,12 +1810,14 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>required string nyct_subway_version = 1;</code>
-       *
        * <pre>
        * Version of the NYCT Subway extensions
        * The current version is 1.0
        * </pre>
+       *
+       * <code>required string nyct_subway_version = 1;</code>
+       * @param value The nyctSubwayVersion to set.
+       * @return This builder for chaining.
        */
       public Builder setNyctSubwayVersion(
           java.lang.String value) {
@@ -1594,12 +1830,13 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>required string nyct_subway_version = 1;</code>
-       *
        * <pre>
        * Version of the NYCT Subway extensions
        * The current version is 1.0
        * </pre>
+       *
+       * <code>required string nyct_subway_version = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearNyctSubwayVersion() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -1608,12 +1845,14 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>required string nyct_subway_version = 1;</code>
-       *
        * <pre>
        * Version of the NYCT Subway extensions
        * The current version is 1.0
        * </pre>
+       *
+       * <code>required string nyct_subway_version = 1;</code>
+       * @param value The bytes for nyctSubwayVersion to set.
+       * @return This builder for chaining.
        */
       public Builder setNyctSubwayVersionBytes(
           com.google.protobuf.ByteString value) {
@@ -1629,18 +1868,16 @@ public final class GtfsRealtimeNYCT {
       private java.util.List<com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod> tripReplacementPeriod_ =
         java.util.Collections.emptyList();
       private void ensureTripReplacementPeriodIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           tripReplacementPeriod_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod>(tripReplacementPeriod_);
           bitField0_ |= 0x00000002;
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriodOrBuilder> tripReplacementPeriodBuilder_;
 
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1651,6 +1888,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public java.util.List<com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod> getTripReplacementPeriodList() {
         if (tripReplacementPeriodBuilder_ == null) {
@@ -1660,8 +1899,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1672,6 +1909,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public int getTripReplacementPeriodCount() {
         if (tripReplacementPeriodBuilder_ == null) {
@@ -1681,8 +1920,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1693,6 +1930,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod getTripReplacementPeriod(int index) {
         if (tripReplacementPeriodBuilder_ == null) {
@@ -1702,8 +1941,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1714,6 +1951,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public Builder setTripReplacementPeriod(
           int index, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod value) {
@@ -1730,8 +1969,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1742,6 +1979,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public Builder setTripReplacementPeriod(
           int index, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder builderForValue) {
@@ -1755,8 +1994,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1767,6 +2004,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public Builder addTripReplacementPeriod(com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod value) {
         if (tripReplacementPeriodBuilder_ == null) {
@@ -1782,8 +2021,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1794,6 +2031,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public Builder addTripReplacementPeriod(
           int index, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod value) {
@@ -1810,8 +2049,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1822,6 +2059,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public Builder addTripReplacementPeriod(
           com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder builderForValue) {
@@ -1835,8 +2074,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1847,6 +2084,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public Builder addTripReplacementPeriod(
           int index, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder builderForValue) {
@@ -1860,8 +2099,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1872,6 +2109,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public Builder addAllTripReplacementPeriod(
           java.lang.Iterable<? extends com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod> values) {
@@ -1886,8 +2125,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1898,6 +2135,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public Builder clearTripReplacementPeriod() {
         if (tripReplacementPeriodBuilder_ == null) {
@@ -1910,8 +2149,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1922,6 +2159,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public Builder removeTripReplacementPeriod(int index) {
         if (tripReplacementPeriodBuilder_ == null) {
@@ -1934,8 +2173,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1946,14 +2183,14 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder getTripReplacementPeriodBuilder(
           int index) {
         return getTripReplacementPeriodFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1964,6 +2201,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriodOrBuilder getTripReplacementPeriodOrBuilder(
           int index) {
@@ -1973,8 +2212,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -1985,6 +2222,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public java.util.List<? extends com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriodOrBuilder> 
            getTripReplacementPeriodOrBuilderList() {
@@ -1995,8 +2234,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -2007,14 +2244,14 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder addTripReplacementPeriodBuilder() {
         return getTripReplacementPeriodFieldBuilder().addBuilder(
             com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.getDefaultInstance());
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -2025,6 +2262,8 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder addTripReplacementPeriodBuilder(
           int index) {
@@ -2032,8 +2271,6 @@ public final class GtfsRealtimeNYCT {
             index, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.getDefaultInstance());
       }
       /**
-       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
-       *
        * <pre>
        * For the NYCT Subway, the GTFS-realtime feed replaces any scheduled
        * trip within the trip_replacement_period. 
@@ -2044,35 +2281,78 @@ public final class GtfsRealtimeNYCT {
        * a list of the routes where the trips in the feed replace all 
        * scheduled trips within the replacement period.
        * </pre>
+       *
+       * <code>repeated .transit_realtime.TripReplacementPeriod trip_replacement_period = 2;</code>
        */
       public java.util.List<com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder> 
            getTripReplacementPeriodBuilderList() {
         return getTripReplacementPeriodFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriodOrBuilder> 
           getTripReplacementPeriodFieldBuilder() {
         if (tripReplacementPeriodBuilder_ == null) {
-          tripReplacementPeriodBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          tripReplacementPeriodBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriod.Builder, com.google.transit.realtime.GtfsRealtimeNYCT.TripReplacementPeriodOrBuilder>(
                   tripReplacementPeriod_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           tripReplacementPeriod_ = null;
         }
         return tripReplacementPeriodBuilder_;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:transit_realtime.NyctFeedHeader)
     }
 
+    // @@protoc_insertion_point(class_scope:transit_realtime.NyctFeedHeader)
+    private static final com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader DEFAULT_INSTANCE;
     static {
-      defaultInstance = new NyctFeedHeader(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader();
     }
 
-    // @@protoc_insertion_point(class_scope:transit_realtime.NyctFeedHeader)
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<NyctFeedHeader>
+        PARSER = new com.google.protobuf.AbstractParser<NyctFeedHeader>() {
+      @java.lang.Override
+      public NyctFeedHeader parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NyctFeedHeader(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<NyctFeedHeader> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NyctFeedHeader> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.transit.realtime.GtfsRealtimeNYCT.NyctFeedHeader getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface NyctTripDescriptorOrBuilder extends
@@ -2080,8 +2360,6 @@ public final class GtfsRealtimeNYCT {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string train_id = 1;</code>
-     *
      * <pre>
      * The nyct_train_id is meant for internal use only. It provides an
      * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -2105,11 +2383,12 @@ public final class GtfsRealtimeNYCT {
      * is followed by a three character "Origin Location" / "Destination
      * Location"
      * </pre>
+     *
+     * <code>optional string train_id = 1;</code>
+     * @return Whether the trainId field is set.
      */
     boolean hasTrainId();
     /**
-     * <code>optional string train_id = 1;</code>
-     *
      * <pre>
      * The nyct_train_id is meant for internal use only. It provides an
      * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -2133,11 +2412,12 @@ public final class GtfsRealtimeNYCT {
      * is followed by a three character "Origin Location" / "Destination
      * Location"
      * </pre>
+     *
+     * <code>optional string train_id = 1;</code>
+     * @return The trainId.
      */
     java.lang.String getTrainId();
     /**
-     * <code>optional string train_id = 1;</code>
-     *
      * <pre>
      * The nyct_train_id is meant for internal use only. It provides an
      * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -2161,13 +2441,14 @@ public final class GtfsRealtimeNYCT {
      * is followed by a three character "Origin Location" / "Destination
      * Location"
      * </pre>
+     *
+     * <code>optional string train_id = 1;</code>
+     * @return The bytes for trainId.
      */
     com.google.protobuf.ByteString
         getTrainIdBytes();
 
     /**
-     * <code>optional bool is_assigned = 2;</code>
-     *
      * <pre>
      * This trip has been assigned to a physical train. If true, this trip is
      * already underway or most likely will depart shortly. 
@@ -2181,11 +2462,12 @@ public final class GtfsRealtimeNYCT {
      * to a storage location or assigned a nyct_train_id when a determination for
      * service is made.
      * </pre>
+     *
+     * <code>optional bool is_assigned = 2;</code>
+     * @return Whether the isAssigned field is set.
      */
     boolean hasIsAssigned();
     /**
-     * <code>optional bool is_assigned = 2;</code>
-     *
      * <pre>
      * This trip has been assigned to a physical train. If true, this trip is
      * already underway or most likely will depart shortly. 
@@ -2199,12 +2481,13 @@ public final class GtfsRealtimeNYCT {
      * to a storage location or assigned a nyct_train_id when a determination for
      * service is made.
      * </pre>
+     *
+     * <code>optional bool is_assigned = 2;</code>
+     * @return The isAssigned.
      */
     boolean getIsAssigned();
 
     /**
-     * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
-     *
      * <pre>
      * Uptown and Bronx-bound trains are moving NORTH.
      * Times Square Shuttle to Grand Central is also northbound.
@@ -2213,11 +2496,12 @@ public final class GtfsRealtimeNYCT {
      * 
      * EAST and WEST are not used currently.
      * </pre>
+     *
+     * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
+     * @return Whether the direction field is set.
      */
     boolean hasDirection();
     /**
-     * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
-     *
      * <pre>
      * Uptown and Bronx-bound trains are moving NORTH.
      * Times Square Shuttle to Grand Central is also northbound.
@@ -2226,47 +2510,53 @@ public final class GtfsRealtimeNYCT {
      * 
      * EAST and WEST are not used currently.
      * </pre>
+     *
+     * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
+     * @return The direction.
      */
     com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction getDirection();
   }
   /**
-   * Protobuf type {@code transit_realtime.NyctTripDescriptor}
-   *
    * <pre>
    * NYCT Subway extensions for the trip descriptor
    * </pre>
+   *
+   * Protobuf type {@code transit_realtime.NyctTripDescriptor}
    */
-  public static final class NyctTripDescriptor extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class NyctTripDescriptor extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:transit_realtime.NyctTripDescriptor)
       NyctTripDescriptorOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use NyctTripDescriptor.newBuilder() to construct.
-    private NyctTripDescriptor(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private NyctTripDescriptor(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private NyctTripDescriptor(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final NyctTripDescriptor defaultInstance;
-    public static NyctTripDescriptor getDefaultInstance() {
-      return defaultInstance;
+    private NyctTripDescriptor() {
+      trainId_ = "";
+      direction_ = 1;
     }
 
-    public NyctTripDescriptor getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NyctTripDescriptor();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private NyctTripDescriptor(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2278,13 +2568,6 @@ public final class GtfsRealtimeNYCT {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -2298,12 +2581,20 @@ public final class GtfsRealtimeNYCT {
             }
             case 24: {
               int rawValue = input.readEnum();
+                @SuppressWarnings("deprecation")
               com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction value = com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(3, rawValue);
               } else {
                 bitField0_ |= 0x00000004;
-                direction_ = value;
+                direction_ = rawValue;
+              }
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
               }
               break;
             }
@@ -2313,7 +2604,7 @@ public final class GtfsRealtimeNYCT {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2324,53 +2615,39 @@ public final class GtfsRealtimeNYCT {
       return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctTripDescriptor_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctTripDescriptor_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.class, com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<NyctTripDescriptor> PARSER =
-        new com.google.protobuf.AbstractParser<NyctTripDescriptor>() {
-      public NyctTripDescriptor parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NyctTripDescriptor(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<NyctTripDescriptor> getParserForType() {
-      return PARSER;
-    }
-
     /**
-     * Protobuf enum {@code transit_realtime.NyctTripDescriptor.Direction}
-     *
      * <pre>
      * The direction the train is moving. 
      * </pre>
+     *
+     * Protobuf enum {@code transit_realtime.NyctTripDescriptor.Direction}
      */
     public enum Direction
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <code>NORTH = 1;</code>
        */
-      NORTH(0, 1),
+      NORTH(1),
       /**
        * <code>EAST = 2;</code>
        */
-      EAST(1, 2),
+      EAST(2),
       /**
        * <code>SOUTH = 3;</code>
        */
-      SOUTH(2, 3),
+      SOUTH(3),
       /**
        * <code>WEST = 4;</code>
        */
-      WEST(3, 4),
+      WEST(4),
       ;
 
       /**
@@ -2391,9 +2668,25 @@ public final class GtfsRealtimeNYCT {
       public static final int WEST_VALUE = 4;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static Direction valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Direction forNumber(int value) {
         switch (value) {
           case 1: return NORTH;
           case 2: return EAST;
@@ -2407,17 +2700,17 @@ public final class GtfsRealtimeNYCT {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<Direction>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Direction> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<Direction>() {
               public Direction findValueByNumber(int number) {
-                return Direction.valueOf(number);
+                return Direction.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -2439,11 +2732,9 @@ public final class GtfsRealtimeNYCT {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private Direction(int index, int value) {
-        this.index = index;
+      private Direction(int value) {
         this.value = value;
       }
 
@@ -2452,10 +2743,8 @@ public final class GtfsRealtimeNYCT {
 
     private int bitField0_;
     public static final int TRAIN_ID_FIELD_NUMBER = 1;
-    private java.lang.Object trainId_;
+    private volatile java.lang.Object trainId_;
     /**
-     * <code>optional string train_id = 1;</code>
-     *
      * <pre>
      * The nyct_train_id is meant for internal use only. It provides an
      * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -2479,13 +2768,14 @@ public final class GtfsRealtimeNYCT {
      * is followed by a three character "Origin Location" / "Destination
      * Location"
      * </pre>
+     *
+     * <code>optional string train_id = 1;</code>
+     * @return Whether the trainId field is set.
      */
     public boolean hasTrainId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional string train_id = 1;</code>
-     *
      * <pre>
      * The nyct_train_id is meant for internal use only. It provides an
      * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -2509,6 +2799,9 @@ public final class GtfsRealtimeNYCT {
      * is followed by a three character "Origin Location" / "Destination
      * Location"
      * </pre>
+     *
+     * <code>optional string train_id = 1;</code>
+     * @return The trainId.
      */
     public java.lang.String getTrainId() {
       java.lang.Object ref = trainId_;
@@ -2525,8 +2818,6 @@ public final class GtfsRealtimeNYCT {
       }
     }
     /**
-     * <code>optional string train_id = 1;</code>
-     *
      * <pre>
      * The nyct_train_id is meant for internal use only. It provides an
      * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -2550,6 +2841,9 @@ public final class GtfsRealtimeNYCT {
      * is followed by a three character "Origin Location" / "Destination
      * Location"
      * </pre>
+     *
+     * <code>optional string train_id = 1;</code>
+     * @return The bytes for trainId.
      */
     public com.google.protobuf.ByteString
         getTrainIdBytes() {
@@ -2568,8 +2862,6 @@ public final class GtfsRealtimeNYCT {
     public static final int IS_ASSIGNED_FIELD_NUMBER = 2;
     private boolean isAssigned_;
     /**
-     * <code>optional bool is_assigned = 2;</code>
-     *
      * <pre>
      * This trip has been assigned to a physical train. If true, this trip is
      * already underway or most likely will depart shortly. 
@@ -2583,13 +2875,14 @@ public final class GtfsRealtimeNYCT {
      * to a storage location or assigned a nyct_train_id when a determination for
      * service is made.
      * </pre>
+     *
+     * <code>optional bool is_assigned = 2;</code>
+     * @return Whether the isAssigned field is set.
      */
     public boolean hasIsAssigned() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional bool is_assigned = 2;</code>
-     *
      * <pre>
      * This trip has been assigned to a physical train. If true, this trip is
      * already underway or most likely will depart shortly. 
@@ -2603,16 +2896,17 @@ public final class GtfsRealtimeNYCT {
      * to a storage location or assigned a nyct_train_id when a determination for
      * service is made.
      * </pre>
+     *
+     * <code>optional bool is_assigned = 2;</code>
+     * @return The isAssigned.
      */
     public boolean getIsAssigned() {
       return isAssigned_;
     }
 
     public static final int DIRECTION_FIELD_NUMBER = 3;
-    private com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction direction_;
+    private int direction_;
     /**
-     * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
-     *
      * <pre>
      * Uptown and Bronx-bound trains are moving NORTH.
      * Times Square Shuttle to Grand Central is also northbound.
@@ -2621,13 +2915,14 @@ public final class GtfsRealtimeNYCT {
      * 
      * EAST and WEST are not used currently.
      * </pre>
+     *
+     * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
+     * @return Whether the direction field is set.
      */
     public boolean hasDirection() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
-     *
      * <pre>
      * Uptown and Bronx-bound trains are moving NORTH.
      * Times Square Shuttle to Grand Central is also northbound.
@@ -2636,17 +2931,18 @@ public final class GtfsRealtimeNYCT {
      * 
      * EAST and WEST are not used currently.
      * </pre>
+     *
+     * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
+     * @return The direction.
      */
     public com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction getDirection() {
-      return direction_;
+      @SuppressWarnings("deprecation")
+      com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction result = com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction.valueOf(direction_);
+      return result == null ? com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction.NORTH : result;
     }
 
-    private void initFields() {
-      trainId_ = "";
-      isAssigned_ = false;
-      direction_ = com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction.NORTH;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2656,51 +2952,107 @@ public final class GtfsRealtimeNYCT {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getTrainIdBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, trainId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeBool(2, isAssigned_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeEnum(3, direction_.getNumber());
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeEnum(3, direction_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getTrainIdBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, trainId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, isAssigned_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, direction_.getNumber());
+          .computeEnumSize(3, direction_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor)) {
+        return super.equals(obj);
+      }
+      com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor other = (com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor) obj;
+
+      if (hasTrainId() != other.hasTrainId()) return false;
+      if (hasTrainId()) {
+        if (!getTrainId()
+            .equals(other.getTrainId())) return false;
+      }
+      if (hasIsAssigned() != other.hasIsAssigned()) return false;
+      if (hasIsAssigned()) {
+        if (getIsAssigned()
+            != other.getIsAssigned()) return false;
+      }
+      if (hasDirection() != other.hasDirection()) return false;
+      if (hasDirection()) {
+        if (direction_ != other.direction_) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTrainId()) {
+        hash = (37 * hash) + TRAIN_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getTrainId().hashCode();
+      }
+      if (hasIsAssigned()) {
+        hash = (37 * hash) + IS_ASSIGNED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getIsAssigned());
+      }
+      if (hasDirection()) {
+        hash = (37 * hash) + DIRECTION_FIELD_NUMBER;
+        hash = (53 * hash) + direction_;
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2724,58 +3076,71 @@ public final class GtfsRealtimeNYCT {
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code transit_realtime.NyctTripDescriptor}
-     *
      * <pre>
      * NYCT Subway extensions for the trip descriptor
      * </pre>
+     *
+     * Protobuf type {@code transit_realtime.NyctTripDescriptor}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:transit_realtime.NyctTripDescriptor)
         com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -2783,7 +3148,8 @@ public final class GtfsRealtimeNYCT {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctTripDescriptor_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctTripDescriptor_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2796,42 +3162,39 @@ public final class GtfsRealtimeNYCT {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         trainId_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         isAssigned_ = false;
         bitField0_ = (bitField0_ & ~0x00000002);
-        direction_ = com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction.NORTH;
+        direction_ = 1;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctTripDescriptor_descriptor;
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor getDefaultInstanceForType() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor build() {
         com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor result = buildPartial();
         if (!result.isInitialized()) {
@@ -2840,19 +3203,20 @@ public final class GtfsRealtimeNYCT {
         return result;
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor buildPartial() {
         com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor result = new com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.trainId_ = trainId_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.isAssigned_ = isAssigned_;
           to_bitField0_ |= 0x00000002;
         }
-        result.isAssigned_ = isAssigned_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((from_bitField0_ & 0x00000004) != 0)) {
           to_bitField0_ |= 0x00000004;
         }
         result.direction_ = direction_;
@@ -2861,6 +3225,39 @@ public final class GtfsRealtimeNYCT {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor)other);
@@ -2883,14 +3280,17 @@ public final class GtfsRealtimeNYCT {
         if (other.hasDirection()) {
           setDirection(other.getDirection());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2900,7 +3300,7 @@ public final class GtfsRealtimeNYCT {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -2912,8 +3312,6 @@ public final class GtfsRealtimeNYCT {
 
       private java.lang.Object trainId_ = "";
       /**
-       * <code>optional string train_id = 1;</code>
-       *
        * <pre>
        * The nyct_train_id is meant for internal use only. It provides an
        * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -2937,13 +3335,14 @@ public final class GtfsRealtimeNYCT {
        * is followed by a three character "Origin Location" / "Destination
        * Location"
        * </pre>
+       *
+       * <code>optional string train_id = 1;</code>
+       * @return Whether the trainId field is set.
        */
       public boolean hasTrainId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional string train_id = 1;</code>
-       *
        * <pre>
        * The nyct_train_id is meant for internal use only. It provides an
        * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -2967,6 +3366,9 @@ public final class GtfsRealtimeNYCT {
        * is followed by a three character "Origin Location" / "Destination
        * Location"
        * </pre>
+       *
+       * <code>optional string train_id = 1;</code>
+       * @return The trainId.
        */
       public java.lang.String getTrainId() {
         java.lang.Object ref = trainId_;
@@ -2983,8 +3385,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>optional string train_id = 1;</code>
-       *
        * <pre>
        * The nyct_train_id is meant for internal use only. It provides an
        * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -3008,6 +3408,9 @@ public final class GtfsRealtimeNYCT {
        * is followed by a three character "Origin Location" / "Destination
        * Location"
        * </pre>
+       *
+       * <code>optional string train_id = 1;</code>
+       * @return The bytes for trainId.
        */
       public com.google.protobuf.ByteString
           getTrainIdBytes() {
@@ -3023,8 +3426,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>optional string train_id = 1;</code>
-       *
        * <pre>
        * The nyct_train_id is meant for internal use only. It provides an
        * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -3048,6 +3449,10 @@ public final class GtfsRealtimeNYCT {
        * is followed by a three character "Origin Location" / "Destination
        * Location"
        * </pre>
+       *
+       * <code>optional string train_id = 1;</code>
+       * @param value The trainId to set.
+       * @return This builder for chaining.
        */
       public Builder setTrainId(
           java.lang.String value) {
@@ -3060,8 +3465,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional string train_id = 1;</code>
-       *
        * <pre>
        * The nyct_train_id is meant for internal use only. It provides an
        * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -3085,6 +3488,9 @@ public final class GtfsRealtimeNYCT {
        * is followed by a three character "Origin Location" / "Destination
        * Location"
        * </pre>
+       *
+       * <code>optional string train_id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTrainId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -3093,8 +3499,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional string train_id = 1;</code>
-       *
        * <pre>
        * The nyct_train_id is meant for internal use only. It provides an
        * easy way to associated GTFS-realtime trip identifiers with NYCT rail
@@ -3118,6 +3522,10 @@ public final class GtfsRealtimeNYCT {
        * is followed by a three character "Origin Location" / "Destination
        * Location"
        * </pre>
+       *
+       * <code>optional string train_id = 1;</code>
+       * @param value The bytes for trainId to set.
+       * @return This builder for chaining.
        */
       public Builder setTrainIdBytes(
           com.google.protobuf.ByteString value) {
@@ -3132,8 +3540,6 @@ public final class GtfsRealtimeNYCT {
 
       private boolean isAssigned_ ;
       /**
-       * <code>optional bool is_assigned = 2;</code>
-       *
        * <pre>
        * This trip has been assigned to a physical train. If true, this trip is
        * already underway or most likely will depart shortly. 
@@ -3147,13 +3553,14 @@ public final class GtfsRealtimeNYCT {
        * to a storage location or assigned a nyct_train_id when a determination for
        * service is made.
        * </pre>
+       *
+       * <code>optional bool is_assigned = 2;</code>
+       * @return Whether the isAssigned field is set.
        */
       public boolean hasIsAssigned() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional bool is_assigned = 2;</code>
-       *
        * <pre>
        * This trip has been assigned to a physical train. If true, this trip is
        * already underway or most likely will depart shortly. 
@@ -3167,13 +3574,14 @@ public final class GtfsRealtimeNYCT {
        * to a storage location or assigned a nyct_train_id when a determination for
        * service is made.
        * </pre>
+       *
+       * <code>optional bool is_assigned = 2;</code>
+       * @return The isAssigned.
        */
       public boolean getIsAssigned() {
         return isAssigned_;
       }
       /**
-       * <code>optional bool is_assigned = 2;</code>
-       *
        * <pre>
        * This trip has been assigned to a physical train. If true, this trip is
        * already underway or most likely will depart shortly. 
@@ -3187,6 +3595,10 @@ public final class GtfsRealtimeNYCT {
        * to a storage location or assigned a nyct_train_id when a determination for
        * service is made.
        * </pre>
+       *
+       * <code>optional bool is_assigned = 2;</code>
+       * @param value The isAssigned to set.
+       * @return This builder for chaining.
        */
       public Builder setIsAssigned(boolean value) {
         bitField0_ |= 0x00000002;
@@ -3195,8 +3607,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional bool is_assigned = 2;</code>
-       *
        * <pre>
        * This trip has been assigned to a physical train. If true, this trip is
        * already underway or most likely will depart shortly. 
@@ -3210,6 +3620,9 @@ public final class GtfsRealtimeNYCT {
        * to a storage location or assigned a nyct_train_id when a determination for
        * service is made.
        * </pre>
+       *
+       * <code>optional bool is_assigned = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIsAssigned() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -3218,10 +3631,8 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
 
-      private com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction direction_ = com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction.NORTH;
+      private int direction_ = 1;
       /**
-       * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
-       *
        * <pre>
        * Uptown and Bronx-bound trains are moving NORTH.
        * Times Square Shuttle to Grand Central is also northbound.
@@ -3230,13 +3641,14 @@ public final class GtfsRealtimeNYCT {
        * 
        * EAST and WEST are not used currently.
        * </pre>
+       *
+       * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
+       * @return Whether the direction field is set.
        */
       public boolean hasDirection() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
-       *
        * <pre>
        * Uptown and Bronx-bound trains are moving NORTH.
        * Times Square Shuttle to Grand Central is also northbound.
@@ -3245,13 +3657,16 @@ public final class GtfsRealtimeNYCT {
        * 
        * EAST and WEST are not used currently.
        * </pre>
+       *
+       * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
+       * @return The direction.
        */
       public com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction getDirection() {
-        return direction_;
+        @SuppressWarnings("deprecation")
+        com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction result = com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction.valueOf(direction_);
+        return result == null ? com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction.NORTH : result;
       }
       /**
-       * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
-       *
        * <pre>
        * Uptown and Bronx-bound trains are moving NORTH.
        * Times Square Shuttle to Grand Central is also northbound.
@@ -3260,19 +3675,21 @@ public final class GtfsRealtimeNYCT {
        * 
        * EAST and WEST are not used currently.
        * </pre>
+       *
+       * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
+       * @param value The direction to set.
+       * @return This builder for chaining.
        */
       public Builder setDirection(com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000004;
-        direction_ = value;
+        direction_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
-       *
        * <pre>
        * Uptown and Bronx-bound trains are moving NORTH.
        * Times Square Shuttle to Grand Central is also northbound.
@@ -3281,23 +3698,67 @@ public final class GtfsRealtimeNYCT {
        * 
        * EAST and WEST are not used currently.
        * </pre>
+       *
+       * <code>optional .transit_realtime.NyctTripDescriptor.Direction direction = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDirection() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        direction_ = com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor.Direction.NORTH;
+        direction_ = 1;
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:transit_realtime.NyctTripDescriptor)
     }
 
+    // @@protoc_insertion_point(class_scope:transit_realtime.NyctTripDescriptor)
+    private static final com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor DEFAULT_INSTANCE;
     static {
-      defaultInstance = new NyctTripDescriptor(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor();
     }
 
-    // @@protoc_insertion_point(class_scope:transit_realtime.NyctTripDescriptor)
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<NyctTripDescriptor>
+        PARSER = new com.google.protobuf.AbstractParser<NyctTripDescriptor>() {
+      @java.lang.Override
+      public NyctTripDescriptor parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NyctTripDescriptor(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<NyctTripDescriptor> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NyctTripDescriptor> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.transit.realtime.GtfsRealtimeNYCT.NyctTripDescriptor getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface NyctStopTimeUpdateOrBuilder extends
@@ -3305,8 +3766,6 @@ public final class GtfsRealtimeNYCT {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string scheduled_track = 1;</code>
-     *
      * <pre>
      * Provides the planned station arrival track. The following is the Manhattan
      * track configurations:
@@ -3322,11 +3781,12 @@ public final class GtfsRealtimeNYCT {
      * 2: northbound
      * 3: bi-directional
      * </pre>
+     *
+     * <code>optional string scheduled_track = 1;</code>
+     * @return Whether the scheduledTrack field is set.
      */
     boolean hasScheduledTrack();
     /**
-     * <code>optional string scheduled_track = 1;</code>
-     *
      * <pre>
      * Provides the planned station arrival track. The following is the Manhattan
      * track configurations:
@@ -3342,11 +3802,12 @@ public final class GtfsRealtimeNYCT {
      * 2: northbound
      * 3: bi-directional
      * </pre>
+     *
+     * <code>optional string scheduled_track = 1;</code>
+     * @return The scheduledTrack.
      */
     java.lang.String getScheduledTrack();
     /**
-     * <code>optional string scheduled_track = 1;</code>
-     *
      * <pre>
      * Provides the planned station arrival track. The following is the Manhattan
      * track configurations:
@@ -3362,13 +3823,14 @@ public final class GtfsRealtimeNYCT {
      * 2: northbound
      * 3: bi-directional
      * </pre>
+     *
+     * <code>optional string scheduled_track = 1;</code>
+     * @return The bytes for scheduledTrack.
      */
     com.google.protobuf.ByteString
         getScheduledTrackBytes();
 
     /**
-     * <code>optional string actual_track = 2;</code>
-     *
      * <pre>
      * This is the actual track that the train is operating on and can be used to
      * determine if a train is operating according to its current schedule
@@ -3384,11 +3846,12 @@ public final class GtfsRealtimeNYCT {
      * schedule.  The rules engine for the 'countdown' clocks will remove this
      * train from all schedule stations.
      * </pre>
+     *
+     * <code>optional string actual_track = 2;</code>
+     * @return Whether the actualTrack field is set.
      */
     boolean hasActualTrack();
     /**
-     * <code>optional string actual_track = 2;</code>
-     *
      * <pre>
      * This is the actual track that the train is operating on and can be used to
      * determine if a train is operating according to its current schedule
@@ -3404,11 +3867,12 @@ public final class GtfsRealtimeNYCT {
      * schedule.  The rules engine for the 'countdown' clocks will remove this
      * train from all schedule stations.
      * </pre>
+     *
+     * <code>optional string actual_track = 2;</code>
+     * @return The actualTrack.
      */
     java.lang.String getActualTrack();
     /**
-     * <code>optional string actual_track = 2;</code>
-     *
      * <pre>
      * This is the actual track that the train is operating on and can be used to
      * determine if a train is operating according to its current schedule
@@ -3424,48 +3888,54 @@ public final class GtfsRealtimeNYCT {
      * schedule.  The rules engine for the 'countdown' clocks will remove this
      * train from all schedule stations.
      * </pre>
+     *
+     * <code>optional string actual_track = 2;</code>
+     * @return The bytes for actualTrack.
      */
     com.google.protobuf.ByteString
         getActualTrackBytes();
   }
   /**
-   * Protobuf type {@code transit_realtime.NyctStopTimeUpdate}
-   *
    * <pre>
    * NYCT Subway extensions for the stop time update
    * </pre>
+   *
+   * Protobuf type {@code transit_realtime.NyctStopTimeUpdate}
    */
-  public static final class NyctStopTimeUpdate extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class NyctStopTimeUpdate extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:transit_realtime.NyctStopTimeUpdate)
       NyctStopTimeUpdateOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use NyctStopTimeUpdate.newBuilder() to construct.
-    private NyctStopTimeUpdate(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private NyctStopTimeUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private NyctStopTimeUpdate(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final NyctStopTimeUpdate defaultInstance;
-    public static NyctStopTimeUpdate getDefaultInstance() {
-      return defaultInstance;
+    private NyctStopTimeUpdate() {
+      scheduledTrack_ = "";
+      actualTrack_ = "";
     }
 
-    public NyctStopTimeUpdate getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NyctStopTimeUpdate();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private NyctStopTimeUpdate(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3477,13 +3947,6 @@ public final class GtfsRealtimeNYCT {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -3496,13 +3959,20 @@ public final class GtfsRealtimeNYCT {
               actualTrack_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3513,34 +3983,18 @@ public final class GtfsRealtimeNYCT {
       return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctStopTimeUpdate_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctStopTimeUpdate_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate.class, com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<NyctStopTimeUpdate> PARSER =
-        new com.google.protobuf.AbstractParser<NyctStopTimeUpdate>() {
-      public NyctStopTimeUpdate parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NyctStopTimeUpdate(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<NyctStopTimeUpdate> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int SCHEDULED_TRACK_FIELD_NUMBER = 1;
-    private java.lang.Object scheduledTrack_;
+    private volatile java.lang.Object scheduledTrack_;
     /**
-     * <code>optional string scheduled_track = 1;</code>
-     *
      * <pre>
      * Provides the planned station arrival track. The following is the Manhattan
      * track configurations:
@@ -3556,13 +4010,14 @@ public final class GtfsRealtimeNYCT {
      * 2: northbound
      * 3: bi-directional
      * </pre>
+     *
+     * <code>optional string scheduled_track = 1;</code>
+     * @return Whether the scheduledTrack field is set.
      */
     public boolean hasScheduledTrack() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional string scheduled_track = 1;</code>
-     *
      * <pre>
      * Provides the planned station arrival track. The following is the Manhattan
      * track configurations:
@@ -3578,6 +4033,9 @@ public final class GtfsRealtimeNYCT {
      * 2: northbound
      * 3: bi-directional
      * </pre>
+     *
+     * <code>optional string scheduled_track = 1;</code>
+     * @return The scheduledTrack.
      */
     public java.lang.String getScheduledTrack() {
       java.lang.Object ref = scheduledTrack_;
@@ -3594,8 +4052,6 @@ public final class GtfsRealtimeNYCT {
       }
     }
     /**
-     * <code>optional string scheduled_track = 1;</code>
-     *
      * <pre>
      * Provides the planned station arrival track. The following is the Manhattan
      * track configurations:
@@ -3611,6 +4067,9 @@ public final class GtfsRealtimeNYCT {
      * 2: northbound
      * 3: bi-directional
      * </pre>
+     *
+     * <code>optional string scheduled_track = 1;</code>
+     * @return The bytes for scheduledTrack.
      */
     public com.google.protobuf.ByteString
         getScheduledTrackBytes() {
@@ -3627,10 +4086,8 @@ public final class GtfsRealtimeNYCT {
     }
 
     public static final int ACTUAL_TRACK_FIELD_NUMBER = 2;
-    private java.lang.Object actualTrack_;
+    private volatile java.lang.Object actualTrack_;
     /**
-     * <code>optional string actual_track = 2;</code>
-     *
      * <pre>
      * This is the actual track that the train is operating on and can be used to
      * determine if a train is operating according to its current schedule
@@ -3646,13 +4103,14 @@ public final class GtfsRealtimeNYCT {
      * schedule.  The rules engine for the 'countdown' clocks will remove this
      * train from all schedule stations.
      * </pre>
+     *
+     * <code>optional string actual_track = 2;</code>
+     * @return Whether the actualTrack field is set.
      */
     public boolean hasActualTrack() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional string actual_track = 2;</code>
-     *
      * <pre>
      * This is the actual track that the train is operating on and can be used to
      * determine if a train is operating according to its current schedule
@@ -3668,6 +4126,9 @@ public final class GtfsRealtimeNYCT {
      * schedule.  The rules engine for the 'countdown' clocks will remove this
      * train from all schedule stations.
      * </pre>
+     *
+     * <code>optional string actual_track = 2;</code>
+     * @return The actualTrack.
      */
     public java.lang.String getActualTrack() {
       java.lang.Object ref = actualTrack_;
@@ -3684,8 +4145,6 @@ public final class GtfsRealtimeNYCT {
       }
     }
     /**
-     * <code>optional string actual_track = 2;</code>
-     *
      * <pre>
      * This is the actual track that the train is operating on and can be used to
      * determine if a train is operating according to its current schedule
@@ -3701,6 +4160,9 @@ public final class GtfsRealtimeNYCT {
      * schedule.  The rules engine for the 'countdown' clocks will remove this
      * train from all schedule stations.
      * </pre>
+     *
+     * <code>optional string actual_track = 2;</code>
+     * @return The bytes for actualTrack.
      */
     public com.google.protobuf.ByteString
         getActualTrackBytes() {
@@ -3716,11 +4178,8 @@ public final class GtfsRealtimeNYCT {
       }
     }
 
-    private void initFields() {
-      scheduledTrack_ = "";
-      actualTrack_ = "";
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3730,44 +4189,90 @@ public final class GtfsRealtimeNYCT {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getScheduledTrackBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, scheduledTrack_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getActualTrackBytes());
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, actualTrack_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getScheduledTrackBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, scheduledTrack_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getActualTrackBytes());
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, actualTrack_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate)) {
+        return super.equals(obj);
+      }
+      com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate other = (com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate) obj;
+
+      if (hasScheduledTrack() != other.hasScheduledTrack()) return false;
+      if (hasScheduledTrack()) {
+        if (!getScheduledTrack()
+            .equals(other.getScheduledTrack())) return false;
+      }
+      if (hasActualTrack() != other.hasActualTrack()) return false;
+      if (hasActualTrack()) {
+        if (!getActualTrack()
+            .equals(other.getActualTrack())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasScheduledTrack()) {
+        hash = (37 * hash) + SCHEDULED_TRACK_FIELD_NUMBER;
+        hash = (53 * hash) + getScheduledTrack().hashCode();
+      }
+      if (hasActualTrack()) {
+        hash = (37 * hash) + ACTUAL_TRACK_FIELD_NUMBER;
+        hash = (53 * hash) + getActualTrack().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3791,58 +4296,71 @@ public final class GtfsRealtimeNYCT {
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code transit_realtime.NyctStopTimeUpdate}
-     *
      * <pre>
      * NYCT Subway extensions for the stop time update
      * </pre>
+     *
+     * Protobuf type {@code transit_realtime.NyctStopTimeUpdate}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:transit_realtime.NyctStopTimeUpdate)
         com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -3850,7 +4368,8 @@ public final class GtfsRealtimeNYCT {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctStopTimeUpdate_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctStopTimeUpdate_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -3863,18 +4382,16 @@ public final class GtfsRealtimeNYCT {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         scheduledTrack_ = "";
@@ -3884,19 +4401,18 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.internal_static_transit_realtime_NyctStopTimeUpdate_descriptor;
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate getDefaultInstanceForType() {
         return com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate build() {
         com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate result = buildPartial();
         if (!result.isInitialized()) {
@@ -3905,15 +4421,16 @@ public final class GtfsRealtimeNYCT {
         return result;
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate buildPartial() {
         com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate result = new com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.scheduledTrack_ = scheduledTrack_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
         result.actualTrack_ = actualTrack_;
@@ -3922,6 +4439,39 @@ public final class GtfsRealtimeNYCT {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate)other);
@@ -3943,14 +4493,17 @@ public final class GtfsRealtimeNYCT {
           actualTrack_ = other.actualTrack_;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3960,7 +4513,7 @@ public final class GtfsRealtimeNYCT {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -3972,8 +4525,6 @@ public final class GtfsRealtimeNYCT {
 
       private java.lang.Object scheduledTrack_ = "";
       /**
-       * <code>optional string scheduled_track = 1;</code>
-       *
        * <pre>
        * Provides the planned station arrival track. The following is the Manhattan
        * track configurations:
@@ -3989,13 +4540,14 @@ public final class GtfsRealtimeNYCT {
        * 2: northbound
        * 3: bi-directional
        * </pre>
+       *
+       * <code>optional string scheduled_track = 1;</code>
+       * @return Whether the scheduledTrack field is set.
        */
       public boolean hasScheduledTrack() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional string scheduled_track = 1;</code>
-       *
        * <pre>
        * Provides the planned station arrival track. The following is the Manhattan
        * track configurations:
@@ -4011,6 +4563,9 @@ public final class GtfsRealtimeNYCT {
        * 2: northbound
        * 3: bi-directional
        * </pre>
+       *
+       * <code>optional string scheduled_track = 1;</code>
+       * @return The scheduledTrack.
        */
       public java.lang.String getScheduledTrack() {
         java.lang.Object ref = scheduledTrack_;
@@ -4027,8 +4582,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>optional string scheduled_track = 1;</code>
-       *
        * <pre>
        * Provides the planned station arrival track. The following is the Manhattan
        * track configurations:
@@ -4044,6 +4597,9 @@ public final class GtfsRealtimeNYCT {
        * 2: northbound
        * 3: bi-directional
        * </pre>
+       *
+       * <code>optional string scheduled_track = 1;</code>
+       * @return The bytes for scheduledTrack.
        */
       public com.google.protobuf.ByteString
           getScheduledTrackBytes() {
@@ -4059,8 +4615,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>optional string scheduled_track = 1;</code>
-       *
        * <pre>
        * Provides the planned station arrival track. The following is the Manhattan
        * track configurations:
@@ -4076,6 +4630,10 @@ public final class GtfsRealtimeNYCT {
        * 2: northbound
        * 3: bi-directional
        * </pre>
+       *
+       * <code>optional string scheduled_track = 1;</code>
+       * @param value The scheduledTrack to set.
+       * @return This builder for chaining.
        */
       public Builder setScheduledTrack(
           java.lang.String value) {
@@ -4088,8 +4646,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional string scheduled_track = 1;</code>
-       *
        * <pre>
        * Provides the planned station arrival track. The following is the Manhattan
        * track configurations:
@@ -4105,6 +4661,9 @@ public final class GtfsRealtimeNYCT {
        * 2: northbound
        * 3: bi-directional
        * </pre>
+       *
+       * <code>optional string scheduled_track = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearScheduledTrack() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -4113,8 +4672,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional string scheduled_track = 1;</code>
-       *
        * <pre>
        * Provides the planned station arrival track. The following is the Manhattan
        * track configurations:
@@ -4130,6 +4687,10 @@ public final class GtfsRealtimeNYCT {
        * 2: northbound
        * 3: bi-directional
        * </pre>
+       *
+       * <code>optional string scheduled_track = 1;</code>
+       * @param value The bytes for scheduledTrack to set.
+       * @return This builder for chaining.
        */
       public Builder setScheduledTrackBytes(
           com.google.protobuf.ByteString value) {
@@ -4144,8 +4705,6 @@ public final class GtfsRealtimeNYCT {
 
       private java.lang.Object actualTrack_ = "";
       /**
-       * <code>optional string actual_track = 2;</code>
-       *
        * <pre>
        * This is the actual track that the train is operating on and can be used to
        * determine if a train is operating according to its current schedule
@@ -4161,13 +4720,14 @@ public final class GtfsRealtimeNYCT {
        * schedule.  The rules engine for the 'countdown' clocks will remove this
        * train from all schedule stations.
        * </pre>
+       *
+       * <code>optional string actual_track = 2;</code>
+       * @return Whether the actualTrack field is set.
        */
       public boolean hasActualTrack() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional string actual_track = 2;</code>
-       *
        * <pre>
        * This is the actual track that the train is operating on and can be used to
        * determine if a train is operating according to its current schedule
@@ -4183,6 +4743,9 @@ public final class GtfsRealtimeNYCT {
        * schedule.  The rules engine for the 'countdown' clocks will remove this
        * train from all schedule stations.
        * </pre>
+       *
+       * <code>optional string actual_track = 2;</code>
+       * @return The actualTrack.
        */
       public java.lang.String getActualTrack() {
         java.lang.Object ref = actualTrack_;
@@ -4199,8 +4762,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>optional string actual_track = 2;</code>
-       *
        * <pre>
        * This is the actual track that the train is operating on and can be used to
        * determine if a train is operating according to its current schedule
@@ -4216,6 +4777,9 @@ public final class GtfsRealtimeNYCT {
        * schedule.  The rules engine for the 'countdown' clocks will remove this
        * train from all schedule stations.
        * </pre>
+       *
+       * <code>optional string actual_track = 2;</code>
+       * @return The bytes for actualTrack.
        */
       public com.google.protobuf.ByteString
           getActualTrackBytes() {
@@ -4231,8 +4795,6 @@ public final class GtfsRealtimeNYCT {
         }
       }
       /**
-       * <code>optional string actual_track = 2;</code>
-       *
        * <pre>
        * This is the actual track that the train is operating on and can be used to
        * determine if a train is operating according to its current schedule
@@ -4248,6 +4810,10 @@ public final class GtfsRealtimeNYCT {
        * schedule.  The rules engine for the 'countdown' clocks will remove this
        * train from all schedule stations.
        * </pre>
+       *
+       * <code>optional string actual_track = 2;</code>
+       * @param value The actualTrack to set.
+       * @return This builder for chaining.
        */
       public Builder setActualTrack(
           java.lang.String value) {
@@ -4260,8 +4826,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional string actual_track = 2;</code>
-       *
        * <pre>
        * This is the actual track that the train is operating on and can be used to
        * determine if a train is operating according to its current schedule
@@ -4277,6 +4841,9 @@ public final class GtfsRealtimeNYCT {
        * schedule.  The rules engine for the 'countdown' clocks will remove this
        * train from all schedule stations.
        * </pre>
+       *
+       * <code>optional string actual_track = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearActualTrack() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -4285,8 +4852,6 @@ public final class GtfsRealtimeNYCT {
         return this;
       }
       /**
-       * <code>optional string actual_track = 2;</code>
-       *
        * <pre>
        * This is the actual track that the train is operating on and can be used to
        * determine if a train is operating according to its current schedule
@@ -4302,6 +4867,10 @@ public final class GtfsRealtimeNYCT {
        * schedule.  The rules engine for the 'countdown' clocks will remove this
        * train from all schedule stations.
        * </pre>
+       *
+       * <code>optional string actual_track = 2;</code>
+       * @param value The bytes for actualTrack to set.
+       * @return This builder for chaining.
        */
       public Builder setActualTrackBytes(
           com.google.protobuf.ByteString value) {
@@ -4313,16 +4882,57 @@ public final class GtfsRealtimeNYCT {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:transit_realtime.NyctStopTimeUpdate)
     }
 
+    // @@protoc_insertion_point(class_scope:transit_realtime.NyctStopTimeUpdate)
+    private static final com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate DEFAULT_INSTANCE;
     static {
-      defaultInstance = new NyctStopTimeUpdate(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate();
     }
 
-    // @@protoc_insertion_point(class_scope:transit_realtime.NyctStopTimeUpdate)
+    public static com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<NyctStopTimeUpdate>
+        PARSER = new com.google.protobuf.AbstractParser<NyctStopTimeUpdate>() {
+      @java.lang.Override
+      public NyctStopTimeUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NyctStopTimeUpdate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<NyctStopTimeUpdate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NyctStopTimeUpdate> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public static final int NYCT_FEED_HEADER_FIELD_NUMBER = 1001;
@@ -4360,30 +4970,30 @@ public final class GtfsRealtimeNYCT {
         com.google.transit.realtime.GtfsRealtimeNYCT.NyctStopTimeUpdate.getDefaultInstance());
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_TripReplacementPeriod_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_TripReplacementPeriod_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_NyctFeedHeader_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_NyctFeedHeader_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_NyctTripDescriptor_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_NyctTripDescriptor_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_NyctStopTimeUpdate_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_NyctStopTimeUpdate_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -4396,7 +5006,7 @@ public final class GtfsRealtimeNYCT {
       "\033\n\023nyct_subway_version\030\001 \002(\t\022H\n\027trip_rep" +
       "lacement_period\030\002 \003(\0132\'.transit_realtime" +
       ".TripReplacementPeriod\"\265\001\n\022NyctTripDescr" +
-      "iptor\022\020\n\010train_id\030\001 \001(\t\022\023\n\013is_assigned\030\002",
+      "iptor\022\020\n\010train_id\030\001 \001(\t\022\023\n\013is_assigned\030\002" +
       " \001(\010\022A\n\tdirection\030\003 \001(\0162..transit_realti" +
       "me.NyctTripDescriptor.Direction\"5\n\tDirec" +
       "tion\022\t\n\005NORTH\020\001\022\010\n\004EAST\020\002\022\t\n\005SOUTH\020\003\022\010\n\004" +
@@ -4406,47 +5016,39 @@ public final class GtfsRealtimeNYCT {
       "eader\030\351\007 \001(\0132 .transit_realtime.NyctFeed" +
       "Header:e\n\024nyct_trip_descriptor\022 .transit" +
       "_realtime.TripDescriptor\030\351\007 \001(\0132$.transi" +
-      "t_realtime.NyctTripDescriptor:q\n\025nyct_st",
+      "t_realtime.NyctTripDescriptor:q\n\025nyct_st" +
       "op_time_update\022+.transit_realtime.TripUp" +
       "date.StopTimeUpdate\030\351\007 \001(\0132$.transit_rea" +
       "ltime.NyctStopTimeUpdateB\035\n\033com.google.t" +
       "ransit.realtime"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.transit.realtime.GtfsRealtime.getDescriptor(),
-        }, assigner);
+        });
     internal_static_transit_realtime_TripReplacementPeriod_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_transit_realtime_TripReplacementPeriod_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_TripReplacementPeriod_descriptor,
         new java.lang.String[] { "RouteId", "ReplacementPeriod", });
     internal_static_transit_realtime_NyctFeedHeader_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_transit_realtime_NyctFeedHeader_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_NyctFeedHeader_descriptor,
         new java.lang.String[] { "NyctSubwayVersion", "TripReplacementPeriod", });
     internal_static_transit_realtime_NyctTripDescriptor_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_transit_realtime_NyctTripDescriptor_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_NyctTripDescriptor_descriptor,
         new java.lang.String[] { "TrainId", "IsAssigned", "Direction", });
     internal_static_transit_realtime_NyctStopTimeUpdate_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_transit_realtime_NyctStopTimeUpdate_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_NyctStopTimeUpdate_descriptor,
         new java.lang.String[] { "ScheduledTrack", "ActualTrack", });
     nyctFeedHeader.internalInit(descriptor.getExtensions().get(0));
