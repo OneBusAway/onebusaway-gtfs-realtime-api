@@ -52,10 +52,8 @@ public class GtfsRealtimeExtensions {
    * default to MNR.
    * 
    * @param registry registry to add the extensions to
-   * @param includeLIRR if true, include LIRR extension; if false, include MNR
-   *                    extension.
    */
-  public static void registerExtensions(ExtensionRegistry registry, boolean includeLIRR) {
+  public static void registerExtensions(ExtensionRegistry registry) {
     registry.add(GtfsRealtimeNYCT.nyctFeedHeader);
     registry.add(GtfsRealtimeNYCT.nyctStopTimeUpdate);
     registry.add(GtfsRealtimeNYCT.nyctTripDescriptor);
@@ -64,24 +62,10 @@ public class GtfsRealtimeExtensions {
     registry.add(GtfsRealtimeOneBusAway.obaTripUpdate);
     registry.add(GtfsRealtimeOneBusAway.obaEntitySelector);
     registry.add(GtfsRealtimeOneBusAway.obaStopTimeUpdate);
-    // warning: cannot add both GtfsRealtimeMNR.mnrStopTimeUpdate and GtfsRealtimeLIRR.MtaStopTimeUpdate.track to the same registry
-    if (includeLIRR) {
-      registry.add(GtfsRealtimeLIRR.MtaStopTimeUpdate.track);
-    } else {
-      registry.add(GtfsRealtimeMNR.mnrStopTimeUpdate);
-    }
+    registry.add(GtfsRealtimeMTARR.mtaStopTimeUpdate);
     registry.add(GtfsRealtimeServiceStatus.mercuryFeedHeader);
     registry.add(GtfsRealtimeServiceStatus.mercuryEntitySelector);
     registry.add(GtfsRealtimeServiceStatus.mercuryAlert);
   }
 
-  /**
-   * Adds all known GTFS-realtime extension messages to the specified extension
-   * registry, except LIRR.
-   *
-   * @param registry registry to add the extensions to
-   */
-  public static void registerExtensions(ExtensionRegistry registry) {
-    registerExtensions(registry, false);
-  }
 }
