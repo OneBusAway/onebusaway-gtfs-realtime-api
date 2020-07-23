@@ -46,6 +46,8 @@ message MercuryAlert {
   // A human-friendly string that summarizes all active periods for this Alert,
   // i.e. "Sundays in May from 10:45pm to midnight"
   optional TranslatedString human_readable_active_period = 8;
+
+  optional TranslatedString additional_information = 9;
 }
 
 extend transit_realtime.Alert {
