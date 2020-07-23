@@ -158,6 +158,6 @@ extend transit_realtime.TripUpdate.StopTimeUpdate {
 
   }
 
- extend transit_realtime.VehiclePosition.VehicleDescriptor {
+ extend transit_realtime.VehicleDescriptor {
    repeated CarriageDescriptor carriage_descriptor = 1005;
 }
