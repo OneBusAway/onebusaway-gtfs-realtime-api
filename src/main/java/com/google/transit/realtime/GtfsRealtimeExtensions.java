@@ -62,7 +62,8 @@ public class GtfsRealtimeExtensions {
     registry.add(GtfsRealtimeOneBusAway.obaTripUpdate);
     registry.add(GtfsRealtimeOneBusAway.obaEntitySelector);
     registry.add(GtfsRealtimeOneBusAway.obaStopTimeUpdate);
-    registry.add(GtfsRealtimeMTARR.mtaStopTimeUpdate);
+    registry.add(GtfsRealtimeMTARR.mtaRailroadStopTimeUpdate);
+    registry.add(GtfsRealtimeMTARR.carriageDescriptor);
     registry.add(GtfsRealtimeServiceStatus.mercuryFeedHeader);
     registry.add(GtfsRealtimeServiceStatus.mercuryEntitySelector);
     registry.add(GtfsRealtimeServiceStatus.mercuryAlert);
