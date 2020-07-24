@@ -6,7 +6,7 @@
     <version>1.2.6</version>
   </parent>
   <artifactId>onebusaway-gtfs-realtime-api</artifactId>
-  <version>1.2.14-SNAPSHOT</version>
+  <version>1.2.15-SNAPSHOT</version>
   <name>onebusaway-gtfs-realtime-api</name>
   <description>Java classes for OBA-specific extensions to the GTFS-realtime protocol buffer specification.</description>
   <url>https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/wiki/</url>
