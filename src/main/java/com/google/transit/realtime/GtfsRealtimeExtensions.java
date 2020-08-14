@@ -52,28 +52,12 @@ public class GtfsRealtimeExtensions {
    * default to MNR.
    * 
    * @param registry registry to add the extensions to
-   * @param includeLIRR if true, include LIRR extension; if false, include MNR
-   *                    extension.
    */
-  public static void registerExtensions(ExtensionRegistry registry, boolean includeLIRR) {
+  public static void registerExtensions(ExtensionRegistry registry) {
     GtfsRealtimeNYCT.registerAllExtensions(registry);
     GtfsRealtimeOneBusAway.registerAllExtensions(registry);
-    // warning: cannot add both GtfsRealtimeMNR.mnrStopTimeUpdate and GtfsRealtimeLIRR.MtaStopTimeUpdate.track to the same registry
-    if (includeLIRR) {
-      GtfsRealtimeLIRR.registerAllExtensions(registry);
-    } else {
-      GtfsRealtimeMNR.registerAllExtensions(registry);
-    }
+    GtfsRealtimeMTARR.registerAllExtensions(registry)
     GtfsRealtimeServiceStatus.registerAllExtensions(registry);
   }
 
-  /**
-   * Adds all known GTFS-realtime extension messages to the specified extension
-   * registry, except LIRR.
-   *
-   * @param registry registry to add the extensions to
-   */
-  public static void registerExtensions(ExtensionRegistry registry) {
-    registerExtensions(registry, false);
-  }
 }
