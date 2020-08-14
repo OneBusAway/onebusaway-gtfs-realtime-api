@@ -56,7 +56,7 @@ public class GtfsRealtimeExtensions {
   public static void registerExtensions(ExtensionRegistry registry) {
     GtfsRealtimeNYCT.registerAllExtensions(registry);
     GtfsRealtimeOneBusAway.registerAllExtensions(registry);
-    GtfsRealtimeMTARR.registerAllExtensions(registry)
+    GtfsRealtimeMTARR.registerAllExtensions(registry);
     GtfsRealtimeServiceStatus.registerAllExtensions(registry);
   }
 
