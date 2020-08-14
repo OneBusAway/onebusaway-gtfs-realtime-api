@@ -95,7 +95,7 @@ enum OccupancyStatus {
       NOT_QUIET_CARRIAGE = 2;
     }
 
-    optional QuietCarriage quiet_carriage = 7 [default = UNKONWN_QUIET_CARRIAGE];
+    optional QuietCarriage quiet_carriage = 7 [default = UNKNOWN_QUIET_CARRIAGE];
 
     // Whether the carriage has toilet facilities onboard.
     enum ToiletFacilities {
