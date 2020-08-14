@@ -14,7 +14,7 @@ extend transit_realtime.TripUpdate.StopTimeUpdate {
    optional MtaRailroadStopTimeUpdate mta_railroad_stop_time_update = 1005;
 }
 
-  message CarriageDescriptor {
+message CarriageDescriptor {
     // Internal system identification of the carriage. Should be unique per
     // vehicle, and can be used for tracking the carriage as it proceeds through
     // the system.
@@ -36,10 +36,10 @@ extend transit_realtime.TripUpdate.StopTimeUpdate {
     // carriage_sequence of 105, and so forth.
     optional int32 carriage_sequence = 3;
 
-// The degree of passenger occupancy of the vehicle. This field is still
+  // The degree of passenger occupancy of the vehicle. This field is still
   // experimental, and subject to change. It may be formally adopted in the
   // future.
-  enum OccupancyStatus {
+enum OccupancyStatus {
     // The vehicle is considered empty by most measures, and has few or no
     // passengers onboard, but is still accepting passengers.
     EMPTY = 0;
@@ -69,28 +69,37 @@ extend transit_realtime.TripUpdate.StopTimeUpdate {
 
     // The vehicle is not accepting additional passengers.
     NOT_ACCEPTING_PASSENGERS = 6;
-
   }
+
     // The degree of passenger occupancy of the carriage.
     optional OccupancyStatus occupancy_status = 4;
 
-    // Whether the carriage is wheelchair accessible.
-    enum WheelchairAccessible {
-      // It is unknown if the carriage is wheelchair accessible. This is the
-      // default case.
-      UNKNOWN_ACCESSIBILITY = 0;
+    //Indicates the number of bikes permitted per carriage.
+    //0=bikes prohibited, -1=No limit.
+    optional int32 bicycles_allowed = 5 [default = 0];
 
-      // The carriage is wheelchair accessible.
-      WHEELCHAIR_ACCESSIBLE = 1;
+    //A description of the carriage type/model.
+    optional string carriage_class = 6;
 
-      // The carriage is not wheelchair accessible.
-      NOT_WHEELCHAIR_ACCESSIBLE = 2;
+    // Whether the carriage has toilet facilities onboard.
+    enum QuietCarriage {
+
+      // It is unknown if the carriage is designated as a quiet carriage.
+      //  This is the default case.
+      UNKNOWN_QUIET_CARRIAGE = 0;
+
+      // The carriage is designated a quiet carriage.
+      QUIET_CARRIAGE = 1;
+
+      // The carriage is not designated as a quiet carriage.
+      NOT_QUIET_CARRIAGE = 2;
     }
 
-    optional WheelchairAccessible wheelchair_accessible = 5 [default = UNKNOWN_ACCESSIBILITY];
+    optional QuietCarriage quiet_carriage = 7 [default = UNKONWN_QUIET_CARRIAGE];
 
     // Whether the carriage has toilet facilities onboard.
     enum ToiletFacilities {
+
       // It is unknown if the carriage has toilet facilities. This is the
       // default case.
       UNKNOWN_TOILET_FACILITIES = 0;
@@ -102,62 +111,10 @@ extend transit_realtime.TripUpdate.StopTimeUpdate {
       NO_TOILET_ONBOARD = 2;
     }
 
-    optional ToiletFacilities toilet_facilities = 6 [default = UNKNOWN_TOILET_FACILITIES];
+    optional ToiletFacilities toilet_facilities = 8 [default = UNKNOWN_TOILET_FACILITIES];
 
-    // Whether the carriage has WiFi onboard.
-    enum WifiAvailability {
-      // It is unknown if the carriage has WiFi. This is the default case.
-      UNKNOWN_WIFI_AVAILABILITY = 0;
+}
 
-      // The carriage has free WiFi available for passengers to use.
-      FREE_WIFI = 1;
-
-      // The carriage has WiFi available for passengers to purchase.
-      PAID_WIFI = 2;
-
-      // The carriage has no WiFi available for passengers to use.
-      NO_WIFI = 3;
-    }
-
-    optional WifiAvailability wifi_availability = 7 [default = UNKNOWN_WIFI_AVAILABILITY];
-
-    // Whether the carriage is air conditioned.
-    enum AirConditioning {
-      // It is unknown if the carriage is air conditioned. This is the default
-      // case.
-      UNKNOWN_AIRCONDITIONING = 0;
-
-      // The carriage has air conditioning.
-      AIR_CONDITIONED = 1;
-
-      // The carriage does not have air conditioning.
-      NOT_AIR_CONDITIONED = 2;
-    }
-
-    optional AirConditioning air_conditioning = 8 [default = UNKNOWN_AIRCONDITIONING];
-
-    // Whether bicycles are allowed in the carriage.
-    enum BicyclesAllowed {
-      // It is unknown if the carriage allows bicycles. This is the default
-      // case.
-      UNKNOWN_BICYCLES_ALLOWED = 0;
-
-      // Bicycles are allowed to be transported, but must be stored outside of
-      // the carriage.
-      ALLOWED_OUTSIDE_CARRIAGE = 1;
-
-      // Bicycles are allowed to be transported, and can be stored inside the
-      // carriage.
-      ALLOWED_INSIDE_CARRIAGE = 2;
-
-      // Bicycles are not allowed to be transported in this carriage.
-      NOT_ALLOWED = 3;
-    }
-
-    optional BicyclesAllowed bicycles_allowed = 9 [default = UNKNOWN_BICYCLES_ALLOWED];
-
-  }
-
- extend transit_realtime.VehicleDescriptor {
-   repeated CarriageDescriptor carriage_descriptor = 1005;
+extend transit_realtime.VehicleDescriptor {
+    repeated CarriageDescriptor carriage_descriptor = 1005;
 }
