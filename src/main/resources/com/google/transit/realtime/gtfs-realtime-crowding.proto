@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+import "com/google/transit/realtime/gtfs-realtime.proto";
+
+option java_package = "com.google.transit.realtime";
+package transit_realtime;
+
+extend transit_realtime.VehiclePosition {
+    optional CrowdingDescriptor crowding_descriptor = 1006;
+}
+
+// crowding information in raw form.  This allows
+// for more flexibility then levels and percents.
+// Note that either count or capacity may be missing!!!
+message CrowdingDescriptor {
+  // raw count of passengers onboard vehicle
+  optional int32 estimated_count;
+  // estimated capacity of vehicle considering current
+  // crowding restrictions
+  optional int32 estimated_capacity;
+}
