@@ -14,8 +14,8 @@ extend transit_realtime.VehiclePosition {
 // Note that either count or capacity may be missing!!!
 message CrowdingDescriptor {
   // raw count of passengers onboard vehicle
-  optional int32 estimated_count;
+  optional int32 estimated_count = 1;
   // estimated capacity of vehicle considering current
   // crowding restrictions
-  optional int32 estimated_capacity;
+  optional int32 estimated_capacity = 2;
 }
