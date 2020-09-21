@@ -38,49 +38,61 @@ package com.google.transit.realtime;
 public final class GtfsRealtimeMNR {
   private GtfsRealtimeMNR() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
+      com.google.protobuf.ExtensionRegistryLite registry) {
     registry.add(com.google.transit.realtime.GtfsRealtimeMNR.mnrStopTimeUpdate);
+  }
+
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface MnrStopTimeUpdateOrBuilder extends
       // @@protoc_insertion_point(interface_extends:transit_realtime.MnrStopTimeUpdate)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string track = 1;</code>
-     *
      * <pre>
      *can add additional fields here without having to //extend StopTimeUpdate again
      * </pre>
+     *
+     * <code>optional string track = 1;</code>
+     * @return Whether the track field is set.
      */
     boolean hasTrack();
     /**
-     * <code>optional string track = 1;</code>
-     *
      * <pre>
      *can add additional fields here without having to //extend StopTimeUpdate again
      * </pre>
+     *
+     * <code>optional string track = 1;</code>
+     * @return The track.
      */
     java.lang.String getTrack();
     /**
-     * <code>optional string track = 1;</code>
-     *
      * <pre>
      *can add additional fields here without having to //extend StopTimeUpdate again
      * </pre>
+     *
+     * <code>optional string track = 1;</code>
+     * @return The bytes for track.
      */
     com.google.protobuf.ByteString
         getTrackBytes();
 
     /**
      * <code>optional string trainStatus = 2;</code>
+     * @return Whether the trainStatus field is set.
      */
     boolean hasTrainStatus();
     /**
      * <code>optional string trainStatus = 2;</code>
+     * @return The trainStatus.
      */
     java.lang.String getTrainStatus();
     /**
      * <code>optional string trainStatus = 2;</code>
+     * @return The bytes for trainStatus.
      */
     com.google.protobuf.ByteString
         getTrainStatusBytes();
@@ -88,37 +100,40 @@ public final class GtfsRealtimeMNR {
   /**
    * Protobuf type {@code transit_realtime.MnrStopTimeUpdate}
    */
-  public static final class MnrStopTimeUpdate extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class MnrStopTimeUpdate extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:transit_realtime.MnrStopTimeUpdate)
       MnrStopTimeUpdateOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use MnrStopTimeUpdate.newBuilder() to construct.
-    private MnrStopTimeUpdate(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private MnrStopTimeUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private MnrStopTimeUpdate(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final MnrStopTimeUpdate defaultInstance;
-    public static MnrStopTimeUpdate getDefaultInstance() {
-      return defaultInstance;
+    private MnrStopTimeUpdate() {
+      track_ = "";
+      trainStatus_ = "";
     }
 
-    public MnrStopTimeUpdate getDefaultInstanceForType() {
-      return defaultInstance;
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MnrStopTimeUpdate();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private MnrStopTimeUpdate(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -130,13 +145,6 @@ public final class GtfsRealtimeMNR {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -149,13 +157,20 @@ public final class GtfsRealtimeMNR {
               trainStatus_ = bs;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -166,47 +181,35 @@ public final class GtfsRealtimeMNR {
       return com.google.transit.realtime.GtfsRealtimeMNR.internal_static_transit_realtime_MnrStopTimeUpdate_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.google.transit.realtime.GtfsRealtimeMNR.internal_static_transit_realtime_MnrStopTimeUpdate_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate.class, com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<MnrStopTimeUpdate> PARSER =
-        new com.google.protobuf.AbstractParser<MnrStopTimeUpdate>() {
-      public MnrStopTimeUpdate parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MnrStopTimeUpdate(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MnrStopTimeUpdate> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
     public static final int TRACK_FIELD_NUMBER = 1;
-    private java.lang.Object track_;
+    private volatile java.lang.Object track_;
     /**
-     * <code>optional string track = 1;</code>
-     *
      * <pre>
      *can add additional fields here without having to //extend StopTimeUpdate again
      * </pre>
+     *
+     * <code>optional string track = 1;</code>
+     * @return Whether the track field is set.
      */
     public boolean hasTrack() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional string track = 1;</code>
-     *
      * <pre>
      *can add additional fields here without having to //extend StopTimeUpdate again
      * </pre>
+     *
+     * <code>optional string track = 1;</code>
+     * @return The track.
      */
     public java.lang.String getTrack() {
       java.lang.Object ref = track_;
@@ -223,11 +226,12 @@ public final class GtfsRealtimeMNR {
       }
     }
     /**
-     * <code>optional string track = 1;</code>
-     *
      * <pre>
      *can add additional fields here without having to //extend StopTimeUpdate again
      * </pre>
+     *
+     * <code>optional string track = 1;</code>
+     * @return The bytes for track.
      */
     public com.google.protobuf.ByteString
         getTrackBytes() {
@@ -244,15 +248,17 @@ public final class GtfsRealtimeMNR {
     }
 
     public static final int TRAINSTATUS_FIELD_NUMBER = 2;
-    private java.lang.Object trainStatus_;
+    private volatile java.lang.Object trainStatus_;
     /**
      * <code>optional string trainStatus = 2;</code>
+     * @return Whether the trainStatus field is set.
      */
     public boolean hasTrainStatus() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional string trainStatus = 2;</code>
+     * @return The trainStatus.
      */
     public java.lang.String getTrainStatus() {
       java.lang.Object ref = trainStatus_;
@@ -270,6 +276,7 @@ public final class GtfsRealtimeMNR {
     }
     /**
      * <code>optional string trainStatus = 2;</code>
+     * @return The bytes for trainStatus.
      */
     public com.google.protobuf.ByteString
         getTrainStatusBytes() {
@@ -285,11 +292,8 @@ public final class GtfsRealtimeMNR {
       }
     }
 
-    private void initFields() {
-      track_ = "";
-      trainStatus_ = "";
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -299,44 +303,90 @@ public final class GtfsRealtimeMNR {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getTrackBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, track_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getTrainStatusBytes());
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, trainStatus_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getTrackBytes());
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, track_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getTrainStatusBytes());
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, trainStatus_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate)) {
+        return super.equals(obj);
+      }
+      com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate other = (com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate) obj;
+
+      if (hasTrack() != other.hasTrack()) return false;
+      if (hasTrack()) {
+        if (!getTrack()
+            .equals(other.getTrack())) return false;
+      }
+      if (hasTrainStatus() != other.hasTrainStatus()) return false;
+      if (hasTrainStatus()) {
+        if (!getTrainStatus()
+            .equals(other.getTrainStatus())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTrack()) {
+        hash = (37 * hash) + TRACK_FIELD_NUMBER;
+        hash = (53 * hash) + getTrack().hashCode();
+      }
+      if (hasTrainStatus()) {
+        hash = (37 * hash) + TRAINSTATUS_FIELD_NUMBER;
+        hash = (53 * hash) + getTrainStatus().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -360,46 +410,59 @@ public final class GtfsRealtimeMNR {
     }
     public static com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -407,7 +470,7 @@ public final class GtfsRealtimeMNR {
      * Protobuf type {@code transit_realtime.MnrStopTimeUpdate}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:transit_realtime.MnrStopTimeUpdate)
         com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -415,7 +478,8 @@ public final class GtfsRealtimeMNR {
         return com.google.transit.realtime.GtfsRealtimeMNR.internal_static_transit_realtime_MnrStopTimeUpdate_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.google.transit.realtime.GtfsRealtimeMNR.internal_static_transit_realtime_MnrStopTimeUpdate_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -428,18 +492,16 @@ public final class GtfsRealtimeMNR {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         track_ = "";
@@ -449,19 +511,18 @@ public final class GtfsRealtimeMNR {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.google.transit.realtime.GtfsRealtimeMNR.internal_static_transit_realtime_MnrStopTimeUpdate_descriptor;
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate getDefaultInstanceForType() {
         return com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate build() {
         com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate result = buildPartial();
         if (!result.isInitialized()) {
@@ -470,15 +531,16 @@ public final class GtfsRealtimeMNR {
         return result;
       }
 
+      @java.lang.Override
       public com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate buildPartial() {
         com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate result = new com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
         result.track_ = track_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
         result.trainStatus_ = trainStatus_;
@@ -487,6 +549,39 @@ public final class GtfsRealtimeMNR {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate) {
           return mergeFrom((com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate)other);
@@ -508,14 +603,17 @@ public final class GtfsRealtimeMNR {
           trainStatus_ = other.trainStatus_;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -525,7 +623,7 @@ public final class GtfsRealtimeMNR {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -537,21 +635,23 @@ public final class GtfsRealtimeMNR {
 
       private java.lang.Object track_ = "";
       /**
-       * <code>optional string track = 1;</code>
-       *
        * <pre>
        *can add additional fields here without having to //extend StopTimeUpdate again
        * </pre>
+       *
+       * <code>optional string track = 1;</code>
+       * @return Whether the track field is set.
        */
       public boolean hasTrack() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional string track = 1;</code>
-       *
        * <pre>
        *can add additional fields here without having to //extend StopTimeUpdate again
        * </pre>
+       *
+       * <code>optional string track = 1;</code>
+       * @return The track.
        */
       public java.lang.String getTrack() {
         java.lang.Object ref = track_;
@@ -568,11 +668,12 @@ public final class GtfsRealtimeMNR {
         }
       }
       /**
-       * <code>optional string track = 1;</code>
-       *
        * <pre>
        *can add additional fields here without having to //extend StopTimeUpdate again
        * </pre>
+       *
+       * <code>optional string track = 1;</code>
+       * @return The bytes for track.
        */
       public com.google.protobuf.ByteString
           getTrackBytes() {
@@ -588,11 +689,13 @@ public final class GtfsRealtimeMNR {
         }
       }
       /**
-       * <code>optional string track = 1;</code>
-       *
        * <pre>
        *can add additional fields here without having to //extend StopTimeUpdate again
        * </pre>
+       *
+       * <code>optional string track = 1;</code>
+       * @param value The track to set.
+       * @return This builder for chaining.
        */
       public Builder setTrack(
           java.lang.String value) {
@@ -605,11 +708,12 @@ public final class GtfsRealtimeMNR {
         return this;
       }
       /**
-       * <code>optional string track = 1;</code>
-       *
        * <pre>
        *can add additional fields here without having to //extend StopTimeUpdate again
        * </pre>
+       *
+       * <code>optional string track = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTrack() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -618,11 +722,13 @@ public final class GtfsRealtimeMNR {
         return this;
       }
       /**
-       * <code>optional string track = 1;</code>
-       *
        * <pre>
        *can add additional fields here without having to //extend StopTimeUpdate again
        * </pre>
+       *
+       * <code>optional string track = 1;</code>
+       * @param value The bytes for track to set.
+       * @return This builder for chaining.
        */
       public Builder setTrackBytes(
           com.google.protobuf.ByteString value) {
@@ -638,12 +744,14 @@ public final class GtfsRealtimeMNR {
       private java.lang.Object trainStatus_ = "";
       /**
        * <code>optional string trainStatus = 2;</code>
+       * @return Whether the trainStatus field is set.
        */
       public boolean hasTrainStatus() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>optional string trainStatus = 2;</code>
+       * @return The trainStatus.
        */
       public java.lang.String getTrainStatus() {
         java.lang.Object ref = trainStatus_;
@@ -661,6 +769,7 @@ public final class GtfsRealtimeMNR {
       }
       /**
        * <code>optional string trainStatus = 2;</code>
+       * @return The bytes for trainStatus.
        */
       public com.google.protobuf.ByteString
           getTrainStatusBytes() {
@@ -677,6 +786,8 @@ public final class GtfsRealtimeMNR {
       }
       /**
        * <code>optional string trainStatus = 2;</code>
+       * @param value The trainStatus to set.
+       * @return This builder for chaining.
        */
       public Builder setTrainStatus(
           java.lang.String value) {
@@ -690,6 +801,7 @@ public final class GtfsRealtimeMNR {
       }
       /**
        * <code>optional string trainStatus = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearTrainStatus() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -699,6 +811,8 @@ public final class GtfsRealtimeMNR {
       }
       /**
        * <code>optional string trainStatus = 2;</code>
+       * @param value The bytes for trainStatus to set.
+       * @return This builder for chaining.
        */
       public Builder setTrainStatusBytes(
           com.google.protobuf.ByteString value) {
@@ -710,16 +824,57 @@ public final class GtfsRealtimeMNR {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:transit_realtime.MnrStopTimeUpdate)
     }
 
+    // @@protoc_insertion_point(class_scope:transit_realtime.MnrStopTimeUpdate)
+    private static final com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate DEFAULT_INSTANCE;
     static {
-      defaultInstance = new MnrStopTimeUpdate(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate();
     }
 
-    // @@protoc_insertion_point(class_scope:transit_realtime.MnrStopTimeUpdate)
+    public static com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<MnrStopTimeUpdate>
+        PARSER = new com.google.protobuf.AbstractParser<MnrStopTimeUpdate>() {
+      @java.lang.Override
+      public MnrStopTimeUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MnrStopTimeUpdate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MnrStopTimeUpdate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MnrStopTimeUpdate> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public static final int MNR_STOP_TIME_UPDATE_FIELD_NUMBER = 1005;
@@ -735,15 +890,15 @@ public final class GtfsRealtimeMNR {
         com.google.transit.realtime.GtfsRealtimeMNR.MnrStopTimeUpdate.getDefaultInstance());
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_transit_realtime_MnrStopTimeUpdate_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_transit_realtime_MnrStopTimeUpdate_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -757,23 +912,15 @@ public final class GtfsRealtimeMNR {
       "TimeUpdateB\035\n\033com.google.transit.realtim" +
       "e"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.transit.realtime.GtfsRealtime.getDescriptor(),
-        }, assigner);
+        });
     internal_static_transit_realtime_MnrStopTimeUpdate_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_transit_realtime_MnrStopTimeUpdate_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_transit_realtime_MnrStopTimeUpdate_descriptor,
         new java.lang.String[] { "Track", "TrainStatus", });
     mnrStopTimeUpdate.internalInit(descriptor.getExtensions().get(0));
