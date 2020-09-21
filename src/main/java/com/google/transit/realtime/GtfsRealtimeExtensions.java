@@ -58,6 +58,7 @@ public class GtfsRealtimeExtensions {
     GtfsRealtimeOneBusAway.registerAllExtensions(registry);
     GtfsRealtimeMTARR.registerAllExtensions(registry);
     GtfsRealtimeServiceStatus.registerAllExtensions(registry);
+    GtfsRealtimeCrowding.registerAllExtensions(registry);
   }
 
 }
