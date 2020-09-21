@@ -54,19 +54,10 @@ public class GtfsRealtimeExtensions {
    * @param registry registry to add the extensions to
    */
   public static void registerExtensions(ExtensionRegistry registry) {
-    registry.add(GtfsRealtimeNYCT.nyctFeedHeader);
-    registry.add(GtfsRealtimeNYCT.nyctStopTimeUpdate);
-    registry.add(GtfsRealtimeNYCT.nyctTripDescriptor);
-    registry.add(GtfsRealtimeOneBusAway.obaFeedHeader);
-    registry.add(GtfsRealtimeOneBusAway.obaFeedEntity);
-    registry.add(GtfsRealtimeOneBusAway.obaTripUpdate);
-    registry.add(GtfsRealtimeOneBusAway.obaEntitySelector);
-    registry.add(GtfsRealtimeOneBusAway.obaStopTimeUpdate);
-    registry.add(GtfsRealtimeMTARR.mtaRailroadStopTimeUpdate);
-    registry.add(GtfsRealtimeMTARR.carriageDescriptor);
-    registry.add(GtfsRealtimeServiceStatus.mercuryFeedHeader);
-    registry.add(GtfsRealtimeServiceStatus.mercuryEntitySelector);
-    registry.add(GtfsRealtimeServiceStatus.mercuryAlert);
+    GtfsRealtimeNYCT.registerAllExtensions(registry);
+    GtfsRealtimeOneBusAway.registerAllExtensions(registry);
+    GtfsRealtimeMTARR.registerAllExtensions(registry);
+    GtfsRealtimeServiceStatus.registerAllExtensions(registry);
   }
 
 }
