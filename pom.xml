@@ -20,7 +20,7 @@
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-      <id>central</id>
+      <id>jcenter</id>
       <name>bintray</name>
       <url>https://jcenter.bintray.com</url>
     </repository>
