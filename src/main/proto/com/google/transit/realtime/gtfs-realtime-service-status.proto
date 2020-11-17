@@ -15,56 +15,42 @@ message MercuryFeedHeader {
   // The current version is 1.0
   required string mercury_version = 1;
 }
-
 extend transit_realtime.FeedHeader {
  optional MercuryFeedHeader mercury_feed_header = 1001;
 }
-
 message MercuryStationAlternative {
   required EntitySelector affected_entity = 1;
   required TranslatedString notes = 2;
 }
-
 // Mercury extensions for the Feed Alert
 message MercuryAlert {
   required uint64 created_at = 1;
   required uint64 updated_at = 2;
   required string alert_type = 3;
-
   repeated MercuryStationAlternative station_alternative = 4;
-
   repeated string service_plan_number = 5;
   repeated string general_order_number = 6;
-
   // A time interval, in seconds, indicating how long before each active period
   // consumers should display this alert. A value of 3600 here, for example,
   // suggests that this alert should be displayed 1 hour before each active
   // period. Consumers may choose to ignore this recommendation and display (or
   // not display) alerts based on their own logic if they so choose.
   optional uint64 display_before_active = 7;
-
   // A human-friendly string that summarizes all active periods for this Alert,
   // i.e. "Sundays in May from 10:45pm to midnight"
   optional TranslatedString human_readable_active_period = 8;
-
   optional TranslatedString additional_information = 9;
-
   optional uint64 directionality = 10;
   repeated EntitySelector affected_stations = 11;
-
   optional TranslatedString screens_summary = 12;
-
+  optional bool no_affected_stations = 13;
 }
-
 extend transit_realtime.Alert {
  optional MercuryAlert mercury_alert = 1001;
 }
-
 // Mercury extensions for the Feed Entity Selector
 message MercuryEntitySelector {
-
   // What is the priority of the affected entity. Use to construct the entity sort_order.
-
   enum Priority {
     PRIORITY_NO_SCHEDULED_SERVICE = 0;
     PRIORITY_ESSENTIAL_SERVICE = 1;
@@ -94,11 +80,9 @@ message MercuryEntitySelector {
     PRIORITY_MULTIPLE_IMPACTS = 25;
     PRIORITY_SUSPENDED = 26;
   }
-
   // Format for sort_order is 'GTFS-ID:Priority', e.g. 'MTASBWY:G:16'
   required string sort_order = 1;
 }
-
 extend transit_realtime.EntitySelector {
  optional MercuryEntitySelector mercury_entity_selector = 1001;
 }
