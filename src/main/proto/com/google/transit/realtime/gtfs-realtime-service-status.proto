@@ -44,6 +44,9 @@ message MercuryAlert {
   repeated EntitySelector affected_stations = 11;
   optional TranslatedString screens_summary = 12;
   optional bool no_affected_stations = 13;
+
+  // The ids of the planned work cloned from
+  optional string clone_id = 14;
 }
 extend transit_realtime.Alert {
  optional MercuryAlert mercury_alert = 1001;
