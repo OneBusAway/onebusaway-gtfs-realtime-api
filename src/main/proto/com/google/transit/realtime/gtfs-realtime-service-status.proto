@@ -15,77 +15,102 @@ message MercuryFeedHeader {
   // The current version is 1.0
   required string mercury_version = 1;
 }
+
 extend transit_realtime.FeedHeader {
  optional MercuryFeedHeader mercury_feed_header = 1001;
 }
+
 message MercuryStationAlternative {
   required EntitySelector affected_entity = 1;
   required TranslatedString notes = 2;
 }
+
 // Mercury extensions for the Feed Alert
 message MercuryAlert {
   required uint64 created_at = 1;
   required uint64 updated_at = 2;
   required string alert_type = 3;
+
   repeated MercuryStationAlternative station_alternative = 4;
+
   repeated string service_plan_number = 5;
   repeated string general_order_number = 6;
+
   // A time interval, in seconds, indicating how long before each active period
   // consumers should display this alert. A value of 3600 here, for example,
   // suggests that this alert should be displayed 1 hour before each active
   // period. Consumers may choose to ignore this recommendation and display (or
   // not display) alerts based on their own logic if they so choose.
   optional uint64 display_before_active = 7;
+
   // A human-friendly string that summarizes all active periods for this Alert,
   // i.e. "Sundays in May from 10:45pm to midnight"
   optional TranslatedString human_readable_active_period = 8;
+
   optional TranslatedString additional_information = 9;
+
   optional uint64 directionality = 10;
   repeated EntitySelector affected_stations = 11;
+
   optional TranslatedString screens_summary = 12;
+
   optional bool no_affected_stations = 13;
 
   // The ids of the planned work cloned from
   optional string clone_id = 14;
 }
+
 extend transit_realtime.Alert {
  optional MercuryAlert mercury_alert = 1001;
 }
+
 // Mercury extensions for the Feed Entity Selector
 message MercuryEntitySelector {
+
   // What is the priority of the affected entity. Use to construct the entity sort_order.
+
   enum Priority {
-    PRIORITY_NO_SCHEDULED_SERVICE = 0;
     PRIORITY_ESSENTIAL_SERVICE = 1;
     PRIORITY_WEEKEND_SERVICE = 2;
     PRIORITY_WEEKDAY_SERVICE = 3;
     PRIORITY_SUNDAY_SCHEDULE = 4;
     PRIORITY_SATURDAY_SCHEDULE = 5;
     PRIORITY_HOLIDAY_SERVICE = 6;
-    PRIORITY_BUSING = 7;
-    PRIORITY_PLANNED_DETOUR = 8;
-    PRIORITY_EXTRA_SERVICE = 9;
-    PRIORITY_PLANNED_WORK = 10;
-    PRIORITY_ON_OR_CLOSE = 11;
+    PRIORITY_EXTRA_SERVICE = 7;
+    PRIORITY_SPECIAL_SCHEDULE = 8;
+    PRIORITY_PLANNED_WORK = 9;
+    PRIORITY_PLANNED_BOARDING_CHANGE = 10;
+    PRIORITY_BOARDING_CHANGE = 11;
     PRIORITY_SLOW_SPEEDS = 12;
-    PRIORITY_SOME_DELAYS = 13;
-    PRIORITY_SPECIAL_EVENT = 14;
-    PRIORITY_CROWDING = 15;
-    PRIORITY_STATIONS_SKIPPED = 16;
-    PRIORITY_DELAYS = 17;
-    PRIORITY_EXPRESS_TO_LOCAL = 18;
-    PRIORITY_SOME_REROUTES = 19;
-    PRIORITY_LOCAL_TO_EXPRESS = 20;
-    PRIORITY_DETOURS = 21;
-    PRIORITY_SERVICE_CHANGE = 22;
-    PRIORITY_TRAINS_REROUTED = 23;
-    PRIORITY_PART_SUSPENDED = 24;
-    PRIORITY_MULTIPLE_IMPACTS = 25;
-    PRIORITY_SUSPENDED = 26;
+    PRIORITY_EXPECT_DELAYS = 13;
+    PRIORITY_SOME_DELAYS = 14;
+    PRIORITY_SPECIAL_EVENT = 15;
+    PRIORITY_PLANNED_STATIONS_SKIPPED = 16;
+    PRIORITY_STATIONS_SKIPPED = 17;
+    PRIORITY_DELAYS = 18;
+    PRIORITY_PLANNED_EXPRESS_TO_LOCAL = 19;
+    PRIORITY_EXPRESS_TO_LOCAL = 20;
+    PRIORITY_SOME_REROUTES = 21;
+    PRIORITY_PLANNED_LOCAL_TO_EXPRESS = 22;
+    PRIORITY_LOCAL_TO_EXPRESS = 23;
+    PRIORITY_PLANNED_BUSES_DETOURED = 24;
+    PRIORITY_BUSES_DETOURED = 25;
+    PRIORITY_SERVICE_CHANGE = 26;
+    PRIORITY_PLANNED_TRAINS_REROUTED = 27;
+    PRIORITY_TRAINS_REROUTED = 28;
+    PRIORITY_BUSING = 29;
+    PRIORITY_PLANNED_PART_SUSPENDED = 30;
+    PRIORITY_PART_SUSPENDED = 31;
+    PRIORITY_PLANNED_MULTIPLE_IMPACTS = 32;
+    PRIORITY_MULTIPLE_IMPACTS = 33;
+    PRIORITY_SUSPENDED = 34;
+    PRIORITY_NO_SCHEDULED_SERVICE = 35;
   }
+
   // Format for sort_order is 'GTFS-ID:Priority', e.g. 'MTASBWY:G:16'
   required string sort_order = 1;
 }
+
 extend transit_realtime.EntitySelector {
  optional MercuryEntitySelector mercury_entity_selector = 1001;
 }
