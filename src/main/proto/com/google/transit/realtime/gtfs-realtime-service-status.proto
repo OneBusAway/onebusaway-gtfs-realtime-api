@@ -47,17 +47,15 @@ message MercuryAlert {
   // i.e. "Sundays in May from 10:45pm to midnight"
   optional TranslatedString human_readable_active_period = 8;
 
-  optional TranslatedString additional_information = 9;
+  optional uint64 directionality = 9;
+  repeated EntitySelector affected_stations = 10;
 
-  optional uint64 directionality = 10;
-  repeated EntitySelector affected_stations = 11;
+  optional TranslatedString screens_summary = 11;
 
-  optional TranslatedString screens_summary = 12;
-
-  optional bool no_affected_stations = 13;
+  optional bool no_affected_stations = 12;
 
   // The ids of the planned work cloned from
-  optional string clone_id = 14;
+  optional string clone_id = 13;
 }
 
 extend transit_realtime.Alert {
