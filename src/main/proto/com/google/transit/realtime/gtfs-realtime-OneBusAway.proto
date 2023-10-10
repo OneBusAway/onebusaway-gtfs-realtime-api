@@ -59,6 +59,9 @@ message OneBusAwayTripUpdate {
 
   // trip direction
   optional string tripDirection = 4;
+
+  // spooking aka zombie buses missing real-time but confirmed in revenue service
+  optional bool is_estimated_realtime = 5 [default = false];
 }
 
 extend TripUpdate {
@@ -79,4 +82,12 @@ message OneBusAwayEntitySelector {
 
 extend EntitySelector {
   optional OneBusAwayEntitySelector oba_entity_selector = 1000;
+}
+
+message OneBusAwayVehicleDescriptor {
+  optional string vehicleType = 1;
+}
+
+extend VehicleDescriptor {
+  optional OneBusAwayVehicleDescriptor oba_vehicle_descriptor = 1000;
 }
