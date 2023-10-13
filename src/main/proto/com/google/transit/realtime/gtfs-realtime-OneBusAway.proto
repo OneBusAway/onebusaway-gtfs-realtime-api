@@ -85,7 +85,8 @@ extend EntitySelector {
 }
 
 message OneBusAwayVehicleDescriptor {
-  optional string vehicleType = 1;
+  // list features of this vehicle, like kneeling, wifi, etc.
+  repeated string vehicleFeature = 1;
 }
 
 extend VehicleDescriptor {
