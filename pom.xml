@@ -20,7 +20,7 @@
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-      <id>central</id>
+      <id>jcenter</id>
       <name>bintray</name>
       <url>https://jcenter.bintray.com</url>
     </repository>
@@ -92,16 +92,6 @@
           </execution>
         </executions>
         <configuration>
-          <excludes>
-            <exclude>
-              <!--
-                We don't actually want to build gtfs-realtime.proto, since it's included in
-                io.mobilitydata.transit:gtfs-realtime-bindings, but we do need it to be available for the extension
-                .proto files to import. Thus, it is excluded here.
-               -->
-              com/google/transit/realtime/gtfs-realtime.proto
-            </exclude>
-          </excludes>
           <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
         </configuration>
       </plugin>
@@ -124,7 +114,7 @@
     <dependency>
       <groupId>io.mobilitydata.transit</groupId>
       <artifactId>gtfs-realtime-bindings</artifactId>
-      <version>0.0.6</version>
+      <version>0.0.7</version>
     </dependency>
     <dependency>
       <groupId>com.google.protobuf</groupId>
